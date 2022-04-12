@@ -1,0 +1,10 @@
+.ipynb_checkpoints
+*.zip
+*.pyc
+*.swp
+*.gsheet
+download
+input
+output
+notebook
+.ipynb_checkpoints
