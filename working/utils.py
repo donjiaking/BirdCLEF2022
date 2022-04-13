@@ -1,17 +1,11 @@
 import os
-import json
-import tqdm
 import random
-import shutil
 import pandas as pd
 import numpy as np
 import torch
-import torch.optim as optim
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
-import torchaudio
 import torchaudio.transforms as T
-import torchvision.models as models
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score 
 
@@ -40,14 +34,16 @@ def fix_seed(seed=42):
     torch.use_deterministic_algorithms = True
 
 
-def plot_history(history):
+def plot_history(history, model_name):
     plt.figure(figsize=(10, 10)) 
     plt.plot(history[:,0], history[:,1], label='train_loss')
     plt.plot(history[:,0], history[:,2], label='val_loss')
     plt.xlabel('epoch')
     plt.ylabel('loss')
+    plt.title(f"{model_name} Loss Curve")
     plt.legend()
-    plt.savefig("plots/loss.png")
+    plt.savefig(f"plots/loss_{model_name}.png")
+
 
 def get_mel_transform():
     mel_spectrogram = T.MelSpectrogram(
@@ -64,6 +60,7 @@ def get_mel_transform():
         mel_scale="htk",
     )
     return mel_spectrogram
+
 
 def get_f1_score(y_true, y_pred):
     return f1_score(y_true, y_pred, average='macro')

@@ -11,13 +11,13 @@ class CFG:
     segment_test = sample_rate*5
 
     ## Train ##
-    num_epochs = 1
+    num_epochs = 8
     lr = 0.001
     batch_size = 16
 
     ## Input Data ##
     root_path = "../input/birdclef-2022/"
-    input_path = root_path + '/train_audio/'
+    input_path = root_path + 'train_audio/'
     out_train_path = "./train/"
     out_val_path = "./val/"
     test_audio_path = '../input/birdclef-2022/test_soundscapes/'

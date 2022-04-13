@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import torch
@@ -56,9 +57,6 @@ def train(model, model_name):
 
             if((i+1) % 10 == 0):
                 print (f'Epoch[{epoch+1}/{num_epochs}] Iter[{i+1}/{train_iters}] : train_loss {train_loss/(i+1):.5f}')
-            
-            break
-
 
         model.eval()
         with torch.no_grad():
@@ -69,7 +67,6 @@ def train(model, model_name):
                 outputs_val = model(inputs_val)
                 loss_val = criterion(outputs_val, labels_val)
                 val_loss += loss_val.item()
-                break
         
         train_loss = train_loss / train_iters
         val_loss = val_loss / val_iters
@@ -78,7 +75,7 @@ def train(model, model_name):
         history = np.vstack((history, item))
 
     utils.save_model(model, model_name)
-    utils.plot_history(history)
+    utils.plot_history(history, model_name)
 
 
 if __name__ == "__main__":
@@ -98,3 +95,6 @@ if __name__ == "__main__":
 
     for param in model_ensemble.classifier.parameters():
         param.requires_grad = True  
+
+    train(model_ensemble, 'ensemble')
+    
