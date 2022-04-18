@@ -2,6 +2,8 @@ input/
 working/models/
 working/train/
 working/val/
-working/submission.csv
+working/submission.csv/
 **/.ipynb_checkpoints/
-**/__pycache__
+**/__pycache__/
+working/logs/
+working/foo.py

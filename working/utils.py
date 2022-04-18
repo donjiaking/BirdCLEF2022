@@ -1,4 +1,5 @@
 import os
+import logging
 import random
 import pandas as pd
 import numpy as np
@@ -35,7 +36,6 @@ def fix_seed(seed=42):
 
 
 def plot_history(history, model_name):
-    plt.figure(figsize=(10, 10)) 
     plt.plot(history[:,0], history[:,1], label='train_loss')
     plt.plot(history[:,0], history[:,2], label='val_loss')
     plt.xlabel('epoch')
@@ -43,6 +43,13 @@ def plot_history(history, model_name):
     plt.title(f"{model_name} Loss Curve")
     plt.legend()
     plt.savefig(f"plots/loss_{model_name}.png")
+    plt.clf()
+
+    plt.plot(history[:,0], history[:,3])
+    plt.xlabel('epoch')
+    plt.ylabel('macro f1 score')
+    plt.title(f"{model_name} Macro F1 Score on Validation Set")
+    plt.savefig(f"plots/f1_{model_name}.png")
 
 
 def get_mel_transform():
@@ -64,3 +71,33 @@ def get_mel_transform():
 
 def get_f1_score(y_true, y_pred):
     return f1_score(y_true, y_pred, average='macro')
+
+    with open(log_path,"w") as file:
+        file.write('[Log Created.]\n')
+
+
+def get_logger(log_name):
+    if(not os.path.exists("logs")):
+        os.mkdir("logs")
+    log_path = "logs/"+log_name
+    with open(log_path, "w") as file:
+        file.write('[Log Created!]\n')
+
+    logger = logging.getLogger()
+
+    logger.setLevel(level=logging.DEBUG)
+
+    file_handler = logging.FileHandler(log_path, mode='a', encoding='UTF-8')
+    file_handler.setLevel(logging.DEBUG)
+    
+    # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter('%(message)s')
+    file_handler.setFormatter(formatter)
+
+    # console_handler = logging.StreamHandler()
+    # console_handler.setLevel(logging.DEBUG)
+
+    logger.addHandler(file_handler)
+    # logger.addHandler(console_handler)
+
+    return logger

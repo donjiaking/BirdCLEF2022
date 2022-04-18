@@ -41,7 +41,6 @@ def get_mel_list(filepath, end_time, segment_test):
 
 def test(model):
     pred = {'row_id': [], 'target': []}
-    binary_th = 0.3
 
     model.eval()
 
@@ -57,7 +56,7 @@ def test(model):
         score = outputs_test[0][np.where(all_bird==bird)]
                 
         pred['row_id'].append(row_id)
-        pred['target'].append(True if score > binary_th else False)
+        pred['target'].append(True if score > CFG.binary_th else False)
 
     results = pd.DataFrame(pred, columns = ['row_id', 'target'])
     # print(results) 

@@ -15,7 +15,7 @@ class MyDataset(Dataset):
 
         # load label_list
         self.label_list = torch.from_numpy(torch.load(self.path + "label_list.pt"))
-
+        
     def __getitem__(self, index):
         x = torch.load(self.path + str(index) + '.pt')
         y = self.label_list[index]
@@ -24,3 +24,4 @@ class MyDataset(Dataset):
     
     def __len__(self):
         return len(self.label_list)
+        # return 1000

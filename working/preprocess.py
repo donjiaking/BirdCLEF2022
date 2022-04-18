@@ -1,5 +1,5 @@
 import os
-import tqdm
+from sklearn.model_selection import train_test_split
 import json
 from lightgbm import train
 import pandas as pd
@@ -25,6 +25,7 @@ with open(CFG.root_path + 'scored_birds.json') as sbfile:
 all_bird = train_meta["primary_label"].unique()
 
 mel_transform = utils.get_mel_transform()
+
 
 def preprocess_train(filepath, outpath, segment_train, label_list, data_index=0, label_file=[]):
     label_file_all = np.zeros(all_bird.shape)
@@ -53,16 +54,19 @@ def preprocess_train(filepath, outpath, segment_train, label_list, data_index=0,
 
 
 if __name__ == "__main__":
-    train_len = int(train_meta.shape[0]*0.8)
+    train_index, val_index = train_test_split(range(0,train_meta.shape[0]), train_size=0.8, random_state=42)
+    # print(len(train_meta['primary_label'][train_index]), len(train_meta['primary_label']))
 
+    # generate train images
     data_index = 0
     label_list = []
-    for pri_label, secon_label, f_name in zip(tqdm.notebook.tqdm(train_meta['primary_label'][:train_len]), train_meta['secondary_labels'][:train_len], train_meta['filename'][:train_len]):
+    for pri_label, secon_label, f_name in zip((train_meta['primary_label'][train_index]), train_meta['secondary_labels'][train_index], train_meta['filename'][train_index]):
         data_index = preprocess_train(CFG.input_path+f_name, CFG.out_train_path, CFG.segment_train, label_list, data_index, [pri_label]+eval(secon_label))
     torch.save(np.stack(label_list), CFG.out_train_path+'label_list.pt')
 
+    # generate validation images
     data_index = 0
     label_list = []
-    for pri_label, secon_label, f_name in zip(tqdm.notebook.tqdm(train_meta['primary_label'][train_len:]), train_meta['secondary_labels'][train_len:], train_meta['filename'][train_len:]):
+    for pri_label, secon_label, f_name in zip((train_meta['primary_label'][val_index]), train_meta['secondary_labels'][val_index], train_meta['filename'][val_index]):
         data_index = preprocess_train(CFG.input_path+f_name, CFG.out_val_path, CFG.segment_train, label_list, data_index, [pri_label]+eval(secon_label))
     torch.save(np.stack(label_list), CFG.out_val_path+'label_list.pt')
