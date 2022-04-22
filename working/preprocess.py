@@ -1,4 +1,7 @@
+from distutils.command.config import config
 import os
+import random
+import cffi
 from sklearn.model_selection import train_test_split
 import json
 from lightgbm import train
@@ -10,6 +13,10 @@ import matplotlib.pyplot as plt
 
 from config import CFG
 import utils
+
+UNIFORM = 0
+GAUSSIAN = 1
+PINK_NOISE = 2
 
 if(not os.path.exists(CFG.out_train_path)):
     os.mkdir(CFG.out_train_path)
@@ -26,6 +33,51 @@ all_bird = train_meta["primary_label"].unique()
 
 mel_transform = utils.get_mel_transform()
 
+def _db2float(db: float, amplitude=True):
+    if amplitude:
+        return 10 ** (db / 20)
+    else:
+        return 10 ** (db / 10)
+
+def noise_injection(y: np.ndarray):
+    noise_level = np.random.uniform(CFG.noise_level[0],CFG.noise_level[1])
+    noise = np.random.randn(len(y))
+    augmented = (y + noise * noise_level).to(y.dtype)
+    return augmented
+
+def gaussian_noise(y: np.ndarray):
+    return y
+
+def pink_noise(y: np.ndarray):
+    return y
+
+def wave_transforms(y: np.ndarray, **params):
+    # random noise: uniform noise, gaussian noise, pink noise
+    transforms = [UNIFORM, GAUSSIAN, PINK_NOISE]
+    data = y
+    if transforms and (random.random() < CFG.noise_p):
+        t = np.random.choice(transforms,[1])
+        if t == UNIFORM:
+            data = noise_injection(data)
+        elif t == GAUSSIAN:
+            data = gaussian_noise(data)
+        elif t == PINK_NOISE:
+            data = pink_noise(data)
+
+    # random volume
+    if transforms and (random.random() < CFG.volume_p):
+        db = np.random.uniform(-CFG.db_limit, CFG.db_limit)
+        if db >= 0:
+            data *= _db2float(db)
+        else:
+            data *= _db2float(-db)
+
+    # normalize
+    if transforms and (random.random() < CFG.normalize_p):
+        max_vol = np.abs(data).max()
+        data = data * (1 / max_vol)
+
+    return data
 
 def preprocess_train(filepath, outpath, segment_train, label_list, data_index=0, label_file=[]):
     label_file_all = np.zeros(all_bird.shape)
@@ -36,6 +88,7 @@ def preprocess_train(filepath, outpath, segment_train, label_list, data_index=0,
     waveform, _ = torchaudio.load(filepath=filepath)
     len_wav = waveform.shape[1]
     waveform = waveform[0,:].reshape(1, len_wav) # stereo->mono mono->mono
+
     if len_wav < segment_train:
         for _ in range(round(segment_train/len_wav)):
             waveform = torch.cat((waveform,waveform[:,0:len_wav]),1)
@@ -43,7 +96,10 @@ def preprocess_train(filepath, outpath, segment_train, label_list, data_index=0,
         waveform = waveform[:,0:len_wav]
 
     for index in range(int(len_wav/segment_train)):
-        log_melspec = torch.log10(mel_transform(waveform[0, index*segment_train:index*segment_train+segment_train]).reshape(1, 128, 157)+1e-10)
+        wave_seg = waveform[0, index*segment_train:index*segment_train+segment_train]
+        wave_seg = wave_transforms(wave_seg)
+
+        log_melspec = torch.log10(mel_transform(wave_seg).reshape(1, 128, 157)+1e-10)
         log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
 
         torch.save(log_melspec, outpath + str(data_index) + '.pt')
