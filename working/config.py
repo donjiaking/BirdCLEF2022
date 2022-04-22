@@ -12,7 +12,7 @@ class CFG:
 
     ## Train ##
     num_epochs = 15
-    lr = 1e-3
+    lr = 1e-5
     batch_size = 16
     print_feq = 100
 
