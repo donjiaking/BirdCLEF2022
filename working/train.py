@@ -81,6 +81,9 @@ def train(model, model_name):
             inputs = inputs.to(device)
             labels = labels.to(device)
 
+            # mixup - augmentation for melspectrum
+            
+
             optimizer.zero_grad()
             outputs = model(inputs)
             loss = criterion(outputs, labels)

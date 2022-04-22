@@ -1,6 +1,13 @@
 
 class CFG:
 
+    ## Pre-process ##
+    noise_p = 0.5
+    volume_p = 0.2
+    normalize_p = 1
+    noise_level = (0, 0.5)
+    db_limit = 10
+
     ## Melspectrogram ##
     sample_rate = 32000
     n_fft = 2048
