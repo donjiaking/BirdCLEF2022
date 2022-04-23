@@ -99,7 +99,7 @@ def preprocess_train(filepath, outpath, segment_train, label_list, data_index=0,
         wave_seg = waveform[0, index*segment_train:index*segment_train+segment_train]
         wave_seg = wave_transforms(wave_seg)
 
-        log_melspec = torch.log10(mel_transform(wave_seg).reshape(1, 128, 157)+1e-10)
+        log_melspec = torch.log10(mel_transform(wave_seg)+1e-10)
         log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
 
         torch.save(log_melspec, outpath + str(data_index) + '.pt')
