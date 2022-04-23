@@ -9,6 +9,7 @@ from torch.nn import functional as F
 from torch.distributions import Beta
 from torch.nn.parameter import Parameter
 import torchaudio
+import timm
 from torch.cuda.amp import GradScaler, autocast
 
 from utils import get_mel_transform as mel_transform
@@ -25,6 +26,9 @@ class ResNet50Bird(nn.Module):
         x = self.backbone(x)
         return x
 
+    def num_features(self):
+        return self.backbone.fc.out_features
+
 
 class ResNeXtBird(nn.Module):
     def __init__(self, n_outputs):
@@ -36,6 +40,9 @@ class ResNeXtBird(nn.Module):
     def forward(self, x):
         x = self.backbone(x)
         return x
+
+    def num_features(self):
+        return self.backbone.fc.out_features
 
 
 class EfficientNetBird(nn.Module):
@@ -49,6 +56,9 @@ class EfficientNetBird(nn.Module):
         x = self.backbone(x)
         return x
 
+    def num_features(self):
+        return self.backbone.fc.out_features
+
 
 class EnsembleModel(nn.Module):
     def __init__(self, modelA, modelB, modelC, n_outputs):
@@ -56,7 +66,7 @@ class EnsembleModel(nn.Module):
         self.modelA = modelA
         self.modelB = modelB
         self.modelC = modelC
-        self.classifier = nn.Linear(n_outputs*3, n_outputs)
+        self.classifier = nn.Linear(n_outputs * 3, n_outputs)
         
     def forward(self, x):
         x1 = self.modelA(x)
@@ -65,6 +75,9 @@ class EnsembleModel(nn.Module):
         x = torch.cat((x1, x2, x3), dim=1)
         out = self.classifier(x)
         return out
+
+    def num_features(self):
+        return self.backbone.fc.out_features
 
 
 def gem(x, p=3, eps=1e-6):
@@ -121,23 +134,38 @@ class Net(nn.Module):
         self.mel_spec = mel_transform
         self.amplitude_to_db = torchaudio.transforms.AmplitudeToDB(top_db=cfg.top_db)
         self.wav2img = torch.nn.Sequential(self.mel_spec, self.amplitude_to_db)
-        self.backbone = backbone
 
+        if backbone == 'resnet50':
+            self.backbone = ResNet50Bird(self.n_classes)
+        elif backbone == 'resnext':
+            self.backbone = ResNeXtBird(self.n_classes)
+        elif backbone == 'efficientnet':
+            self.backbone = EfficientNetBird(self.n_classes)
+        else:
+            self.backbone = EnsembleModel(ResNet50Bird, ResNeXtBird, EfficientNetBird, self.n_classes)
+
+        """self.backbone = timm.create_model(
+            cfg.backbone,
+            pretrained=cfg.pretrained,
+            num_classes=0,
+            global_pool="",
+            in_chans=cfg.in_chans,
+        )
         if "efficientnet" in cfg.backbone:
             backbone_out = self.backbone.num_features
         else:
-            backbone_out = self.backbone.feature_info[-1]["num_chs"]
+            backbone_out = self.backbone.feature_info[-1]["num_chs"]"""
 
         self.global_pool = GeM()
-        self.head = nn.Linear(backbone_out, self.n_classes)
+        self.head = nn.Linear(self.backbone.num_features(), self.n_classes)
 
-        if cfg.pretrained_weights is not None:
+        """if cfg.pretrained_weights is not None:
             sd = torch.load(cfg.pretrained_weights, map_location="cpu")["model"]
             sd = {k.replace("module.", ""): v for k, v in sd.items()}
             self.load_state_dict(sd, strict=True)
-            print("weights loaded from", cfg.pretrained_weights)
+            print("weights loaded from", cfg.pretrained_weights)"""
 
-        self.loss_fn = nn.BCEWithLogitsLoss(reduction="none")
+        # self.loss_fn = nn.BCEWithLogitsLoss(reduction="none")
         self.mixup = Mixup(mix_beta=cfg.mix_beta)
         self.factor = int(cfg.wav_crop_len / 5.0)
 
@@ -156,8 +184,8 @@ class Net(nn.Module):
 
         with autocast(enabled=False):
             x = self.wav2img(x)  # (bs, mel, time)
-            if self.cfg.mel_norm:
-                x = (x + 80) / 80
+            """if self.cfg.mel_norm:
+                x = (x + 80) / 80"""
 
         x = x.permute(0, 2, 1)
         x = x[:, None, :, :]
@@ -169,10 +197,7 @@ class Net(nn.Module):
             x = x.permute(0, 2, 1, 3)
             x = x.reshape(b // self.factor, self.factor * t, c, f)
 
-            if self.cfg.mixup:
-                x, y, weight = self.mixup(x, y, weight)
-            if self.cfg.mixup2:
-                x, y, weight = self.mixup(x, y, weight)
+            x, y, weight = self.mixup(x, y, weight)
 
             x = x.reshape(b, t, c, f)
             x = x.permute(0, 2, 1, 3)
@@ -184,12 +209,13 @@ class Net(nn.Module):
             x = x.permute(0, 2, 1, 3)
             x = x.reshape(b // self.factor, self.factor * t, c, f)
             x = x.permute(0, 2, 1, 3)
+
         x = self.global_pool(x)
         x = x[:, :, 0, 0]
         logits = self.head(x)
 
-        loss = self.loss_fn(logits, y)
+        """loss = self.loss_fn(logits, y)
         loss = (loss.mean(dim=1) * weight) / weight.sum()
-        loss = loss.sum()
+        loss = loss.sum()"""
 
-        return {"loss": loss, "logits": logits.sigmoid(), "logits_raw": logits, "target": y}
+        return logits  # {"loss": loss, "logits": logits.sigmoid(), "logits_raw": logits, "target": y}

@@ -12,8 +12,8 @@ class CFG:
     win_length = None
     hop_length = 1024
     n_mels = 128
-    segment_train = sample_rate*30  # 5
-    segment_test = sample_rate*5
+    segment_train = sample_rate * 30  # 5
+    segment_test = sample_rate * 5
 
     # Train #
     num_epochs = 15
@@ -32,9 +32,11 @@ class CFG:
     # Binary Threshold #
     binary_th = 0.3
 
-    # Parameters in Improvement #
+    # Possible Parameters in Improvement #
+    n_classes = 152
     top_db = 80.0
-    backbone = 'resnet34'
+    backbone = 'resnet50'  # 'resnext' 'efficientnet' 'ensemble'
     pretrained = True
     pretrained_weights = None
     mix_beta = 1
+    in_chans = 1

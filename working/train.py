@@ -20,6 +20,7 @@ print(f"Using {device} device")
 
 utils.fix_seed()
 
+
 def evaluate(model, criterion, val_loader):
     val_loss = 0
     y_true = []
@@ -52,7 +53,7 @@ def evaluate(model, criterion, val_loader):
 def train(model, model_name):
     logger = utils.get_logger(f"log_{model_name}.txt")
 
-    num_epochs = CFG.num_epochs  
+    num_epochs = CFG.num_epochs
     lr = CFG.lr
     batch_size = CFG.batch_size
 
@@ -91,35 +92,39 @@ def train(model, model_name):
             optimizer.step()
             train_loss += loss.item()
 
-            if((i+1) % CFG.print_feq == 0):
-                logger.info(f'Epoch[{epoch+1}/{num_epochs}] Iter[{i+1}/{train_iters}] : train_loss {train_loss/(i+1):.5f}')
+            if (i + 1) % CFG.print_feq == 0:
+                logger.info(f'Epoch[{epoch + 1}/{num_epochs}] Iter[{i + 1}/{train_iters}] : train_loss {train_loss/(i + 1):.5f}')
         
         scheduler.step()
         val_loss, val_f1 = evaluate(model, criterion, val_loader)
         
         train_loss = train_loss / train_iters
         val_loss = val_loss / val_iters
-        logger.info(f'== Epoch [{(epoch+1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ==')
+        logger.info(f'== Epoch [{(epoch + 1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ==')
         item = np.array([epoch+1, train_loss, val_loss, val_f1])
         history = np.vstack((history, item))
 
-        if(val_loss < best_loss):
+        if val_loss < best_loss:
             best_loss = val_loss
             utils.save_model(model, model_name+f"_best_loss")
-            logger.info(f"== Saving Best Loss Model: epoch {epoch+1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
-        if(val_f1 > best_f1):
+            logger.info(f"== Saving Best Loss Model: epoch {epoch + 1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
+        if val_f1 > best_f1:
             best_f1 = val_f1
             utils.save_model(model, model_name+f"_best_f1")
-            logger.info(f"== Saving Best F1 Model: epoch {epoch+1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
+            logger.info(f"== Saving Best F1 Model: epoch {epoch + 1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
 
     utils.save_model(model, model_name+"_last")
-    logger.info(f"== Saving Last Model: epoch {epoch+1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
+    logger.info(f"== Saving Last Model: epoch {epoch + 1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
     utils.plot_history(history, model_name)
 
 
 if __name__ == "__main__":
-    modelA = models.ResNet50Bird(152).to(device)
-    train(modelA, 'resnet50')
+    # modelA = models.ResNet50Bird(152).to(device)
+    # train(modelA, 'resnet50')
+
+    cfg = CFG()
+    model = models.Net(cfg, 'resnet50').to(device)
+    train(model, 'resnet50')
 
     # modelB = models.ResNeXtBird(152).to(device)
     # train(modelB, 'resnext50')
@@ -136,4 +141,3 @@ if __name__ == "__main__":
     #     param.requires_grad = True  
 
     # train(model_ensemble, 'ensemble')
-    
