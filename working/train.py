@@ -77,8 +77,9 @@ def train(model, model_name):
 
         model.train()
         for i, (inputs, labels) in enumerate(train_loader):
-            # inputs, labels = bs*1*128*157, bs*152
-            
+            print("inputs.shape =", inputs.shape)  # batch_size * 128 * 938
+            print("labels.shape =", labels.shape)  # batch_size * 152
+
             inputs = inputs.to(device)
             labels = labels.to(device)
 
@@ -101,7 +102,7 @@ def train(model, model_name):
         train_loss = train_loss / train_iters
         val_loss = val_loss / val_iters
         logger.info(f'== Epoch [{(epoch + 1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ==')
-        item = np.array([epoch+1, train_loss, val_loss, val_f1])
+        item = np.array([epoch + 1, train_loss, val_loss, val_f1])
         history = np.vstack((history, item))
 
         if val_loss < best_loss:
@@ -123,7 +124,7 @@ if __name__ == "__main__":
     # train(modelA, 'resnet50')
 
     cfg = CFG()
-    model = models.Net(cfg, 'resnet50').to(device)
+    model = models.Net('resnet50').to(device)
     train(model, 'resnet50')
 
     # modelB = models.ResNeXtBird(152).to(device)

@@ -10,6 +10,7 @@ from torch.distributions import Beta
 from torch.nn.parameter import Parameter
 import torchaudio
 import timm
+import random
 from torch.cuda.amp import GradScaler, autocast
 
 from utils import get_mel_transform as mel_transform
@@ -96,7 +97,7 @@ class GeM(nn.Module):
         return ret
 
     def __repr__(self):
-        return self.__class__.__name__+"(p="+"{:.4f}".format(self.p.data.tolist()[0])+", eps="+str(self.eps)+")"
+        return self.__class__.__name__ + "(p=" + "{:.4f}".format(self.p.data.tolist()[0]) + ", eps=" + str(self.eps) + ")"
 
 
 class Mixup(nn.Module):
@@ -126,14 +127,40 @@ class Mixup(nn.Module):
             return X, Y, weight
 
 
+def mixup(input_x):
+    origin = []
+    for part in input_x:
+        origin.append(part)
+    id_list = [i for i in range(len(origin))]
+    random.shuffle(id_list)
+    res = []
+    for i in id_list:
+        res.append(origin[i])
+    res = torch.cat(res)
+    return res, id_list
+
+
+def restore(input_x, lis):
+    origin = []
+    for part in input_x:
+        origin.append(part)
+    res = []
+    for idx in range(len(lis)):
+        res.append(input_x[lis.index(idx)])
+    return torch.cat(input_x)
+
+
 class Net(nn.Module):
-    def __init__(self, cfg, backbone):
+    def __init__(self, backbone, training=1, validation=0, testing=0):
         super(Net, self).__init__()
-        self.cfg = cfg
-        self.n_classes = cfg.n_classes
-        self.mel_spec = mel_transform
-        self.amplitude_to_db = torchaudio.transforms.AmplitudeToDB(top_db=cfg.top_db)
-        self.wav2img = torch.nn.Sequential(self.mel_spec, self.amplitude_to_db)
+        # self.cfg = cfg
+        self.n_classes = 152
+        self.training = training
+        self.validation = validation
+        self.testing = testing
+        # self.mel_spec = mel_transform
+        # self.amplitude_to_db = torchaudio.transforms.AmplitudeToDB(top_db=cfg.top_db)
+        # self.wav2img = torch.nn.Sequential(self.mel_spec, self.amplitude_to_db)
 
         if backbone == 'resnet50':
             self.backbone = ResNet50Bird(self.n_classes)
@@ -157,7 +184,7 @@ class Net(nn.Module):
             backbone_out = self.backbone.feature_info[-1]["num_chs"]"""
 
         self.global_pool = GeM()
-        self.head = nn.Linear(self.backbone.num_features(), self.n_classes)
+        self.linear = nn.Linear(self.backbone.num_features(), self.n_classes)
 
         """if cfg.pretrained_weights is not None:
             sd = torch.load(cfg.pretrained_weights, map_location="cpu")["model"]
@@ -166,26 +193,33 @@ class Net(nn.Module):
             print("weights loaded from", cfg.pretrained_weights)"""
 
         # self.loss_fn = nn.BCEWithLogitsLoss(reduction="none")
-        self.mixup = Mixup(mix_beta=cfg.mix_beta)
-        self.factor = int(cfg.wav_crop_len / 5.0)
+        # self.mixup = Mixup(mix_beta=cfg.mix_beta)
+        self.factor = 6  # int(cfg.wav_crop_len / 5.0)
 
-    def forward(self, batch):
-        if not self.training:
-            x = batch["input"]
+    def forward(self, x):
+        """if not self.training:
+            # x = batch["input"]
             bs, parts, time = x.shape
             x = x.reshape(parts, time)
-            y = batch["target"]
-            y = y[0]
+            # y = batch["target"]
+            # y = y[0]
         else:
-            x = batch["input"]
-            y = batch["target"]
+            # x = batch["input"]
+            # y = batch["target"]
             bs, time = x.shape
-            x = x.reshape(bs * self.factor, time // self.factor)
+            x = x.reshape(bs * self.factor, time // self.factor)"""
+        
+        bs, freq, time = x.shape
+        if not self.testing:
+            x = x.reshape(bs * self.factor, freq, time // self.factor)
+            x, mixlist = mixup(x)
 
-        with autocast(enabled=False):
+        print(x.shape)
+
+        """with autocast(enabled=False):
             x = self.wav2img(x)  # (bs, mel, time)
-            """if self.cfg.mel_norm:
-                x = (x + 80) / 80"""
+            if self.cfg.mel_norm:
+                x = (x + 80) / 80
 
         x = x.permute(0, 2, 1)
         x = x[:, None, :, :]
@@ -200,22 +234,29 @@ class Net(nn.Module):
             x, y, weight = self.mixup(x, y, weight)
 
             x = x.reshape(b, t, c, f)
-            x = x.permute(0, 2, 1, 3)
+            x = x.permute(0, 2, 1, 3)"""
 
         x = self.backbone(x)
 
-        if self.training:
+        """if self.training:
             b, c, t, f = x.shape
             x = x.permute(0, 2, 1, 3)
             x = x.reshape(b // self.factor, self.factor * t, c, f)
-            x = x.permute(0, 2, 1, 3)
+            x = x.permute(0, 2, 1, 3)"""
+        
+        if not self.testing:
+            x = restore(x, mixlist)
+            b, f, t = x.shape
+            b //= self.factor
+            t *= self.factor
+            x = x.reshape(b, f, t)
 
-        x = self.global_pool(x)
-        x = x[:, :, 0, 0]
-        logits = self.head(x)
+            x = F.avg_pool2d(x, kernel_size=(f, t))
+            x = x[:, 0, 0]
+            x = self.linear(x)
 
         """loss = self.loss_fn(logits, y)
         loss = (loss.mean(dim=1) * weight) / weight.sum()
         loss = loss.sum()"""
 
-        return logits  # {"loss": loss, "logits": logits.sigmoid(), "logits_raw": logits, "target": y}
+        return x  # {"loss": loss, "logits": logits.sigmoid(), "logits_raw": logits, "target": y}
