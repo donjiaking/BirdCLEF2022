@@ -1,6 +1,7 @@
 from distutils.command.config import config
 import os
 import random
+import colorednoise as cn
 import cffi
 from sklearn.model_selection import train_test_split
 import json
@@ -50,11 +51,15 @@ def noise_injection(y: np.ndarray):
 
 
 def gaussian_noise(y: np.ndarray):
-    return y
+    noise = np.random.normal(CFG.mean, CFG.sigma, y.shape)
+    augmented = (y + noise).to(y.dtype)
+    return augmented
 
 
 def pink_noise(y: np.ndarray):
-    return y
+    noise = cn.powerlaw_psd_gaussian(1, len(y))
+    augmented = (y + noise).to(y.dtype)
+    return augmented
 
 
 def wave_transforms(y: np.ndarray, **params):
@@ -62,7 +67,7 @@ def wave_transforms(y: np.ndarray, **params):
     transforms = [UNIFORM, GAUSSIAN, PINK_NOISE]
     data = y
     if transforms and (random.random() < CFG.noise_p):
-        t = np.random.choice(transforms, [1])
+        t = np.random.choice(transforms, p=[0.5,0.3,0.2])
         if t == UNIFORM:
             data = noise_injection(data)
         elif t == GAUSSIAN:
@@ -83,6 +88,7 @@ def wave_transforms(y: np.ndarray, **params):
         max_vol = np.abs(data).max()
         data = data * (1 / max_vol)
 
+    np.clip(data, 0, 1)
     return data
 
 
@@ -126,6 +132,7 @@ if __name__ == "__main__":
     for pri_label, secon_label, f_name in zip((train_meta['primary_label'][train_index]), train_meta['secondary_labels'][train_index], train_meta['filename'][train_index]):
         data_index = preprocess_train(CFG.input_path + f_name, CFG.out_train_path, CFG.segment_train, label_list, data_index, [pri_label] + eval(secon_label))
     torch.save(np.stack(label_list), CFG.out_train_path + 'label_list.pt')
+    print("out train finished")
 
     # generate validation images
     data_index = 0

@@ -5,6 +5,10 @@ class CFG:
     normalize_p = 1
     noise_level = (0, 0.5)
     db_limit = 10
+    mean = 0
+    sigma = 0.1
+    mixup_p = 0.5
+    alpha = 0.5
 
     # Melspectrogram #
     sample_rate = 32000
