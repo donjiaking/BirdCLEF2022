@@ -190,7 +190,7 @@ class Net(nn.Module):
         x = self.backbone(x)
         print('After backbone, x.shape =', x.shape)
         
-        if not self.testing:
+        if not self.testing:  # for both training and validation
             x = restore(x, mix_list)
             print('After restore, x.shape =', x.shape)
             b, c, t, f = x.shape
