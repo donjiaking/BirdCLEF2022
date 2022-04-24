@@ -77,6 +77,7 @@ def train(model, model_name):
 
         model.train()
         for i, (inputs, labels) in enumerate(train_loader):
+            inputs = inputs[:, :, :-2]
             print("inputs.shape =", inputs.shape)  # batch_size * 128 * 938
             print("labels.shape =", labels.shape)  # batch_size * 152
 
@@ -123,7 +124,7 @@ if __name__ == "__main__":
     # modelA = models.ResNet50Bird(152).to(device)
     # train(modelA, 'resnet50')
 
-    cfg = CFG()
+    # cfg = CFG()
     model = models.Net('resnet50').to(device)
     train(model, 'resnet50')
 

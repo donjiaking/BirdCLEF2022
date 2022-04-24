@@ -136,7 +136,8 @@ def mixup(input_x):
     res = []
     for i in id_list:
         res.append(origin[i])
-    res = torch.cat(res)
+    print("In mixup, #parts =", len(res), ", with each", res[0].shape)
+    res = torch.stack(res, dim=0)
     return res, id_list
 
 
@@ -147,116 +148,59 @@ def restore(input_x, lis):
     res = []
     for idx in range(len(lis)):
         res.append(input_x[lis.index(idx)])
-    return torch.cat(input_x)
+    return torch.stack(res, dim=0)
 
 
 class Net(nn.Module):
-    def __init__(self, backbone, training=1, validation=0, testing=0):
+    def __init__(self, backbone, training=True, validation=False, testing=False):
         super(Net, self).__init__()
-        # self.cfg = cfg
         self.n_classes = 152
         self.training = training
         self.validation = validation
         self.testing = testing
-        # self.mel_spec = mel_transform
-        # self.amplitude_to_db = torchaudio.transforms.AmplitudeToDB(top_db=cfg.top_db)
-        # self.wav2img = torch.nn.Sequential(self.mel_spec, self.amplitude_to_db)
-
-        if backbone == 'resnet50':
-            self.backbone = ResNet50Bird(self.n_classes)
-        elif backbone == 'resnext':
-            self.backbone = ResNeXtBird(self.n_classes)
-        elif backbone == 'efficientnet':
-            self.backbone = EfficientNetBird(self.n_classes)
-        else:
-            self.backbone = EnsembleModel(ResNet50Bird, ResNeXtBird, EfficientNetBird, self.n_classes)
-
-        """self.backbone = timm.create_model(
-            cfg.backbone,
-            pretrained=cfg.pretrained,
+        self.backbone_name = backbone
+        self.backbone = timm.create_model(
+            self.backbone_name,
+            pretrained=True,
             num_classes=0,
             global_pool="",
-            in_chans=cfg.in_chans,
+            in_chans=1
         )
-        if "efficientnet" in cfg.backbone:
-            backbone_out = self.backbone.num_features
+
+        if "efficientnet" in backbone:
+            self.backbone_out = self.backbone.num_features
         else:
-            backbone_out = self.backbone.feature_info[-1]["num_chs"]"""
+            self.backbone_out = self.backbone.feature_info[-1]["num_chs"]
 
-        self.global_pool = GeM()
-        self.linear = nn.Linear(self.backbone.num_features(), self.n_classes)
-
-        """if cfg.pretrained_weights is not None:
-            sd = torch.load(cfg.pretrained_weights, map_location="cpu")["model"]
-            sd = {k.replace("module.", ""): v for k, v in sd.items()}
-            self.load_state_dict(sd, strict=True)
-            print("weights loaded from", cfg.pretrained_weights)"""
-
-        # self.loss_fn = nn.BCEWithLogitsLoss(reduction="none")
-        # self.mixup = Mixup(mix_beta=cfg.mix_beta)
-        self.factor = 6  # int(cfg.wav_crop_len / 5.0)
+        self.linear = nn.Linear(self.backbone_out, self.n_classes)
+        self.factor = 6  # int(30.0 / 5.0)
 
     def forward(self, x):
-        """if not self.training:
-            # x = batch["input"]
-            bs, parts, time = x.shape
-            x = x.reshape(parts, time)
-            # y = batch["target"]
-            # y = y[0]
-        else:
-            # x = batch["input"]
-            # y = batch["target"]
-            bs, time = x.shape
-            x = x.reshape(bs * self.factor, time // self.factor)"""
-        
+        print('In the beginning, x.shape =', x.shape)
         bs, freq, time = x.shape
-        if not self.testing:
-            x = x.reshape(bs * self.factor, freq, time // self.factor)
-            x, mixlist = mixup(x)
-
-        print(x.shape)
-
-        """with autocast(enabled=False):
-            x = self.wav2img(x)  # (bs, mel, time)
-            if self.cfg.mel_norm:
-                x = (x + 80) / 80
-
-        x = x.permute(0, 2, 1)
-        x = x[:, None, :, :]
-
-        weight = batch["weight"]
-
-        if self.training:
-            b, c, t, f = x.shape
-            x = x.permute(0, 2, 1, 3)
-            x = x.reshape(b // self.factor, self.factor * t, c, f)
-
-            x, y, weight = self.mixup(x, y, weight)
-
-            x = x.reshape(b, t, c, f)
-            x = x.permute(0, 2, 1, 3)"""
+        mix_list = []
+        if not self.testing:  # for both training and validation
+            x = x.reshape(bs * self.factor, freq, time // self.factor)  #
+            print('After reshape, x.shape =', x.shape)
+            x, mix_list = mixup(x)
+            print('After mixup, x.shape =', x.shape)
+            x = x[:, None, :, :]
+            print('After dim-increase, x.shape =', x.shape)
 
         x = self.backbone(x)
-
-        """if self.training:
-            b, c, t, f = x.shape
-            x = x.permute(0, 2, 1, 3)
-            x = x.reshape(b // self.factor, self.factor * t, c, f)
-            x = x.permute(0, 2, 1, 3)"""
+        print('After backbone, x.shape =', x.shape)
         
         if not self.testing:
-            x = restore(x, mixlist)
-            b, f, t = x.shape
-            b //= self.factor
-            t *= self.factor
-            x = x.reshape(b, f, t)
+            x = restore(x, mix_list)
+            print('After restore, x.shape =', x.shape)
+            b, c, t, f = x.shape
+            x = x.reshape(b // self.factor, c, self.factor * t, f)
+            print('After reshape, x.shape =', x.shape)
 
-            x = F.avg_pool2d(x, kernel_size=(f, t))
-            x = x[:, 0, 0]
+            x = F.avg_pool2d(x, kernel_size=(self.factor * t, f))
+            print('After pool, x.shape =', x.shape)
+            x = x[:, :, 0, 0]
             x = self.linear(x)
+            print('After linear, x.shape =', x.shape)
 
-        """loss = self.loss_fn(logits, y)
-        loss = (loss.mean(dim=1) * weight) / weight.sum()
-        loss = loss.sum()"""
-
-        return x  # {"loss": loss, "logits": logits.sigmoid(), "logits_raw": logits, "target": y}
+        return x

@@ -26,7 +26,7 @@ class CFG:
     print_feq = 100
 
     # Input Data #
-    root_path = "../input/birdclef-2022/"
+    root_path = "D:/daniel/Junior(2)/CS282 - Machine Learning/input/birdclef-2022/"
     input_path = root_path + 'train_audio/'
     out_train_path = "./train/"
     out_val_path = "./val/"
@@ -39,7 +39,7 @@ class CFG:
     # Possible Parameters in Improvement #
     n_classes = 152
     top_db = 80.0
-    backbone = 'resnet50'  # 'resnext' 'efficientnet' 'ensemble'
+    backbone = 'resnet50'  # 'resnext101_32x8d' 'efficientnet_b0' 'ensemble'
     pretrained = True
     pretrained_weights = None
     mix_beta = 1
