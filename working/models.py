@@ -120,35 +120,12 @@ class Mixup(nn.Module):
 
         Y = coeffs.view(-1, 1) * Y + (1 - coeffs.view(-1, 1)) * Y[perm]
 
-        if weight is None:
+        """if weight is None:
             return X, Y
         else:
             weight = coeffs.view(-1) * weight + (1 - coeffs.view(-1)) * weight[perm]
-            return X, Y, weight
-
-
-def mixup(input_x):
-    origin = []
-    for part in input_x:
-        origin.append(part)
-    id_list = [i for i in range(len(origin))]
-    random.shuffle(id_list)
-    res = []
-    for i in id_list:
-        res.append(origin[i])
-    print("In mixup, #parts =", len(res), ", with each", res[0].shape)
-    res = torch.stack(res, dim=0)
-    return res, id_list
-
-
-def restore(input_x, lis):
-    origin = []
-    for part in input_x:
-        origin.append(part)
-    res = []
-    for idx in range(len(lis)):
-        res.append(input_x[lis.index(idx)])
-    return torch.stack(res, dim=0)
+            return X, Y, weight"""
+        return X, Y
 
 
 class Net(nn.Module):
@@ -158,6 +135,7 @@ class Net(nn.Module):
         self.training = training
         self.validation = validation
         self.testing = testing
+        self.mixup = Mixup(1)
         self.backbone_name = backbone
         self.backbone = timm.create_model(
             self.backbone_name,
@@ -175,25 +153,31 @@ class Net(nn.Module):
         self.linear = nn.Linear(self.backbone_out, self.n_classes)
         self.factor = 6  # int(30.0 / 5.0)
 
-    def forward(self, x):
+    def forward(self, x, y):
         print('In the beginning, x.shape =', x.shape)
-        bs, freq, time = x.shape
-        mix_list = []
+        b, f, t = x.shape
         if not self.testing:  # for both training and validation
-            x = x.reshape(bs * self.factor, freq, time // self.factor)  #
+            x = x.reshape(b * self.factor, f, t // self.factor)  #
             print('After reshape, x.shape =', x.shape)
-            x, mix_list = mixup(x)
-            print('After mixup, x.shape =', x.shape)
-            x = x[:, None, :, :]
-            print('After dim-increase, x.shape =', x.shape)
+
+        x = x[:, None, :, :]
+        print('After dim-increase, x.shape =', x.shape)
+
+        if not self.testing:
+            b, c, f, t = x.shape
+            x = x.reshape(b // self.factor, 1, f, t * self.factor)
+            print('After reshape, x.shape =', x.shape)
+            x, y = self.mixup(x, y)
+            print('After mixup, x.shape =', x.shape, ', y.shape =', y.shape)
+
+            x = x.reshape(b, c, f, t)
+            print('Before backbone, x.shape =', x.shape)
 
         x = self.backbone(x)
         print('After backbone, x.shape =', x.shape)
         
         if not self.testing:  # for both training and validation
-            x = restore(x, mix_list)
-            print('After restore, x.shape =', x.shape)
-            b, c, t, f = x.shape
+            b, c, f, t = x.shape
             x = x.reshape(b // self.factor, c, self.factor * t, f)
             print('After reshape, x.shape =', x.shape)
 
