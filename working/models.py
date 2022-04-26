@@ -61,10 +61,10 @@ class Mixup(nn.Module):
 
 
 class Net(nn.Module):
-    def __init__(self, backbone_name, testing=False):
+    def __init__(self, backbone_name):
         super(Net, self).__init__()
-        self.n_classes = CFG.n_classes
-        self.testing = testing
+        self.mode = 'train'
+        
         self.mixup = Mixup(mix_beta=CFG.mix_beta)
         self.backbone_name = backbone_name
         self.backbone = timm.create_model(
@@ -81,17 +81,18 @@ class Net(nn.Module):
             self.backbone_out = self.backbone.feature_info[-1]["num_chs"]
 
         self.global_pool = GeM()
-        self.linear = nn.Linear(self.backbone_out, self.n_classes)
-        self.factor = 6  # int(30.0 / 5.0)
+        self.linear = nn.Linear(self.backbone_out, CFG.n_classes)
+
+        self.factor = int(CFG.segment_train / CFG.segment_test)  # int(30.0 / 5.0)
 
     def forward(self, x, y=None):
         b, f, t = x.shape  # bs*128*936
-        if not self.testing:  
+        if not self.mode == 'test':
             x = x.reshape(b * self.factor, f, t // self.factor)  # 6bs*128*156
 
         x = x[:, None, :, :]  # 6bs*1*128*156
 
-        if not self.testing:
+        if self.mode == 'train':
             b, c, f, t = x.shape
             x = x.reshape(b // self.factor, c, f, t * self.factor)  # bs*1*128*936
             x, y = self.mixup(x, y)
@@ -99,15 +100,15 @@ class Net(nn.Module):
 
         x = self.backbone(x)
         
-        if not self.testing: 
+        if not self.mode == 'test': 
             b, c, f, t = x.shape
             x = x.reshape(b // self.factor, c, self.factor * t, f)
 
-            x = self.global_pool(x)
-            x = x[:, :, 0, 0]
-            x = self.linear(x)
+        x = self.global_pool(x)
+        x = x[:, :, 0, 0]
+        x = self.linear(x)
         
-        if not self.testing:
+        if self.mode == 'train':
             return x, y
         else:
             return x

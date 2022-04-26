@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import torch
+from sklearn.model_selection import train_test_split
 import torch.optim as optim
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
@@ -27,6 +28,7 @@ def evaluate(model, criterion, val_loader):
     y_pred = []
 
     model.eval()
+    model.mode = 'val'
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
             inputs_val = inputs_val.to(device)
@@ -50,22 +52,16 @@ def evaluate(model, criterion, val_loader):
     return val_loss, val_f1
 
 
-def train(model, model_name):
+def train(model, model_name, train_loader, val_loader):
     logger = utils.get_logger(f"log_{model_name}.txt")
 
     num_epochs = CFG.num_epochs
     lr = CFG.lr
-    batch_size = CFG.batch_size
 
     criterion = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-6)
     history = np.zeros((0, 4))
-
-    train_dataset = MyDataset(mode='train')
-    val_dataset = MyDataset(mode='val')
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
     train_iters = len(train_loader)
     val_iters = len(val_loader)
@@ -76,6 +72,7 @@ def train(model, model_name):
         train_loss, val_loss = 0, 0
 
         model.train()
+        model.mode = 'train'
         for i, (inputs, labels) in enumerate(train_loader):
             inputs = inputs[:, :, :-2]  # batch_size * 128 * 936, batch_size * 152
             
@@ -116,8 +113,17 @@ def train(model, model_name):
 
 
 if __name__ == "__main__":
+    train_meta = pd.read_csv(CFG.root_path + 'train_metadata.csv')
+    train_index, val_index = train_test_split(range(0, train_meta.shape[0]), train_size=0.8, random_state=42)
+
+    train_dataset = MyDataset(train_meta.iloc[train_index], mode='train')
+    val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')
+
+    train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=CFG.batch_size, shuffle=False)
+
     model = models.Net('resnet50').to(device)
-    train(model, 'resnet50')
+    train(model, 'resnet50', train_loader, val_loader)
 
     # modelA = models.ResNet50Bird(152).to(device)
     # train(modelA, 'resnet50')

@@ -22,7 +22,7 @@ class CFG:
     # Train #
     num_epochs = 15
     lr = 1e-5
-    batch_size = 3  # 16
+    batch_size = 3
     print_feq = 100
 
     n_classes = 152
@@ -33,8 +33,8 @@ class CFG:
     # Input Data #
     root_path = "../input/birdclef-2022/"
     input_path = root_path + 'train_audio/'
-    out_train_path = "./train/"
-    out_val_path = "./val/"
+    # out_train_path = "./train/"
+    # out_val_path = "./val/"
     test_audio_path = '../input/birdclef-2022/test_soundscapes/'
     model_out_path = './models/'
 

@@ -58,6 +58,7 @@ def test(model):
     pred = {'row_id': [], 'target': []}
 
     model.eval()
+    model.mode = 'test'
     with torch.no_grad():
         for file_id in file_list:
             path = CFG.test_audio_path + file_id + '.ogg'
