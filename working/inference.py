@@ -14,7 +14,6 @@ from config import CFG
 import models
 import utils
 
-
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using {device} device")
 
@@ -47,7 +46,7 @@ def get_mel_list(filepath, segment_test):
         else:
             waveform_chunk = waveform[0,end_time*CFG.sample_rate-segment_test:end_time*CFG.sample_rate]
     
-        log_melspec = torch.log10(mel_transform(waveform_chunk).reshape(1, 128, 157)+1e-10)
+        log_melspec = torch.log10(mel_transform(waveform_chunk)+1e-10)
         log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
         mel_list_test.append(log_melspec)
 
@@ -92,7 +91,7 @@ def submit(results):
 
 
 if __name__ == "__main__":
-    model = models.ResNet50Bird(152).to(device)
+    model = models.Net('resnet50').to(device)
     utils.load_model(model, model_name='resnet50_best_f1')
 
     results = test(model)

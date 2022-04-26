@@ -31,6 +31,8 @@ def evaluate(model, criterion, val_loader):
     model.mode = 'val'
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
+            inputs_val = inputs_val[:, :, :-2]
+
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
 
