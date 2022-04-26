@@ -8,77 +8,10 @@ import matplotlib.pyplot as plt
 from torch.nn import functional as F
 from torch.distributions import Beta
 from torch.nn.parameter import Parameter
-import torchaudio
 import timm
 import random
-from torch.cuda.amp import GradScaler, autocast
 
-from utils import get_mel_transform as mel_transform
-
-
-class ResNet50Bird(nn.Module):
-    def __init__(self, n_outputs):
-        super().__init__()
-        self.backbone = models.resnet50()
-        self.backbone.fc = nn.Linear(self.backbone.fc.in_features, n_outputs)
-        self.backbone.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
-
-    def forward(self, x):
-        x = self.backbone(x)
-        return x
-
-    def num_features(self):
-        return self.backbone.fc.out_features
-
-
-class ResNeXtBird(nn.Module):
-    def __init__(self, n_outputs):
-        super().__init__()
-        self.backbone = models.resnext50_32x4d()
-        self.backbone.fc = nn.Linear(self.backbone.fc.in_features, n_outputs)
-        self.backbone.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
-
-    def forward(self, x):
-        x = self.backbone(x)
-        return x
-
-    def num_features(self):
-        return self.backbone.fc.out_features
-
-
-class EfficientNetBird(nn.Module):
-    def __init__(self, n_outputs):
-        super().__init__()
-        self.backbone = models.efficientnet_b2()
-        self.backbone.classifier[1] = nn.Linear(self.backbone.classifier[1].in_features, n_outputs)
-        self.backbone.features[0][0] = nn.Conv2d(1, 32, kernel_size=3, stride=2, padding=1, bias=False)
-
-    def forward(self, x):
-        x = self.backbone(x)
-        return x
-
-    def num_features(self):
-        return self.backbone.fc.out_features
-
-
-class EnsembleModel(nn.Module):
-    def __init__(self, modelA, modelB, modelC, n_outputs):
-        super().__init__()
-        self.modelA = modelA
-        self.modelB = modelB
-        self.modelC = modelC
-        self.classifier = nn.Linear(n_outputs * 3, n_outputs)
-        
-    def forward(self, x):
-        x1 = self.modelA(x)
-        x2 = self.modelB(x)
-        x3 = self.modelC(x)
-        x = torch.cat((x1, x2, x3), dim=1)
-        out = self.classifier(x)
-        return out
-
-    def num_features(self):
-        return self.backbone.fc.out_features
+from config import CFG
 
 
 def gem(x, p=3, eps=1e-6):
@@ -120,71 +53,126 @@ class Mixup(nn.Module):
 
         Y = coeffs.view(-1, 1) * Y + (1 - coeffs.view(-1, 1)) * Y[perm]
 
-        """if weight is None:
+        if weight is None:
             return X, Y
         else:
             weight = coeffs.view(-1) * weight + (1 - coeffs.view(-1)) * weight[perm]
-            return X, Y, weight"""
-        return X, Y
+            return X, Y, weight
 
 
 class Net(nn.Module):
-    def __init__(self, backbone, training=True, validation=False, testing=False):
+    def __init__(self, backbone_name, testing=False):
         super(Net, self).__init__()
-        self.n_classes = 152
-        self.training = training
-        self.validation = validation
+        self.n_classes = CFG.n_classes
         self.testing = testing
-        self.mixup = Mixup(1)
-        self.backbone_name = backbone
+        self.mixup = Mixup(mix_beta=CFG.mix_beta)
+        self.backbone_name = backbone_name
         self.backbone = timm.create_model(
             self.backbone_name,
-            pretrained=True,
+            pretrained=CFG.pretrained,
             num_classes=0,
             global_pool="",
             in_chans=1
         )
 
-        if "efficientnet" in backbone:
+        if "efficientnet" in self.backbone_name:
             self.backbone_out = self.backbone.num_features
         else:
             self.backbone_out = self.backbone.feature_info[-1]["num_chs"]
 
+        self.global_pool = GeM()
         self.linear = nn.Linear(self.backbone_out, self.n_classes)
         self.factor = 6  # int(30.0 / 5.0)
 
-    def forward(self, x, y):
-        print('In the beginning, x.shape =', x.shape)
-        b, f, t = x.shape
-        if not self.testing:  # for both training and validation
-            x = x.reshape(b * self.factor, f, t // self.factor)  #
-            print('After reshape, x.shape =', x.shape)
+    def forward(self, x, y=None):
+        b, f, t = x.shape  # bs*128*936
+        if not self.testing:  
+            x = x.reshape(b * self.factor, f, t // self.factor)  # 6bs*128*156
 
-        x = x[:, None, :, :]
-        print('After dim-increase, x.shape =', x.shape)
+        x = x[:, None, :, :]  # 6bs*1*128*156
 
         if not self.testing:
             b, c, f, t = x.shape
-            x = x.reshape(b // self.factor, 1, f, t * self.factor)
-            print('After reshape, x.shape =', x.shape)
+            x = x.reshape(b // self.factor, c, f, t * self.factor)  # bs*1*128*936
             x, y = self.mixup(x, y)
-            print('After mixup, x.shape =', x.shape, ', y.shape =', y.shape)
-
-            x = x.reshape(b, c, f, t)
-            print('Before backbone, x.shape =', x.shape)
+            x = x.reshape(b, c, f, t)  # 6bs*1*128*156
 
         x = self.backbone(x)
-        print('After backbone, x.shape =', x.shape)
         
-        if not self.testing:  # for both training and validation
+        if not self.testing: 
             b, c, f, t = x.shape
             x = x.reshape(b // self.factor, c, self.factor * t, f)
-            print('After reshape, x.shape =', x.shape)
 
-            x = F.avg_pool2d(x, kernel_size=(self.factor * t, f))
-            print('After pool, x.shape =', x.shape)
+            x = self.global_pool(x)
             x = x[:, :, 0, 0]
             x = self.linear(x)
-            print('After linear, x.shape =', x.shape)
+        
+        if not self.testing:
+            return x, y
+        else:
+            return x
 
-        return x
+
+# class ResNet50Bird(nn.Module):
+#     def __init__(self, n_outputs):
+#         super().__init__()
+#         self.backbone = models.resnet50()
+#         self.backbone.fc = nn.Linear(self.backbone.fc.in_features, n_outputs)
+#         self.backbone.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
+
+#     def forward(self, x):
+#         x = self.backbone(x)
+#         return x
+
+#     def num_features(self):
+#         return self.backbone.fc.out_features
+
+
+# class ResNeXtBird(nn.Module):
+#     def __init__(self, n_outputs):
+#         super().__init__()
+#         self.backbone = models.resnext50_32x4d()
+#         self.backbone.fc = nn.Linear(self.backbone.fc.in_features, n_outputs)
+#         self.backbone.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
+
+#     def forward(self, x):
+#         x = self.backbone(x)
+#         return x
+
+#     def num_features(self):
+#         return self.backbone.fc.out_features
+
+
+# class EfficientNetBird(nn.Module):
+#     def __init__(self, n_outputs):
+#         super().__init__()
+#         self.backbone = models.efficientnet_b2()
+#         self.backbone.classifier[1] = nn.Linear(self.backbone.classifier[1].in_features, n_outputs)
+#         self.backbone.features[0][0] = nn.Conv2d(1, 32, kernel_size=3, stride=2, padding=1, bias=False)
+
+#     def forward(self, x):
+#         x = self.backbone(x)
+#         return x
+
+#     def num_features(self):
+#         return self.backbone.fc.out_features
+
+
+# class EnsembleModel(nn.Module):
+#     def __init__(self, modelA, modelB, modelC, n_outputs):
+#         super().__init__()
+#         self.modelA = modelA
+#         self.modelB = modelB
+#         self.modelC = modelC
+#         self.classifier = nn.Linear(n_outputs * 3, n_outputs)
+        
+#     def forward(self, x):
+#         x1 = self.modelA(x)
+#         x2 = self.modelB(x)
+#         x3 = self.modelC(x)
+#         x = torch.cat((x1, x2, x3), dim=1)
+#         out = self.classifier(x)
+#         return out
+
+#     def num_features(self):
+#         return self.backbone.fc.out_features

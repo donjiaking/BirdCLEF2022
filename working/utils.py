@@ -72,13 +72,10 @@ def get_mel_transform():
 def get_f1_score(y_true, y_pred):
     return f1_score(y_true, y_pred, average='macro')
 
-    with open(log_path,"w") as file:
-        file.write('[Log Created.]\n')
-
 
 def get_logger(log_name):
     if(not os.path.exists("logs")):
-        os.mkdir("logs")
+        os.mkdir("loygs")
     log_path = "logs/"+log_name
     with open(log_path, "w") as file:
         file.write('[Log Created!]\n')

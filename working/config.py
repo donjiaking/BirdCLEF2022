@@ -7,8 +7,8 @@ class CFG:
     db_limit = 10
     mean = 0
     sigma = 0.1
-    mixup_p = 0.5
-    alpha = 0.5
+    # mixup_p = 0.5
+    # alpha = 0.5
 
     # Melspectrogram #
     sample_rate = 32000
@@ -25,6 +25,11 @@ class CFG:
     batch_size = 3  # 16
     print_feq = 100
 
+    n_classes = 152
+    backbone = 'resnet50'  # 'resnext101_32x8d' 'efficientnet_b0' - following timm's name
+    pretrained = True
+    mix_beta = 1
+
     # Input Data #
     root_path = "../input/birdclef-2022/"
     input_path = root_path + 'train_audio/'
@@ -36,11 +41,4 @@ class CFG:
     # Binary Threshold #
     binary_th = 0.3
 
-    # Possible Parameters in Improvement #
-    n_classes = 152
-    top_db = 80.0
-    backbone = 'resnet50'  # 'resnext101_32x8d' 'efficientnet_b0' 'ensemble' - following timm's name
-    pretrained = True
-    pretrained_weights = None
-    mix_beta = 1
-    in_chans = 1
+    

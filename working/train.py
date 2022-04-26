@@ -77,19 +77,14 @@ def train(model, model_name):
 
         model.train()
         for i, (inputs, labels) in enumerate(train_loader):
-            inputs = inputs[:, :, :-2]
-            print("inputs.shape =", inputs.shape)  # batch_size * 128 * 938
-            print("labels.shape =", labels.shape)  # batch_size * 152
-
+            inputs = inputs[:, :, :-2]  # batch_size * 128 * 936, batch_size * 152
+            
             inputs = inputs.to(device)
             labels = labels.to(device)
 
-            # mixup - augmentation for melspectrum
-            
-
             optimizer.zero_grad()
-            outputs = model(inputs, labels)
-            loss = criterion(outputs, labels)
+            outputs, labels_new = model(inputs, labels)
+            loss = criterion(outputs, labels_new)
             loss.backward()
             optimizer.step()
             train_loss += loss.item()
@@ -121,12 +116,11 @@ def train(model, model_name):
 
 
 if __name__ == "__main__":
-    # modelA = models.ResNet50Bird(152).to(device)
-    # train(modelA, 'resnet50')
-
-    # cfg = CFG()
     model = models.Net('resnet50').to(device)
     train(model, 'resnet50')
+
+    # modelA = models.ResNet50Bird(152).to(device)
+    # train(modelA, 'resnet50')
 
     # modelB = models.ResNeXtBird(152).to(device)
     # train(modelB, 'resnext50')
