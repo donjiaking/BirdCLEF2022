@@ -75,7 +75,7 @@ def get_f1_score(y_true, y_pred):
 
 def get_logger(log_name):
     if(not os.path.exists("logs")):
-        os.mkdir("loygs")
+        os.mkdir("logs")
     log_path = "logs/"+log_name
     with open(log_path, "w") as file:
         file.write('[Log Created!]\n')
