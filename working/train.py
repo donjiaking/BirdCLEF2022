@@ -1,3 +1,4 @@
+from cProfile import label
 import os
 import pandas as pd
 import numpy as np
@@ -21,6 +22,14 @@ print(f"Using {device} device")
 
 utils.fix_seed()
 
+def val_collate_fn(batch):
+    """define how to form a batch given a set of samples"""
+    targets = []
+    imgs = []
+    for sample in batch:
+        imgs.append(sample[0])
+        targets.append(sample[1])
+    return torch.cat(imgs, 0), torch.cat(targets, 0)
 
 def evaluate(model, criterion, val_loader):
     val_loss = 0
@@ -28,13 +37,11 @@ def evaluate(model, criterion, val_loader):
     y_pred = []
 
     model.eval()
-    model.mode = 'val'
+    model.to('cpu')  # change to cpu since bs here is not deterministic
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
-            inputs_val = inputs_val[:, :, :-2]
-
-            inputs_val = inputs_val.to(device)
-            labels_val = labels_val.to(device)
+            inputs_val = inputs_val.to('cpu')
+            labels_val = labels_val.to('cpu')
 
             outputs_val = model(inputs_val)
             loss_val = criterion(outputs_val, labels_val)
@@ -62,7 +69,7 @@ def train(model, model_name, train_loader, val_loader):
 
     criterion = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-6)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-5)
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
@@ -70,13 +77,14 @@ def train(model, model_name, train_loader, val_loader):
 
     best_loss = 1000
     best_f1 = 0
+    print("Training started")
     for epoch in range(num_epochs):
         train_loss, val_loss = 0, 0
 
         model.train()
-        model.mode = 'train'
+        model.to(device)
         for i, (inputs, labels) in enumerate(train_loader):
-            inputs = inputs[:, :, :-2]  # batch_size * 128 * 936, batch_size * 152
+            inputs = inputs[:, :, :-2]  # batch_size*128*936, batch_size*152
             
             inputs = inputs.to(device)
             labels = labels.to(device)
@@ -103,14 +111,14 @@ def train(model, model_name, train_loader, val_loader):
         if val_loss < best_loss:
             best_loss = val_loss
             utils.save_model(model, model_name+f"_best_loss")
-            logger.info(f"== Saving Best Loss Model: epoch {epoch + 1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
+            logger.info(f"== Saving Best Loss Model ")
         if val_f1 > best_f1:
             best_f1 = val_f1
             utils.save_model(model, model_name+f"_best_f1")
-            logger.info(f"== Saving Best F1 Model: epoch {epoch + 1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
+            logger.info(f"== Saving Best F1 Model ")
 
     utils.save_model(model, model_name+"_last")
-    logger.info(f"== Saving Last Model: epoch {epoch + 1} val_loss {val_loss:.5f} val_f1 {val_f1:.5f} ==")
+    logger.info(f"== Saving Last Model ")
     utils.plot_history(history, model_name)
 
 
@@ -122,10 +130,10 @@ if __name__ == "__main__":
     val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')
 
     train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=CFG.batch_size, shuffle=False)
+    val_loader = DataLoader(val_dataset, batch_size=CFG.batch_size, shuffle=False, collate_fn=val_collate_fn)
 
-    model = models.Net('resnet50').to(device)
-    train(model, 'resnet50', train_loader, val_loader)
+    model = models.Net(CFG.backbone).to(device)
+    train(model, CFG.backbone, train_loader, val_loader)
 
     # modelA = models.ResNet50Bird(152).to(device)
     # train(modelA, 'resnet50')

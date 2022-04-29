@@ -51,7 +51,7 @@ class MyDataset(Dataset):
         train_meta = pd.read_csv(CFG.root_path + 'train_metadata.csv')
         self.all_bird = train_meta["primary_label"].unique()
 
-        self.duration = CFG.segment_train if (self.mode=='train' or self.mode=='val') else CFG.segment_test
+        self.duration = CFG.segment_train if (self.mode=='train') else CFG.segment_test
 
     def __getitem__(self, index):
         row = self.df.iloc[index]
@@ -65,23 +65,42 @@ class MyDataset(Dataset):
         waveform, _ = torchaudio.load(filepath=CFG.input_path+row['filename'])
         len_wav = waveform.shape[1]
         waveform = waveform[0, :].reshape(1, len_wav)  # stereo->mono mono->mono
-
         chunks = math.ceil(len_wav / self.duration)
-        end_time = random.choice([(i+1)*self.duration for i in range(chunks)])
+        end_times = [(i+1)*self.duration for i in range(chunks)]
 
-        if(end_time > len_wav):
-            pad_len = end_time - len_wav
-            waveform_chunk = F.pad(waveform, (0, pad_len))[0,end_time-self.duration:end_time]
-        else:
-            waveform_chunk = waveform[0,end_time-self.duration:end_time]
-        
         if(self.mode == 'train'):
-            waveform_chunk = self.wave_transforms(waveform_chunk)
-    
-        log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
-        log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
+            end_time = random.choice(end_times)
 
-        return log_melspec, label_all
+            if(end_time > len_wav):
+                pad_len = end_time - len_wav
+                waveform_chunk = F.pad(waveform, (0, pad_len))[0,end_time-self.duration:end_time]
+            else:
+                waveform_chunk = waveform[0,end_time-self.duration:end_time]
+            
+            waveform_chunk = self.wave_transforms(waveform_chunk)
+        
+            log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
+            log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
+
+            return log_melspec, label_all  # f*t, 152
+
+        elif(self.mode == 'val'):
+            log_melspec_list = []
+            label_all_list = []
+
+            for end_time in end_times:
+                if(end_time > len_wav):
+                    pad_len = end_time - len_wav
+                    waveform_chunk = F.pad(waveform, (0, pad_len))[0,end_time-self.duration:end_time]
+                else:
+                    waveform_chunk = waveform[0,end_time-self.duration:end_time]
+            
+                log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
+                log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
+                log_melspec_list.append(log_melspec)
+                label_all_list.append(torch.from_numpy(label_all))
+
+            return torch.stack(log_melspec_list), torch.stack(label_all_list)  # part*f*t, part*152
 
 
     @staticmethod

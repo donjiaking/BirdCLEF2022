@@ -57,7 +57,6 @@ def test(model):
     pred = {'row_id': [], 'target': []}
 
     model.eval()
-    model.mode = 'test'
     with torch.no_grad():
         for file_id in file_list:
             path = CFG.test_audio_path + file_id + '.ogg'
@@ -91,8 +90,8 @@ def submit(results):
 
 
 if __name__ == "__main__":
-    model = models.Net('resnet50').to(device)
-    utils.load_model(model, model_name='resnet50_best_f1')
+    model = models.Net(CFG.backbone).to(device)
+    utils.load_model(model, model_name='')
 
     results = test(model)
     # print(results) 

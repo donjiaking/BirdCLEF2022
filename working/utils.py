@@ -1,14 +1,15 @@
 import os
 import logging
 import random
+from time import strftime
 import pandas as pd
 import numpy as np
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, Dataset
 import torchaudio.transforms as T
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score 
+from datetime import datetime
 
 from config import CFG
 
@@ -70,18 +71,17 @@ def get_mel_transform():
 
 
 def get_f1_score(y_true, y_pred):
-    return f1_score(y_true, y_pred, average='macro')
+    return f1_score(y_true, y_pred, average='micro')
 
 
 def get_logger(log_name):
     if(not os.path.exists("logs")):
-        os.mkdir("loygs")
+        os.mkdir("logs")
     log_path = "logs/"+log_name
     with open(log_path, "w") as file:
-        file.write('[Log Created!]\n')
+        file.write(f"[Log Created at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n")
 
     logger = logging.getLogger()
-
     logger.setLevel(level=logging.DEBUG)
 
     file_handler = logging.FileHandler(log_path, mode='a', encoding='UTF-8')
@@ -93,7 +93,6 @@ def get_logger(log_name):
 
     # console_handler = logging.StreamHandler()
     # console_handler.setLevel(logging.DEBUG)
-
     logger.addHandler(file_handler)
     # logger.addHandler(console_handler)
 

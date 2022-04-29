@@ -26,7 +26,7 @@ class CFG:
     print_feq = 100
 
     n_classes = 152
-    backbone = 'resnet50'  # 'resnext101_32x8d' 'efficientnet_b0' - following timm's name
+    backbone = 'seresnext26t_32x4d'  # 'resnext101_32x8d' 'tf_efficientnet_b0_ns'
     pretrained = True
     mix_beta = 1
 
