@@ -104,7 +104,7 @@ def train(model, model_name, train_loader, val_loader):
         
         train_loss = train_loss / train_iters
         val_loss = val_loss / val_iters
-        logger.info(f'== Epoch [{(epoch + 1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ==')
+        logger.info(f'== Epoch [{(epoch + 1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ')
         item = np.array([epoch + 1, train_loss, val_loss, val_f1])
         history = np.vstack((history, item))
 
