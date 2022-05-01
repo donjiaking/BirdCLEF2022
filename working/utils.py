@@ -10,6 +10,8 @@ import torchaudio.transforms as T
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score 
 from datetime import datetime
+from torch.utils.tensorboard import SummaryWriter
+
 
 from config import CFG
 
@@ -97,3 +99,18 @@ def get_logger(log_name):
     # logger.addHandler(console_handler)
 
     return logger
+
+def write_tensorboard(log_name, train_loss, val_loss, val_f1, epoch=0):
+    tb_path = "tb_logs"
+    if(not os.path.exists(tb_path)):
+        os.mkdir(tb_path)
+    writer = SummaryWriter(tb_path + "/" +log_name)
+
+    if train_loss:
+        writer.add_scalar("train_loss",train_loss, epoch)
+    if val_loss:
+        writer.add_scalar("val_loss", val_loss, epoch)
+    if val_f1:
+        writer.add_scalar("val_f1", val_f1, epoch)
+
+    writer.close()

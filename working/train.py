@@ -1,4 +1,6 @@
 from cProfile import label
+from csv import writer
+from ctypes import util
 import os
 import pandas as pd
 import numpy as np
@@ -10,7 +12,7 @@ from torch.utils.data import DataLoader, Dataset
 import torchaudio.transforms as T
 import torchvision.models as models
 import matplotlib.pyplot as plt
-from sklearn.metrics import f1_score 
+from sklearn.metrics import f1_score
 
 from config import CFG
 import utils
@@ -98,13 +100,14 @@ def train(model, model_name, train_loader, val_loader):
 
             if (i + 1) % CFG.print_feq == 0:
                 logger.info(f'Epoch[{epoch + 1}/{num_epochs}] Iter[{i + 1}/{train_iters}] : train_loss {train_loss/(i + 1):.5f}')
-        
+
         scheduler.step()
         val_loss, val_f1 = evaluate(model, criterion, val_loader)
         
         train_loss = train_loss / train_iters
         val_loss = val_loss / val_iters
         logger.info(f'== Epoch [{(epoch + 1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ')
+        utils.write_tensorboard(f"log_{model_name}_batch{CFG.batch_size}_lr{CFG.lr}",train_loss,val_loss,val_f1,epoch+1)
         item = np.array([epoch + 1, train_loss, val_loss, val_f1])
         history = np.vstack((history, item))
 

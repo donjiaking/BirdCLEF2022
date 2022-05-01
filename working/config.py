@@ -7,8 +7,7 @@ class CFG:
     db_limit = 10
     mean = 0
     sigma = 0.1
-    # mixup_p = 0.5
-    # alpha = 0.5
+    pitch_p = 0.2
 
     # Melspectrogram #
     sample_rate = 32000
@@ -21,8 +20,8 @@ class CFG:
 
     # Train #
     num_epochs = 15
-    lr = 1e-5
-    batch_size = 3
+    lr = 1e-4
+    batch_size = 5
     print_feq = 100
 
     n_classes = 152

@@ -41,6 +41,18 @@ def pink_noise(y: np.ndarray):
     augmented = (y + noise).to(y.dtype)
     return augmented
 
+def pitch_shift_spectrogram(y: np.ndarray):
+    """ Shift a spectrogram along the frequency axis in the spectral-domain at
+    random
+    """
+    nb_cols = y.shape[0]
+    max_shifts = nb_cols//20 # around 5% shift
+    print("max_shifts:", max_shifts)
+    nb_shifts = np.random.randint(-max_shifts, max_shifts)
+    augmented = np.roll(y, nb_shifts, axis=0).to(y.dtype)
+
+    return augmented
+
 
 class MyDataset(Dataset):
     def __init__(self, df, mode='train', transforms=None):
@@ -118,15 +130,19 @@ class MyDataset(Dataset):
                 data = pink_noise(data)
 
         # random volume
-        if transforms and (random.random() < CFG.volume_p):
+        if random.random() < CFG.volume_p:
             db = np.random.uniform(-CFG.db_limit, CFG.db_limit)
             if db >= 0:
                 data *= _db2float(db)
             else:
                 data *= _db2float(-db)
 
+        # pitch shifting
+        # if random.random() < CFG.pitch_p:
+        #     data = pitch_shift_spectrogram(data)
+
         # normalize
-        if transforms and (random.random() < CFG.normalize_p):
+        if random.random() < CFG.normalize_p:
             max_vol = np.abs(data).max()
             data = data * (1 / max_vol)
 
