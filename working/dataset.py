@@ -58,6 +58,9 @@ class MyDataset(Dataset):
     def __init__(self, df, mode='train', transforms=None):
         self.mode = mode
         self.df = df
+        if(self.mode == 'train'):
+            self.df = self.df[self.df['rating'] >= CFG.min_rating]
+            self.df["weight"] = self.df["rating"] / self.df["rating"].max()
         self.mel_transform = utils.get_mel_transform()
 
         train_meta = pd.read_csv(CFG.root_path + 'train_metadata.csv')
@@ -67,6 +70,7 @@ class MyDataset(Dataset):
 
     def __getitem__(self, index):
         row = self.df.iloc[index]
+        weight = row['weight']
 
         label = [row['primary_label']] + eval(row['secondary_labels'])
         label_all = np.zeros(CFG.n_classes)
@@ -94,7 +98,7 @@ class MyDataset(Dataset):
             log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
             log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
 
-            return log_melspec, label_all  # f*t, 152
+            return log_melspec, label_all, weight  # f*t, 152
 
         elif(self.mode == 'val'):
             log_melspec_list = []
