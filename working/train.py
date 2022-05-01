@@ -69,7 +69,7 @@ def train(model, model_name, train_loader, val_loader):
 
     criterion = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr=lr)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-5)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-7)
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
@@ -83,14 +83,16 @@ def train(model, model_name, train_loader, val_loader):
 
         model.train()
         model.to(device)
-        for i, (inputs, labels) in enumerate(train_loader):
+        for i, (inputs, labels, weights) in enumerate(train_loader):
             inputs = inputs[:, :, :-2]  # batch_size*128*936, batch_size*152
             
             inputs = inputs.to(device)
             labels = labels.to(device)
+            weights = weights.to(device)
 
             optimizer.zero_grad()
-            outputs, labels_new = model(inputs, labels)
+            outputs, labels_new, weights_new = model(inputs, labels, weights)
+            criterion.weight = weights_new
             loss = criterion(outputs, labels_new)
             loss.backward()
             optimizer.step()

@@ -38,7 +38,7 @@ class Mixup(nn.Module):
         super(Mixup, self).__init__()
         self.beta_distribution = Beta(mix_beta, mix_beta)
 
-    def forward(self, X, Y, weight=None):
+    def forward(self, X, Y, weights=None):
         bs = X.shape[0]
         n_dims = len(X.shape)
         perm = torch.randperm(bs)
@@ -53,11 +53,11 @@ class Mixup(nn.Module):
 
         Y = coeffs.view(-1, 1) * Y + (1 - coeffs.view(-1, 1)) * Y[perm]
 
-        if weight is None:
+        if weights is None:
             return X, Y
         else:
-            weight = coeffs.view(-1) * weight + (1 - coeffs.view(-1)) * weight[perm]
-            return X, Y, weight
+            weights = coeffs.view(-1) * weights + (1 - coeffs.view(-1)) * weights[perm]
+            return X, Y, weights
 
 
 class Net(nn.Module):
@@ -83,7 +83,7 @@ class Net(nn.Module):
 
         self.factor = int(CFG.segment_train / CFG.segment_test)  # int(30.0 / 5.0)
 
-    def forward(self, x, y=None):
+    def forward(self, x, y=None, weights=None):
         b, f, t = x.shape  # bs*128*936
         if self.training:
             x = x.reshape(b * self.factor, f, t // self.factor)  # 6bs*128*156
@@ -93,7 +93,7 @@ class Net(nn.Module):
         if self.training:
             b, c, f, t = x.shape
             x = x.reshape(b // self.factor, c, f, t * self.factor)  # bs*1*128*936
-            x, y = self.mixup(x, y)
+            x, y, weights = self.mixup(x, y, weights)
             x = x.reshape(b, c, f, t)  # 6bs*1*128*156
 
         x = self.backbone(x)
@@ -107,7 +107,7 @@ class Net(nn.Module):
         x = self.linear(x)
         
         if self.training:
-            return x, y
+            return x, y, weights
         else:
             return x
 

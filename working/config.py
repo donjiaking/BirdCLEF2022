@@ -21,7 +21,7 @@ class CFG:
 
     # Train #
     num_epochs = 15
-    lr = 1e-5
+    lr = 1e-7
     batch_size = 3
     print_feq = 100
 
@@ -37,6 +37,7 @@ class CFG:
     # out_val_path = "./val/"
     test_audio_path = '../input/birdclef-2022/test_soundscapes/'
     model_out_path = './models/'
+    min_rating = 2.0
 
     # Binary Threshold #
     binary_th = 0.3
