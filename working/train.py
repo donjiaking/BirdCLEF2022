@@ -1,6 +1,3 @@
-from cProfile import label
-from csv import writer
-from ctypes import util
 import os
 import pandas as pd
 import numpy as np
@@ -47,6 +44,7 @@ def evaluate(model, criterion, val_loader):
 
             outputs_val = model(inputs_val)
             loss_val = criterion(outputs_val, labels_val)
+            loss_val = loss_val.mean(dim=1).mean()
             val_loss += loss_val.item()
 
             y_true.append(labels_val)
@@ -69,7 +67,7 @@ def train(model, model_name, train_loader, val_loader):
     num_epochs = CFG.num_epochs
     lr = CFG.lr
 
-    criterion = nn.BCEWithLogitsLoss()
+    criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.Adam(model.parameters(), lr=lr)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-7)
     history = np.zeros((0, 4))
@@ -94,8 +92,9 @@ def train(model, model_name, train_loader, val_loader):
 
             optimizer.zero_grad()
             outputs, labels_new, weights_new = model(inputs, labels, weights)
-            criterion.weight = weights_new
             loss = criterion(outputs, labels_new)
+            loss = (loss.mean(dim=1) * weights_new) / weights_new.sum()
+            loss = loss.sum()
             loss.backward()
             optimizer.step()
             train_loss += loss.item()

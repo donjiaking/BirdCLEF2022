@@ -32,8 +32,6 @@ class CFG:
     # Input Data #
     root_path = "../input/birdclef-2022/"
     input_path = root_path + 'train_audio/'
-    # out_train_path = "./train/"
-    # out_val_path = "./val/"
     test_audio_path = '../input/birdclef-2022/test_soundscapes/'
     model_out_path = './models/'
     min_rating = 2.0

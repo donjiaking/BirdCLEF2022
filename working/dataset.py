@@ -42,12 +42,12 @@ def pink_noise(y: np.ndarray):
     return augmented
 
 def pitch_shift_spectrogram(y: np.ndarray):
-    """ Shift a spectrogram along the frequency axis in the spectral-domain at
-    random
+    """
+    Shift a spectrogram along the frequency axis in the spectral-domain at random
     """
     nb_cols = y.shape[0]
     max_shifts = nb_cols//20 # around 5% shift
-    print("max_shifts:", max_shifts)
+    # print("max_shifts:", max_shifts)
     nb_shifts = np.random.randint(-max_shifts, max_shifts)
     augmented = np.roll(y, nb_shifts, axis=0).to(y.dtype)
 
@@ -57,7 +57,7 @@ def pitch_shift_spectrogram(y: np.ndarray):
 class MyDataset(Dataset):
     def __init__(self, df, mode='train', transforms=None):
         self.mode = mode
-        self.df = df
+        self.df = df.copy()
         if(self.mode == 'train'):
             self.df = self.df[self.df['rating'] >= CFG.min_rating]
             self.df["weight"] = self.df["rating"] / self.df["rating"].max()
@@ -70,7 +70,6 @@ class MyDataset(Dataset):
 
     def __getitem__(self, index):
         row = self.df.iloc[index]
-        weight = row['weight']
 
         label = [row['primary_label']] + eval(row['secondary_labels'])
         label_all = np.zeros(CFG.n_classes)
@@ -85,6 +84,7 @@ class MyDataset(Dataset):
         end_times = [(i+1)*self.duration for i in range(chunks)]
 
         if(self.mode == 'train'):
+            weight = row['weight']
             end_time = random.choice(end_times)
 
             if(end_time > len_wav):
@@ -98,7 +98,7 @@ class MyDataset(Dataset):
             log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
             log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
 
-            return log_melspec, label_all, weight  # f*t, 152
+            return log_melspec, label_all, weight  # f*t, 152, 1
 
         elif(self.mode == 'val'):
             log_melspec_list = []
@@ -141,7 +141,7 @@ class MyDataset(Dataset):
             else:
                 data *= _db2float(-db)
 
-        # pitch shifting
+        # # pitch shifting
         # if random.random() < CFG.pitch_p:
         #     data = pitch_shift_spectrogram(data)
 

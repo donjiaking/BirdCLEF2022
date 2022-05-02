@@ -2,6 +2,7 @@ import os
 import logging
 import random
 from time import strftime
+import shutil
 import pandas as pd
 import numpy as np
 import torch
@@ -100,11 +101,16 @@ def get_logger(log_name):
 
     return logger
 
+
 def write_tensorboard(log_name, train_loss, val_loss, val_f1, epoch=0):
-    tb_path = "tb_logs"
+    tb_path = "tb_logs/" + log_name
     if(not os.path.exists(tb_path)):
-        os.mkdir(tb_path)
-    writer = SummaryWriter(tb_path + "/" +log_name)
+        os.makedirs(tb_path)
+    else:
+        shutil.rmtree(tb_path)  # clear prev records
+        os.makedirs(tb_path)
+
+    writer = SummaryWriter(tb_path)
 
     if train_loss:
         writer.add_scalar("train_loss",train_loss, epoch)
