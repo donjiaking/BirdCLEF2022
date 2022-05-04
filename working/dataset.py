@@ -49,7 +49,8 @@ def pitch_shift_spectrogram(y: np.ndarray):
     max_shifts = nb_cols//20 # around 5% shift
     # print("max_shifts:", max_shifts)
     nb_shifts = np.random.randint(-max_shifts, max_shifts)
-    augmented = np.roll(y, nb_shifts, axis=0).to(y.dtype)
+    augmented = np.roll(y, nb_shifts, axis=0)
+    augmented = torch.tensor(augmented).to(y.dtype)
 
     return augmented
 
@@ -142,8 +143,8 @@ class MyDataset(Dataset):
                 data *= _db2float(-db)
 
         # # pitch shifting
-        # if random.random() < CFG.pitch_p:
-        #     data = pitch_shift_spectrogram(data)
+        if random.random() < CFG.pitch_p:
+            data = pitch_shift_spectrogram(data)
 
         # normalize
         if random.random() < CFG.normalize_p:
