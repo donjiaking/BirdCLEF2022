@@ -17,7 +17,7 @@ from dataset import MyDataset
 import models
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-device = 'cpu'
+# device = 'cpu'
 print(f"Using {device} device")
 
 utils.fix_seed()
@@ -128,7 +128,7 @@ def train(model, model_name, train_loader, val_loader):
 
 if __name__ == "__main__":
     train_meta = pd.read_csv(CFG.root_path + 'train_metadata.csv')
-    train_index, val_index = train_test_split(range(0, train_meta.shape[0]), train_size=0.8, random_state=42)
+    train_index, val_index = train_test_split(range(0, train_meta.shape[0]), train_size=0.8, test_size=0.2, random_state=42)
 
     train_dataset = MyDataset(train_meta.iloc[train_index], mode='train')
     val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')

@@ -108,11 +108,11 @@ def get_logger(log_name):
     return logger
 
 
-def write_tensorboard(log_name, train_loss, val_loss, val_f1, epoch=0):
+def write_tensorboard(log_name, train_loss, val_loss, val_f1, epoch=1):
     tb_path = "tb_logs/" + log_name
     if(not os.path.exists(tb_path)):
         os.makedirs(tb_path)
-    else:
+    elif(epoch == 1):
         shutil.rmtree(tb_path)  # clear prev records
         os.makedirs(tb_path)
 

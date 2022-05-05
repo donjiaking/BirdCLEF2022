@@ -14,7 +14,7 @@ class CFG:
     n_fft = 2048
     win_length = 2048
     hop_length = 512
-    n_mels = 256
+    n_mels = 64
     fmin = 16
     fmax = 16386
     power = 2
@@ -24,7 +24,7 @@ class CFG:
     # Train #
     num_epochs = 15
     lr = 1e-3
-    batch_size = 32
+    batch_size = 16
     print_feq = 10
 
     n_classes = 152
