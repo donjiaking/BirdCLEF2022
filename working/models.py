@@ -8,10 +8,14 @@ import matplotlib.pyplot as plt
 from torch.nn import functional as F
 from torch.distributions import Beta
 from torch.nn.parameter import Parameter
+import torchaudio.transforms as T
 import timm
 import random
 
+from zmq import device
+
 from config import CFG
+import utils
 
 
 def gem(x, p=3, eps=1e-6):
@@ -70,7 +74,7 @@ class Net(nn.Module):
             pretrained=CFG.pretrained,
             num_classes=0,
             global_pool="",
-            in_chans=1
+            in_chans=1,
         )
 
         if "efficientnet" in self.backbone_name:
@@ -83,18 +87,23 @@ class Net(nn.Module):
 
         self.factor = int(CFG.segment_train / CFG.segment_test)  # int(30.0 / 5.0)
 
-    def forward(self, x, y=None, weights=None):
-        b, f, t = x.shape  # bs*128*936
-        if self.training:
-            x = x.reshape(b * self.factor, f, t // self.factor)  # 6bs*128*156
+        self.wav2img = nn.Sequential(utils.get_mel_transform(), T.AmplitudeToDB(top_db=None))
 
-        x = x[:, None, :, :]  # 6bs*1*128*156
+    def forward(self, x, y=None, weights=None):
+        b, t = x.shape
+        if self.training:
+            x = x.reshape(b * self.factor, t // self.factor)
+
+        x = self.wav2img(x) 
+        x = utils.channel_norm(x)
+
+        x = x[:, None, :, :]  # 6bs*1*f*t
 
         if self.training:
             b, c, f, t = x.shape
-            x = x.reshape(b // self.factor, c, f, t * self.factor)  # bs*1*128*936
+            x = x.reshape(b // self.factor, c, f, t * self.factor)  # bs*1*f*6t
             x, y, weights = self.mixup(x, y, weights)
-            x = x.reshape(b, c, f, t)  # 6bs*1*128*156
+            x = x.reshape(b, c, f, t)  # 6bs*1*f*t
 
         x = self.backbone(x)
         

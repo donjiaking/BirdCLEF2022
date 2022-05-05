@@ -24,13 +24,12 @@ all_bird = train_meta["primary_label"].unique()
 with open(CFG.root_path + 'scored_birds.json') as sbfile:
     scored_birds = json.load(sbfile)
 file_list = [f.split('.')[0] for f in sorted(os.listdir(CFG.test_audio_path))]
-mel_transform = utils.get_mel_transform()
 
 print('Number of test soundscapes:', len(file_list))
 
 
-def get_mel_list(filepath, segment_test):
-    mel_list_test = []
+def get_wave_list(filepath, segment_test):
+    wave_chunk_list = []
 
     waveform, _ = torchaudio.load(filepath=filepath)
     len_wav = waveform.shape[1]
@@ -46,11 +45,9 @@ def get_mel_list(filepath, segment_test):
         else:
             waveform_chunk = waveform[0,end_time*CFG.sample_rate-segment_test:end_time*CFG.sample_rate]
     
-        log_melspec = torch.log10(mel_transform(waveform_chunk)+1e-10)
-        log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
-        mel_list_test.append(log_melspec)
+        wave_chunk_list.append(waveform_chunk)
 
-    return mel_list_test, end_times
+    return wave_chunk_list, end_times
 
 
 def test(model):
@@ -61,10 +58,10 @@ def test(model):
         for file_id in file_list:
             path = CFG.test_audio_path + file_id + '.ogg'
 
-            mel_list_test, end_times = get_mel_list(path, CFG.segment_test)
-            mel_list_test = torch.stack(mel_list_test).to(device)
+            wave_chunk_list, end_times = get_wave_list(path, CFG.segment_test)
+            wave_chunk_list = torch.stack(wave_chunk_list).to(device)
 
-            outputs = model(mel_list_test)
+            outputs = model(wave_chunk_list)
             outputs_test = torch.sigmoid(outputs)
 
             for idx, end_time in enumerate(end_times):

@@ -13,7 +13,6 @@ from sklearn.metrics import f1_score
 from datetime import datetime
 from torch.utils.tensorboard import SummaryWriter
 
-
 from config import CFG
 
 
@@ -58,23 +57,30 @@ def plot_history(history, model_name):
 
 def get_mel_transform():
     mel_spectrogram = T.MelSpectrogram(
-        sample_rate=CFG.sample_rate,
-        n_fft=CFG.n_fft,
-        win_length=CFG.win_length,
-        hop_length=CFG.hop_length,
-        center=True,
-        pad_mode="reflect",
-        power=2.0,
-        norm='slaney',
-        onesided=True,
-        n_mels=CFG.n_mels,
-        mel_scale="htk",
-    )
+            sample_rate=CFG.sample_rate,
+            n_fft=CFG.n_fft,
+            win_length=CFG.win_length,
+            hop_length=CFG.hop_length,
+            f_min=CFG.fmin,
+            f_max=CFG.fmax,
+            pad=0,
+            n_mels=CFG.n_mels,
+            power=CFG.power,
+            normalized=False,
+        )
     return mel_spectrogram
 
 
 def get_f1_score(y_true, y_pred):
     return f1_score(y_true, y_pred, average='micro')
+
+
+def channel_norm(x):
+    """per-channel normalization"""
+    mean = x.mean((1, 2), keepdim=True)
+    std = x.std((1, 2), keepdim=True)
+    x = (x - mean) / (std + 1e-7) 
+    return x 
 
 
 def get_logger(log_name):
