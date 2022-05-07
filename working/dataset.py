@@ -10,6 +10,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 import matplotlib.pyplot as plt
 import torchaudio
+import torchaudio.transforms as T
 
 from config import CFG
 import utils
@@ -62,7 +63,6 @@ class MyDataset(Dataset):
         if(self.mode == 'train'):
             self.df = self.df[self.df['rating'] >= CFG.min_rating]
             self.df["weight"] = self.df["rating"] / self.df["rating"].max()
-        self.mel_transform = utils.get_mel_transform()
 
         train_meta = pd.read_csv(CFG.root_path + 'train_metadata.csv')
         self.all_bird = train_meta["primary_label"].unique()
@@ -95,14 +95,10 @@ class MyDataset(Dataset):
                 waveform_chunk = waveform[0,end_time-self.duration:end_time]
             
             waveform_chunk = self.wave_transforms(waveform_chunk)
-        
-            log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
-            log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
-
-            return log_melspec, label_all, weight  # f*t, 152, 1
+            return waveform_chunk, label_all, weight  # duration, 152, 1
 
         elif(self.mode == 'val'):
-            log_melspec_list = []
+            wave_chunk_list = []
             label_all_list = []
 
             for end_time in end_times:
@@ -112,12 +108,10 @@ class MyDataset(Dataset):
                 else:
                     waveform_chunk = waveform[0,end_time-self.duration:end_time]
             
-                log_melspec = torch.log10(self.mel_transform(waveform_chunk)+1e-10)
-                log_melspec = (log_melspec - torch.mean(log_melspec)) / torch.std(log_melspec)
-                log_melspec_list.append(log_melspec)
+                wave_chunk_list.append(waveform_chunk)
                 label_all_list.append(torch.from_numpy(label_all))
 
-            return torch.stack(log_melspec_list), torch.stack(label_all_list)  # part*f*t, part*152
+            return torch.stack(wave_chunk_list), torch.stack(label_all_list)  # part*duration, part*152
 
 
     @staticmethod
@@ -157,4 +151,4 @@ class MyDataset(Dataset):
     
     def __len__(self):
         return self.df.shape[0]
-        # return 500
+        # return 100

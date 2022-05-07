@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+tqdm
+pandas
+numpy
+matplotlib
+sklearn
+timm
+tensorboard
+colorednoise

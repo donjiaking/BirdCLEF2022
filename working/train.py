@@ -17,6 +17,7 @@ from dataset import MyDataset
 import models
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+# device = 'cpu'
 print(f"Using {device} device")
 
 utils.fix_seed()
@@ -29,6 +30,7 @@ def val_collate_fn(batch):
         imgs.append(sample[0])
         targets.append(sample[1])
     return torch.cat(imgs, 0), torch.cat(targets, 0)
+
 
 def evaluate(model, criterion, val_loader):
     val_loss = 0
@@ -69,7 +71,7 @@ def train(model, model_name, train_loader, val_loader):
 
     criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.Adam(model.parameters(), lr=lr)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-7)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-6)
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
@@ -84,8 +86,6 @@ def train(model, model_name, train_loader, val_loader):
         model.train()
         model.to(device)
         for i, (inputs, labels, weights) in enumerate(train_loader):
-            inputs = inputs[:, :, :-2]  # batch_size*128*936, batch_size*152
-            
             inputs = inputs.to(device)
             labels = labels.to(device)
             weights = weights.to(device)
@@ -128,7 +128,7 @@ def train(model, model_name, train_loader, val_loader):
 
 if __name__ == "__main__":
     train_meta = pd.read_csv(CFG.root_path + 'train_metadata.csv')
-    train_index, val_index = train_test_split(range(0, train_meta.shape[0]), train_size=0.8, random_state=42)
+    train_index, val_index = train_test_split(range(0, train_meta.shape[0]), train_size=0.8, test_size=0.2, random_state=42)
 
     train_dataset = MyDataset(train_meta.iloc[train_index], mode='train')
     val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')
