@@ -38,11 +38,11 @@ def evaluate(model, criterion, val_loader):
     y_pred = []
 
     model.eval()
-    model.to('cpu')  # change to cpu since bs here is not deterministic
+    # model.to('cpu')  # change to cpu since bs here is not deterministic
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
-            inputs_val = inputs_val.to('cpu')
-            labels_val = labels_val.to('cpu')
+            inputs_val = inputs_val.to(device)
+            labels_val = labels_val.to(device)
 
             outputs_val = model(inputs_val)
             loss_val = criterion(outputs_val, labels_val)
@@ -67,11 +67,10 @@ def train(model, model_name, train_loader, val_loader):
     logger = utils.get_logger(f"log_{model_name}.txt")
 
     num_epochs = CFG.num_epochs
-    lr = CFG.lr
 
     criterion = nn.BCEWithLogitsLoss(reduction="none")
-    optimizer = optim.Adam(model.parameters(), lr=lr)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=1e-6)
+    optimizer = optim.AdamW(model.parameters(), lr=CFG.lr, weight_decay=CFG.weight_decay)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=6, eta_min=1e-5)
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
@@ -134,7 +133,7 @@ if __name__ == "__main__":
     val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')
 
     train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=CFG.batch_size, shuffle=False, collate_fn=val_collate_fn)
+    val_loader = DataLoader(val_dataset, batch_size=CFG.val_batch_size, shuffle=False, collate_fn=val_collate_fn)
 
     model = models.Net(CFG.backbone).to(device)
     train(model, CFG.backbone, train_loader, val_loader)

@@ -12,8 +12,6 @@ import torchaudio.transforms as T
 import timm
 import random
 
-from zmq import device
-
 from config import CFG
 import utils
 
@@ -97,19 +95,25 @@ class Net(nn.Module):
         x = self.wav2img(x) 
         x = utils.channel_norm(x)
 
-        x = x[:, None, :, :]  # 6bs*1*f*t
+        x = x.permute(0, 2, 1)
+        x = x[:, None, :, :]  # 6bs*1*t*f
 
         if self.training:
-            b, c, f, t = x.shape
-            x = x.reshape(b // self.factor, c, f, t * self.factor)  # bs*1*f*6t
+            b, c, t, f = x.shape
+            x = x.permute(0, 2, 1, 3)  # 6bs*t*1*f
+            x = x.reshape(b // self.factor, t * self.factor, c, f)  # bs*6t*1*f
             x, y, weights = self.mixup(x, y, weights)
-            x = x.reshape(b, c, f, t)  # 6bs*1*f*t
+
+            x = x.reshape(b, t, c, f)  # 6bs*t*1*f
+            x = x.permute(0, 2, 1, 3)  # 6bs*1*t*f
 
         x = self.backbone(x)
         
         if self.training: 
-            b, c, f, t = x.shape
-            x = x.reshape(b // self.factor, c, f, self.factor * t)
+            b, c, t, f = x.shape
+            x = x.permute(0, 2, 1, 3)  # 6bs*t*1*f
+            x = x.reshape(b // self.factor, self.factor * t, c, f)
+            x = x.permute(0, 2, 1, 3)  # 6bs*1*t*f
 
         x = self.global_pool(x)
         x = x[:, :, 0, 0]

@@ -8,6 +8,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torchaudio.transforms as T
+import matplotlib
 import matplotlib.pyplot as plt
 from sklearn.metrics import f1_score 
 from datetime import datetime
@@ -39,6 +40,8 @@ def fix_seed(seed=42):
 
 
 def plot_history(history, model_name):
+    matplotlib.use('AGG')
+
     plt.plot(history[:,0], history[:,1], label='train_loss')
     plt.plot(history[:,0], history[:,2], label='val_loss')
     plt.xlabel('epoch')
@@ -119,7 +122,7 @@ def write_tensorboard(log_name, train_loss, val_loss, val_f1, epoch=1):
     writer = SummaryWriter(tb_path)
 
     if train_loss:
-        writer.add_scalar("train_loss",train_loss, epoch)
+        writer.add_scalar("train_loss", train_loss, epoch)
     if val_loss:
         writer.add_scalar("val_loss", val_loss, epoch)
     if val_f1:
