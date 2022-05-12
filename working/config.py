@@ -13,7 +13,7 @@ class CFG:
     sample_rate = 32000
     n_fft = 2048
     win_length = 2048
-    hop_length = 512
+    hop_length = 512 
     n_mels = 64
     fmin = 16
     fmax = 16386
