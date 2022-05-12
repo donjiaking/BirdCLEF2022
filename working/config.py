@@ -22,11 +22,11 @@ class CFG:
     segment_test = sample_rate * 5
 
     # Train #
-    num_epochs = 18
+    num_epochs = 20
     lr = 1e-3
     weight_decay = 1e-6
     batch_size = 16
-    val_batch_size = 2
+    val_batch_size = 1
     print_feq = 50
 
     n_classes = 152

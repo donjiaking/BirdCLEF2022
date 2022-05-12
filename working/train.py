@@ -5,6 +5,7 @@ import torch
 from sklearn.model_selection import train_test_split
 import torch.optim as optim
 import torch.nn as nn
+from torch.cuda.amp import GradScaler, autocast
 from torch.utils.data import DataLoader, Dataset
 import torchaudio.transforms as T
 import torchvision.models as models
@@ -17,7 +18,7 @@ from dataset import MyDataset
 import models
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-# device = 'cpu'
+device = 'cpu'
 print(f"Using {device} device")
 
 utils.fix_seed()
@@ -70,7 +71,7 @@ def train(model, model_name, train_loader, val_loader):
 
     criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.AdamW(model.parameters(), lr=CFG.lr, weight_decay=CFG.weight_decay)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=6, eta_min=1e-5)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=18, eta_min=1e-5)
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
