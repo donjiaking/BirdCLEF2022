@@ -71,7 +71,7 @@ def train(model, model_name, train_loader, val_loader):
 
     criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.AdamW(model.parameters(), lr=CFG.lr, weight_decay=CFG.weight_decay)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=18, eta_min=1e-5)
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=1e-5)
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)

@@ -30,7 +30,7 @@ class CFG:
     print_feq = 50
 
     n_classes = 152
-    backbone = 'tf_efficientnetv2_s_in21k'  # 'resnext101_32x8d' 'tf_efficientnetv2_s_in21k'
+    backbone = 'tf_efficientnetv2_s_in21k'  # 'resnext50' 'eca_nfnet_l0'
     pretrained = True
     mix_beta = 1
 
