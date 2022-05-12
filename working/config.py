@@ -1,13 +1,8 @@
 class CFG:
     # Pre-process #
-    noise_p = 0.5
-    volume_p = 0.2
-    normalize_p = 1
-    pitch_p = 0.2
-    noise_level = (0, 0.5)
-    db_limit = 10
-    mean = 0
-    sigma = 0.1
+    BACKGROUND_PATH = "../input/Backgrounds"
+    pitch_shift_p = 0.5
+    gaussianSNR_p = 0.8
 
     # Melspectrogram #
     sample_rate = 32000
