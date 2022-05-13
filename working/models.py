@@ -4,6 +4,7 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 import torchvision.models as models
+from torch.cuda.amp import GradScaler, autocast
 import matplotlib.pyplot as plt
 from torch.nn import functional as F
 from torch.distributions import Beta
@@ -92,8 +93,9 @@ class Net(nn.Module):
         if self.training:
             x = x.reshape(b * self.factor, t // self.factor)
 
-        x = self.wav2img(x) 
-        x = utils.channel_norm(x)
+        with autocast(enabled=False):
+            x = self.wav2img(x) 
+            x = utils.channel_norm(x)
 
         x = x.permute(0, 2, 1)
         x = x[:, None, :, :]  # 6bs*1*t*f

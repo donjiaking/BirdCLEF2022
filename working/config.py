@@ -1,6 +1,8 @@
 class CFG:
     # Pre-process #
-    BACKGROUND_PATH = "../input/Backgrounds"
+    BACKGROUND_PATH1 = "../input/ff1010bird_nocall/nocall"
+    BACKGROUND_PATH2 = "../input/train_soundscapes/nocall"
+    BACKGROUND_PATH3 = "../input/aicrowd2020_noise_30sec/noise_30sec"
     pitch_shift_p = 0.5
     gaussianSNR_p = 0.8
 

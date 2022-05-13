@@ -18,7 +18,7 @@ from dataset import MyDataset
 import models
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-device = 'cpu'
+# device = 'cpu'
 print(f"Using {device} device")
 
 utils.fix_seed()
@@ -39,19 +39,19 @@ def evaluate(model, criterion, val_loader):
     y_pred = []
 
     model.eval()
-    # model.to('cpu')  # change to cpu since bs here is not deterministic
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
+            with autocast():
+                outputs_val = model(inputs_val)
+                loss_val = criterion(outputs_val, labels_val)
+                loss_val = loss_val.mean(dim=1).mean()
 
-            outputs_val = model(inputs_val)
-            loss_val = criterion(outputs_val, labels_val)
-            loss_val = loss_val.mean(dim=1).mean()
             val_loss += loss_val.item()
 
-            y_true.append(labels_val)
-            y_pred.append(outputs_val)
+            y_true.append(labels_val.to('cpu'))
+            y_pred.append(outputs_val.to('cpu'))
     
     y_true = torch.cat(y_true)
     y_pred = torch.cat(y_pred)
@@ -72,6 +72,7 @@ def train(model, model_name, train_loader, val_loader):
     criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.AdamW(model.parameters(), lr=CFG.lr, weight_decay=CFG.weight_decay)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=1e-5)
+    scaler = GradScaler()
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
@@ -91,12 +92,15 @@ def train(model, model_name, train_loader, val_loader):
             weights = weights.to(device)
 
             optimizer.zero_grad()
-            outputs, labels_new, weights_new = model(inputs, labels, weights)
-            loss = criterion(outputs, labels_new)
-            loss = (loss.mean(dim=1) * weights_new) / weights_new.sum()
-            loss = loss.sum()
-            loss.backward()
-            optimizer.step()
+            with autocast():
+                outputs, labels_new, weights_new = model(inputs, labels, weights)
+                loss = criterion(outputs, labels_new)
+                loss = (loss.mean(dim=1) * weights_new) / weights_new.sum()
+                loss = loss.sum()
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
+
             train_loss += loss.item()
 
             if (i + 1) % CFG.print_feq == 0:

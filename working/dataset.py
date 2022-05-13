@@ -17,10 +17,9 @@ from audiomentations import Compose, PitchShift,  AddGaussianSNR, Normalize, Add
 from config import CFG
 import utils
 
-UNIFORM = 0
-GAUSSIAN = 1
-PINK_NOISE = 2
-
+# UNIFORM = 0
+# GAUSSIAN = 1
+# PINK_NOISE = 2
 
 # def _db2float(db: float, amplitude=True):
 #     if amplitude:
@@ -63,7 +62,16 @@ def wave_transforms():
         PitchShift(min_semitones=-4, max_semitones=4, p=CFG.pitch_shift_p),
         AddGaussianSNR(p=CFG.gaussianSNR_p),
         AddBackgroundNoise(
-            sounds_path=CFG.BACKGROUND_PATH, min_snr_in_db=0, max_snr_in_db=2, p=1.0
+            sounds_path=CFG.BACKGROUND_PATH1, min_snr_in_db=0, max_snr_in_db=2, p=0.5
+        ),
+        AddBackgroundNoise(
+            sounds_path=CFG.BACKGROUND_PATH2, min_snr_in_db=0, max_snr_in_db=2, p=0.25
+        ),
+        AddBackgroundNoise(
+            sounds_path=CFG.BACKGROUND_PATH3,
+            min_snr_in_db=0,
+            max_snr_in_db=2,
+            p=0.25,
         ),
         Normalize(p=1.0)
     ]
@@ -131,11 +139,7 @@ class MyDataset(Dataset):
                 label_all_list.append(torch.from_numpy(label_all))
 
             return torch.stack(wave_chunk_list), torch.stack(label_all_list)  # part*duration, part*152
-
-
-    # @staticmethod
-    
-
+            
     
     def __len__(self):
         return self.df.shape[0]
