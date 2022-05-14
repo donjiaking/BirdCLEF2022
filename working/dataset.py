@@ -11,7 +11,6 @@ from torch.utils.data import DataLoader, Dataset
 import matplotlib.pyplot as plt
 import torchaudio
 import torchaudio.transforms as T
-import audiomentations
 from audiomentations import Compose, PitchShift,  AddGaussianSNR, Normalize, AddBackgroundNoise
 
 from config import CFG
@@ -59,8 +58,8 @@ import utils
 def wave_transforms():
     transforms = Compose(
     [
-        PitchShift(min_semitones=-4, max_semitones=4, p=CFG.pitch_shift_p),
         AddGaussianSNR(p=CFG.gaussianSNR_p),
+        # PitchShift(min_semitones=-4, max_semitones=4, p=CFG.pitch_shift_p),
         AddBackgroundNoise(
             sounds_path=CFG.BACKGROUND_PATH1, min_snr_in_db=0, max_snr_in_db=2, p=0.5
         ),
@@ -102,6 +101,13 @@ class MyDataset(Dataset):
         for label_temp in label:  
             label_all += (label_temp == self.all_bird)
         label_all = np.clip(label_all, 0, 1)
+
+        # # treat primary and secondary label differently
+        # label_all = np.zeros(CFG.n_classes)
+        # for bird in eval(row['secondary_labels']):
+        #     label_all[np.argwhere(self.all_bird == bird)] = 0.6
+        # for bird in [row['primary_label']]:
+        #     label_all[np.argwhere(self.all_bird == bird)] = 1
 
         waveform, _ = torchaudio.load(filepath=CFG.input_path+row['filename'])
         len_wav = waveform.shape[1]

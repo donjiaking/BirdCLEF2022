@@ -93,9 +93,8 @@ class Net(nn.Module):
         if self.training:
             x = x.reshape(b * self.factor, t // self.factor)
 
-        with autocast(enabled=False):
-            x = self.wav2img(x) 
-            x = utils.channel_norm(x)
+        x = self.wav2img(x) 
+        x = utils.channel_norm(x)
 
         x = x.permute(0, 2, 1)
         x = x[:, None, :, :]  # 6bs*1*t*f
