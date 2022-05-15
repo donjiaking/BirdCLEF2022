@@ -41,8 +41,9 @@ def evaluate(model, criterion, val_loader):
     model.eval()
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
-            if inputs_val.shape[0] > 120:
-                inputs_val = inputs_val[:120,:]
+            if inputs_val.shape[0] > 150:
+                inputs_val = inputs_val[:150,:]
+                labels_val = inputs_val[:150,:]
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
             outputs_val = model(inputs_val)
