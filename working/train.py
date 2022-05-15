@@ -43,7 +43,7 @@ def evaluate(model, criterion, val_loader):
         for i, (inputs_val, labels_val) in enumerate(val_loader):
             if inputs_val.shape[0] > 150:
                 inputs_val = inputs_val[:150,:]
-                labels_val = inputs_val[:150,:]
+                labels_val = labels_val[:150,:]
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
             outputs_val = model(inputs_val)
