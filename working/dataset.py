@@ -96,18 +96,12 @@ class MyDataset(Dataset):
     def __getitem__(self, index):
         row = self.df.iloc[index]
 
-        label = [row['primary_label']] + eval(row['secondary_labels'])
+        # treat primary and secondary label differently
         label_all = np.zeros(CFG.n_classes)
-        for label_temp in label:  
-            label_all += (label_temp == self.all_bird)
-        label_all = np.clip(label_all, 0, 1)
-
-        # # treat primary and secondary label differently
-        # label_all = np.zeros(CFG.n_classes)
-        # for bird in eval(row['secondary_labels']):
-        #     label_all[np.argwhere(self.all_bird == bird)] = 0.6
-        # for bird in [row['primary_label']]:
-        #     label_all[np.argwhere(self.all_bird == bird)] = 1
+        for bird in eval(row['secondary_labels']):
+            label_all[np.argwhere(self.all_bird == bird)] = 1  # 0.6 0.3
+        for bird in [row['primary_label']]:
+            label_all[np.argwhere(self.all_bird == bird)] = 1
 
         waveform, _ = torchaudio.load(filepath=CFG.input_path+row['filename'])
         len_wav = waveform.shape[1]

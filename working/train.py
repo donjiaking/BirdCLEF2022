@@ -5,7 +5,7 @@ import torch
 from sklearn.model_selection import train_test_split
 import torch.optim as optim
 import torch.nn as nn
-from torch.cuda.amp import GradScaler, autocast
+from transformers import get_cosine_schedule_with_warmup
 from torch.utils.data import DataLoader, Dataset
 import torchaudio.transforms as T
 import torchvision.models as models
@@ -35,12 +35,18 @@ def val_collate_fn(batch):
 
 def evaluate(model, criterion, val_loader):
     val_loss = 0
+    val_iters = len(val_loader)
+
     y_true = []
     y_pred = []
 
     model.eval()
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
+            if(inputs_val.shape[0] > 120):  # cut if too large
+                inputs_val = inputs_val[:120]
+                labels_val = labels_val[:120]
+
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
             outputs_val = model(inputs_val)
@@ -49,11 +55,11 @@ def evaluate(model, criterion, val_loader):
 
             val_loss += loss_val.item()
 
-            y_true.append(labels_val.to('cpu'))
-            y_pred.append(outputs_val.to('cpu'))
-    
+            y_true.append(labels_val)
+            y_pred.append(outputs_val)
+
     y_true = torch.cat(y_true)
-    # y_true[y_true == 0.6] = 1
+    # y_true[y_true == 0.3] = 1
     y_pred = torch.cat(y_pred)
     y_pred = torch.sigmoid(y_pred)
     y_pred[y_pred >= CFG.binary_th] = 1
@@ -61,7 +67,7 @@ def evaluate(model, criterion, val_loader):
     
     val_f1 = utils.get_f1_score(y_true.cpu().numpy(), y_pred.cpu().numpy())
 
-    return val_loss, val_f1
+    return val_loss / val_iters, val_f1
 
 
 def train(model, model_name, train_loader, val_loader):
@@ -71,11 +77,15 @@ def train(model, model_name, train_loader, val_loader):
 
     criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.AdamW(model.parameters(), lr=CFG.lr, weight_decay=CFG.weight_decay)
-    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=1e-5)
+    # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=1e-5)
+    scheduler = get_cosine_schedule_with_warmup(
+        optimizer,
+        num_warmup_steps = CFG.warmup_epochs * len(train_loader),
+        num_training_steps = num_epochs * len(train_loader),
+    )
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
-    val_iters = len(val_loader)
 
     best_loss = 1000
     best_f1 = 0
@@ -97,17 +107,18 @@ def train(model, model_name, train_loader, val_loader):
             loss = loss.sum()
             loss.backward()
             optimizer.step()
+            scheduler.step()
 
             train_loss += loss.item()
 
             if (i + 1) % CFG.print_feq == 0:
                 logger.info(f'Epoch[{epoch + 1}/{num_epochs}] Iter[{i + 1}/{train_iters}] : train_loss {train_loss/(i + 1):.5f}')
 
-        scheduler.step()
+            del loss, outputs
+
         val_loss, val_f1 = evaluate(model, criterion, val_loader)
         
         train_loss = train_loss / train_iters
-        val_loss = val_loss / val_iters
         logger.info(f'== Epoch [{(epoch + 1)}/{num_epochs}]: train_loss {train_loss:.5f}, val_loss {val_loss:.5f}, val_f1 {val_f1:.5f} ')
         utils.write_tensorboard(f"log_{model_name}_batch{CFG.batch_size}_lr{CFG.lr}",train_loss,val_loss,val_f1,epoch+1)
         item = np.array([epoch + 1, train_loss, val_loss, val_f1])
@@ -134,8 +145,8 @@ if __name__ == "__main__":
     train_dataset = MyDataset(train_meta.iloc[train_index], mode='train')
     val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')
 
-    train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=CFG.val_batch_size, shuffle=False, collate_fn=val_collate_fn)
+    train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, num_workers=4, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=CFG.val_batch_size, num_workers=4, shuffle=False, collate_fn=val_collate_fn)
 
     model = models.Net(CFG.backbone).to(device)
     train(model, CFG.backbone, train_loader, val_loader)

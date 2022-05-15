@@ -20,14 +20,15 @@ class CFG:
 
     # Train #
     num_epochs = 20
+    warmup_epochs = 4
     lr = 1e-3
     weight_decay = 1e-6
     batch_size = 16
     val_batch_size = 1
-    print_feq = 50
+    print_feq = 100
 
     n_classes = 152
-    backbone = 'tf_efficientnetv2_s_in21k'  # 'resnext50' 'eca_nfnet_l0'
+    backbone = 'tf_efficientnetv2_s_in21k'  # 'resnext50' 'eca_nfnet_l0' 'convnext'
     pretrained = True
     mix_beta = 1
 
