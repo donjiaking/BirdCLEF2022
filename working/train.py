@@ -149,6 +149,7 @@ if __name__ == "__main__":
     val_loader = DataLoader(val_dataset, batch_size=CFG.val_batch_size, num_workers=4, shuffle=False, collate_fn=val_collate_fn)
 
     model = models.Net(CFG.backbone).to(device)
+    # utils.load_model(model, model_name='')
     train(model, CFG.backbone, train_loader, val_loader)
 
     # modelA = models.ResNet50Bird(152).to(device)
