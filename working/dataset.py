@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader, Dataset
 import matplotlib.pyplot as plt
 import torchaudio
 import torchaudio.transforms as T
-from audiomentations import Compose, PitchShift,  AddGaussianSNR, Normalize, AddBackgroundNoise
+from audiomentations import Compose, GainTransition,  AddGaussianSNR, Normalize, AddBackgroundNoise
 
 from config import CFG
 import utils
@@ -59,6 +59,7 @@ def wave_transforms():
     transforms = Compose(
     [
         AddGaussianSNR(p=CFG.gaussianSNR_p),
+        GainTransition(p=CFG.gainTransition_p,min_gain_in_db=-2,max_gain_in_db= 2, min_duration = 0.2, max_duration = 4.5),
         # PitchShift(min_semitones=-4, max_semitones=4, p=CFG.pitch_shift_p),
         AddBackgroundNoise(
             sounds_path=CFG.BACKGROUND_PATH1, min_snr_in_db=0, max_snr_in_db=2, p=0.5

@@ -41,6 +41,8 @@ def evaluate(model, criterion, val_loader):
     model.eval()
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
+            if inputs_val.shape[0] > 120:
+                inputs_val = inputs_val[:120,:]
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
             outputs_val = model(inputs_val)
@@ -134,10 +136,11 @@ if __name__ == "__main__":
     train_dataset = MyDataset(train_meta.iloc[train_index], mode='train')
     val_dataset = MyDataset(train_meta.iloc[val_index], mode='val')
 
-    train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True)
+    train_loader = DataLoader(train_dataset, batch_size=CFG.batch_size, shuffle=True, num_workers=8)
     val_loader = DataLoader(val_dataset, batch_size=CFG.val_batch_size, shuffle=False, collate_fn=val_collate_fn)
 
     model = models.Net(CFG.backbone).to(device)
+    # utils.load_model(model, model_name='')
     train(model, CFG.backbone, train_loader, val_loader)
 
     # modelA = models.ResNet50Bird(152).to(device)
