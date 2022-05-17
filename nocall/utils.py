@@ -146,7 +146,7 @@ def get_result(result_df):
     labels = result_df[CFG.target_col].values
     score = get_score(labels, preds)
     # LOGGER.info(f'Score: {score:<.5f}')
-    print('Score: %.5f}' % score)
+    print('Score: {%.5f}' % score)
 
 
 def get_confusion_mat(result_df):

@@ -13,7 +13,7 @@ class CFG:
     power = 2
 
     # Model #
-    model_name = 'resnext50_32x4d'
+    model_name = 'tf_efficientnetv2_s_in21k'  # 'resnet50'
     target_size = 2
     pretrained = True
 
