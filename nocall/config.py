@@ -20,7 +20,7 @@ class CFG:
     # Training #
     num_workers = 4
     epochs = 15
-    lr = 1e-4
+    lr = 1e-3
     print_freq = 50  # print result every 50 batches    
     batch_size = 16
 
@@ -34,7 +34,7 @@ class CFG:
 
     # Optional #
     n_fold = 5
-    weight_decay = 1e-5
+    weight_decay = 1e-6
     max_grad_norm = 100
     # seed = 7    
     

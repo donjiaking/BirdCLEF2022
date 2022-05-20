@@ -30,10 +30,15 @@ class CustomResNext(nn.Module):
     def __init__(self, model_name, pretrained=True):
         super().__init__()
         self.model = timm.create_model(model_name, pretrained=pretrained, num_classes=0, global_pool="", in_chans=1)
-        n_features = self.model.feature_info[-1]["num_chs"]  # 2048? ; .fc.in_features
-        # print('n_features in resnext:', n_features)
+        
+        if "efficientnet" in model_name:
+            n_features = self.model.num_features
+        else:
+            n_features = self.model.feature_info[-1]["num_chs"]
+        
         self.global_pool = GeM()
         self.linear = nn.Linear(n_features, CFG.target_size)
+
         self.wav2img = nn.Sequential(get_mel_transform(), T.AmplitudeToDB(top_db=None))
 
     def forward(self, x):

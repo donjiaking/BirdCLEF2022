@@ -8,5 +8,5 @@ working/tb_logs
 working/foo.py
 dx_note.ipynb
 working/solutions
-nocall/run.slurm
+**/run.slurm
 nocall/results

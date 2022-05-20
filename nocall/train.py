@@ -1,4 +1,3 @@
-# from matplotlib import transforms
 from utils import *
 from config import CFG
 from dataset import *
@@ -20,18 +19,15 @@ def train_fn(train_loader, model, criterion, optimizer, epoch, scheduler, device
         # measure data loading time
         data_time.update(time.time() - end)
         
-        #load data
-        images = images.to(device)
-        # print(images.shape)
-        # print(images)
-        labels = labels.to(device)
-        # print(labels.shape)
+        # load data
+        images = images.to(device)  # torch.Size([16, 160000])
+        labels = labels.to(device)  # torch.Size([16])
         batch_size = labels.size(0)
         
-        #forward pass
-        y_preds = model(images.to(torch.float32))
-        
-        #calculate loss
+        # forward pass
+        y_preds = model(images.to(torch.float32))  # torch.Size([16, 2])
+
+        # calculate loss
         loss = criterion(y_preds, labels)        
         
         # record loss
@@ -87,11 +83,16 @@ def valid_fn(valid_loader, model, criterion, device):
         with torch.no_grad():
             y_preds = model(images.to(torch.float32))
         
+        print("y_preds.shape =", y_preds.shape)
+        print(y_preds[0] + y_preds[1] == 1)
+
         loss = criterion(y_preds, labels)
         losses.update(loss.item(), batch_size)        
         
         # record accuracy
-        preds.append(y_preds.softmax(1).to('cpu').numpy())
+        y_pred = y_preds.softmax(1).to('cpu').numpy()
+        print("y_pred.shape =", y_pred.shape)
+        preds.append(y_pred)
         
         # measure elapsed time
         batch_time.update(time.time() - end)
@@ -184,7 +185,7 @@ def train_loop(train_meta, train_idx, valid_idx):
         scheduler.step()
 
         # scoring
-        score = get_score(valid_labels, preds.argmax(1))
+        score = get_score(valid_labels, preds.argmax(1))  # argmax(dim=1) returns the column (0 / 1) having the max value corresponding to each row
 
         elapsed = time.time() - start_time
 
@@ -201,9 +202,9 @@ def train_loop(train_meta, train_idx, valid_idx):
             # LOGGER.info(f'Epoch {epoch + 1} - Save Best Score: {best_score:.4f} Model')
             print('Epoch {%d} - Save Best Score: {%.4f} Model' % (epoch + 1, best_score))
             torch.save({'model': model.state_dict(), 'preds': preds},
-                        './{%s}_best.pth' % CFG.model_name)
+                        './{%s}_best.pt' % CFG.model_name)
     
-    check_point = torch.load('./{%s}_best.pth' % CFG.model_name)
+    check_point = torch.load('./{%s}_best.pt' % CFG.model_name)
     valid_folds[[str(c) for c in range(CFG.target_size)]] = check_point['preds']
     valid_folds['preds'] = check_point['preds'].argmax(1)
 

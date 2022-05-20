@@ -53,7 +53,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 def get_score(y_true, y_pred):
-    return accuracy_score(y_true, y_pred)
+    return accuracy_score(y_true, y_pred)  # prediction accuracy
 
 
 def get_confusion_matrix(y_true, y_pred):
