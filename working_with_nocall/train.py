@@ -25,7 +25,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using {device} device")
 
 nocall_detector = models.NocallNet(CFG.nocall_backbone).to(device)
-nocall_detector.load_state_dict(torch.load(CFG.nocall_detector_path), False)  # don't know whether strict=False will cause issues
+nocall_detector.load_state_dict(torch.load(CFG.nocall_detector_path))  # don't know whether strict=False will cause issues
 nocall_detector.eval()
 
 
@@ -33,12 +33,14 @@ def labels_transform(inputs, labels):
     # print("In labels_transform:")
     output = []
     bs = labels.shape[0]  # 16
-    probs = nocall_detector(inputs)  # torch.Size([16, 2])
-    # print("probs[1].shape =",probs[1].shape)
-
+    with torch.no_grad():
+        probs = nocall_detector(inputs)  # torch.Size([16, 2])
+    
+    probs = probs.softmax(1)
+    
     for batch in range(bs):
         label = labels[batch]
-        print("label.shape =", label.shape)
+        # print("label.shape =", label.shape)
         for i in range(len(label)):
             label[i] *= probs[batch][1]  # 1's probility
         output.append(label)
@@ -58,8 +60,10 @@ def val_collate_fn(batch):
 
 
 def evaluate(model, criterion, val_loader):
+    print("in validation")
     val_loss = 0
     val_iters = len(val_loader)
+    print("val_iters =", val_iters)
 
     y_true = []
     y_pred = []
@@ -68,16 +72,16 @@ def evaluate(model, criterion, val_loader):
     model.eval()
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
+            # note that every batch's size is different
             if inputs_val.shape[0] > 120:  # cut if too large
                 inputs_val = inputs_val[:120]
                 labels_val = labels_val[:120]
 
-            inputs_val = inputs_val.to(device)
-            labels_val = labels_val.to(device)
-            outputs_val = model(inputs_val)
+            inputs_val = inputs_val.to(device)  # torch.Size([ts, 160000])
+            labels_val = labels_val.to(device)  # torch.Size([ts, 152])
+            outputs_val = model(inputs_val)  # torch.Size([ts, 152])
 
-            nocall_res = nocall_detector(inputs_val)
-            print("nocall_res.shape =", nocall_res.shape)
+            nocall_res = nocall_detector(inputs_val)  # torch.Size([ts, 2])
 
             loss_val = criterion(outputs_val, labels_val)
             loss_val = loss_val.mean(dim=1).mean()
@@ -87,16 +91,19 @@ def evaluate(model, criterion, val_loader):
             y_true.append(labels_val)
             y_pred.append(outputs_val)
 
-            nocall_pred.append(nocall_res[:, 1])  # only preserve 1(is a call)'s probility
+            nocall_pred.append(nocall_res)  # only preserve 1(is a call)'s probility
 
-    y_true = torch.cat(y_true)
-    # y_true[y_true == 0.3] = 1
+    y_true = torch.cat(y_true)  # torch.Size([28411, 152])
     y_pred = torch.cat(y_pred)
-    y_pred = torch.sigmoid(y_pred)
+    y_pred = torch.sigmoid(y_pred)  # torch.Size([28411, 152])
+
     y_pred[y_pred >= CFG.binary_th] = 1
     y_pred[y_pred < CFG.binary_th] = 0
 
-    y_pred[nocall_pred <= CFG.nocall_th] = 0  # set those with high prob of nocall to 0
+    nocall_pred = torch.cat(nocall_pred)  # torch.Size([28411, 2])
+    for i in range(y_pred.shape[0]):
+        if nocall_pred[i][1] <= CFG.nocall_th:  # call's probility < th
+            y_pred[i, :] = 0  # set those with high prob of nocall to 0
     
     val_f1 = get_f1_score(y_true.cpu().numpy(), y_pred.cpu().numpy())
 
@@ -119,6 +126,9 @@ def train(model, model_name, train_loader, val_loader):
     history = np.zeros((0, 4))
 
     train_iters = len(train_loader)
+    print("train_iters =", train_iters)
+
+    # evaluate(model, criterion, val_loader)  # for debugging
 
     best_loss = 1000
     best_f1 = 0

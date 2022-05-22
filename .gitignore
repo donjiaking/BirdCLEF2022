@@ -10,3 +10,5 @@ dx_note.ipynb
 working/solutions
 **/run.slurm
 nocall/results
+working_with_nocall/models
+working_with_nocall/tb_logs

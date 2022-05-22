@@ -81,24 +81,22 @@ def valid_fn(valid_loader, model, criterion, device):
 
         # compute loss
         with torch.no_grad():
-            y_preds = model(images.to(torch.float32))
-        
-        print("y_preds.shape =", y_preds.shape)
-        print(y_preds[0] + y_preds[1] == 1)
+            y_preds = model(images.to(torch.float32))  # torch.Size([16, 2])
+        # note that at this moment y_preds[i][0] + y_preds[i][1] != 1
 
         loss = criterion(y_preds, labels)
         losses.update(loss.item(), batch_size)        
         
         # record accuracy
-        y_pred = y_preds.softmax(1).to('cpu').numpy()
-        print("y_pred.shape =", y_pred.shape)
+        y_pred = y_preds.softmax(1).to('cpu').numpy()  # (16, 2); softmax: normalization (dim=1)
+        # now y_pred[i][0] + y_pred[i][1] != 1
         preds.append(y_pred)
         
         # measure elapsed time
         batch_time.update(time.time() - end)
         end = time.time()
         
-        if step % CFG.print_freq == 0 or step == (len(valid_loader) - 1):
+        if (step % CFG.print_freq == 0 and step != 0) or step == len(valid_loader) - 1:
             print('EVAL: [{0}/{1}] '
                   'Data {data_time.val:.3f} ({data_time.avg:.3f}) '
                   'Elapsed {remain:s} '
@@ -172,7 +170,7 @@ def train_loop(train_meta, train_idx, valid_idx):
     scores = []
     
     for epoch in range(CFG.epochs):
-        
+        # in every epoch, do training and validation
         start_time = time.time()
         
         # train
@@ -180,12 +178,12 @@ def train_loop(train_meta, train_idx, valid_idx):
         
         # eval
         avg_val_loss, preds = valid_fn(valid_loader, model, criterion, device)
-        valid_labels = valid_folds[CFG.target_col].values
+        valid_labels = valid_folds[CFG.target_col].values  # true labels
         
         scheduler.step()
 
         # scoring
-        score = get_score(valid_labels, preds.argmax(1))  # argmax(dim=1) returns the column (0 / 1) having the max value corresponding to each row
+        score = get_score(valid_labels, preds.argmax(1))  # argmax(dim=1) returns the column (0 / 1) having the max value corresponding to each row, i.e. final label
 
         elapsed = time.time() - start_time
 
@@ -201,12 +199,15 @@ def train_loop(train_meta, train_idx, valid_idx):
             best_score = score
             # LOGGER.info(f'Epoch {epoch + 1} - Save Best Score: {best_score:.4f} Model')
             print('Epoch {%d} - Save Best Score: {%.4f} Model' % (epoch + 1, best_score))
-            torch.save({'model': model.state_dict(), 'preds': preds},
-                        './{%s}_best.pt' % CFG.model_name)
+            # torch.save({'model': model.state_dict(), 'preds': preds}, './{%s}_best.pt' % CFG.model_name)
+            torch.save(model.state_dict(), './%s_best.pt' % CFG.model_name)
+            torch.save(preds, './preds.pt')
     
-    check_point = torch.load('./{%s}_best.pt' % CFG.model_name)
-    valid_folds[[str(c) for c in range(CFG.target_size)]] = check_point['preds']
-    valid_folds['preds'] = check_point['preds'].argmax(1)
+    # last, fill the prediction results into .csv file
+    # check_point = torch.load('./%s_best.pt' % CFG.model_name)
+    final_preds = torch.load('./preds.pt')
+    valid_folds[[str(c) for c in range(CFG.target_size)]] = final_preds
+    valid_folds['preds'] = final_preds.argmax(1)  # argmax(dim=1) returns the column (0 / 1) having the max value corresponding to each row, i.e. final label
 
     return valid_folds, scores
 

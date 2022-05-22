@@ -18,7 +18,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using {device} device")
 
 nocall_detector = models.NocallNet(CFG.nocall_backbone).to(device)
-nocall_detector.load_state_dict(torch.load(CFG.nocall_detector_path), False)  # don't know whether strict=False will cause issues
+nocall_detector.load_state_dict(torch.load(CFG.nocall_detector_path))  # don't know whether strict=False will cause issues
 nocall_detector.eval()
 
 test_meta = pd.read_csv(CFG.root_path + 'test.csv')

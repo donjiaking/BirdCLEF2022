@@ -19,7 +19,7 @@ class CFG:
 
     # Training #
     num_workers = 4
-    epochs = 15
+    epochs = 13
     lr = 1e-3
     print_freq = 50  # print result every 50 batches    
     batch_size = 16
