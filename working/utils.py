@@ -40,6 +40,9 @@ def fix_seed(seed=42):
 
 
 def plot_history(history, model_name):
+    if(not os.path.exists("plots")):
+        os.mkdir("plots")
+
     matplotlib.use('AGG')
 
     plt.plot(history[:,0], history[:,1], label='train_loss')
@@ -90,22 +93,21 @@ def get_logger(log_name):
     if(not os.path.exists("logs")):
         os.mkdir("logs")
     log_path = "logs/"+log_name
-    with open(log_path, "w") as file:
+    with open(log_path, mode="w", encoding='UTF-8') as file:
         file.write(f"[Log Created at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n")
 
     logger = logging.getLogger()
-    logger.setLevel(level=logging.DEBUG)
+    logger.setLevel(level=logging.INFO)
 
     file_handler = logging.FileHandler(log_path, mode='a', encoding='UTF-8')
-    file_handler.setLevel(logging.DEBUG)
-    
-    # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(message)s')
     file_handler.setFormatter(formatter)
-
+    
+    logger.addHandler(file_handler)
+    
     # console_handler = logging.StreamHandler()
     # console_handler.setLevel(logging.DEBUG)
-    logger.addHandler(file_handler)
     # logger.addHandler(console_handler)
 
     return logger

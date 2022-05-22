@@ -43,9 +43,9 @@ def evaluate(model, criterion, val_loader):
     model.eval()
     with torch.no_grad():
         for i, (inputs_val, labels_val) in enumerate(val_loader):
-            if(inputs_val.shape[0] > 120):  # cut if too large
-                inputs_val = inputs_val[:120]
-                labels_val = labels_val[:120]
+            if(inputs_val.shape[0] > 64):  # cut if too large
+                inputs_val = inputs_val[:64]
+                labels_val = labels_val[:64]
 
             inputs_val = inputs_val.to(device)
             labels_val = labels_val.to(device)
@@ -74,18 +74,18 @@ def train(model, model_name, train_loader, val_loader):
     logger = utils.get_logger(f"log_{model_name}.txt")
 
     num_epochs = CFG.num_epochs
+    train_iters = len(train_loader)
 
     criterion = nn.BCEWithLogitsLoss(reduction="none")
     optimizer = optim.AdamW(model.parameters(), lr=CFG.lr, weight_decay=CFG.weight_decay)
-    # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=1e-5)
-    scheduler = get_cosine_schedule_with_warmup(
-        optimizer,
-        num_warmup_steps = CFG.warmup_epochs * len(train_loader),
-        num_training_steps = num_epochs * len(train_loader),
-    )
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=CFG.t_max*train_iters, eta_min=1e-6)
+    # scheduler = get_cosine_schedule_with_warmup(
+    #     optimizer,
+    #     num_warmup_steps = CFG.warmup_epochs * len(train_loader),
+    #     num_training_steps = num_epochs * len(train_loader),
+    # )
     history = np.zeros((0, 4))
 
-    train_iters = len(train_loader)
 
     best_loss = 1000
     best_f1 = 0
@@ -149,7 +149,6 @@ if __name__ == "__main__":
     val_loader = DataLoader(val_dataset, batch_size=CFG.val_batch_size, num_workers=4, shuffle=False, collate_fn=val_collate_fn)
 
     model = models.Net(CFG.backbone).to(device)
-    # utils.load_model(model, model_name='')
     train(model, CFG.backbone, train_loader, val_loader)
 
     # modelA = models.ResNet50Bird(152).to(device)

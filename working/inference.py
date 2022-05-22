@@ -28,22 +28,22 @@ file_list = [f.split('.')[0] for f in sorted(os.listdir(CFG.test_audio_path))]
 print('Number of test soundscapes:', len(file_list))
 
 
-def get_wave_list(filepath, segment_test):
+def get_wave_list(filepath):
     wave_chunk_list = []
 
     waveform, _ = torchaudio.load(filepath=filepath)
     len_wav = waveform.shape[1]
     waveform = waveform[0,:].reshape(1, len_wav) # stereo->mono mono->mono
 
-    chunks = math.ceil(len_wav / segment_test)
-    end_times = [(i+1)*5 for i in range(chunks)]
+    chunks = math.ceil(len_wav / CFG.segment_test)
+    end_times = [(i+1)*(CFG.segment_test//CFG.sample_rate) for i in range(chunks)]
 
     for end_time in end_times:
         if(end_time*CFG.sample_rate >= len_wav):
             pad_len = end_time*CFG.sample_rate - len_wav
-            waveform_chunk = F.pad(waveform, (0, pad_len))[0,end_time*CFG.sample_rate-segment_test:end_time*CFG.sample_rate]
+            waveform_chunk = F.pad(waveform, (0, pad_len))[0,end_time*CFG.sample_rate-CFG.segment_test:end_time*CFG.sample_rate]
         else:
-            waveform_chunk = waveform[0,end_time*CFG.sample_rate-segment_test:end_time*CFG.sample_rate]
+            waveform_chunk = waveform[0,end_time*CFG.sample_rate-CFG.segment_test:end_time*CFG.sample_rate]
     
         wave_chunk_list.append(waveform_chunk)
 
@@ -51,14 +51,14 @@ def get_wave_list(filepath, segment_test):
 
 
 def test(model):
-    pred = {'row_id': [], 'target': []}
+    pred = {'row_id': [], 'target': [], 'scores': []}
 
     model.eval()
     with torch.no_grad():
         for file_id in file_list:
             path = CFG.test_audio_path + file_id + '.ogg'
 
-            wave_chunk_list, end_times = get_wave_list(path, CFG.segment_test)
+            wave_chunk_list, end_times = get_wave_list(path)
             wave_chunk_list = torch.stack(wave_chunk_list).to(device)
 
             outputs = model(wave_chunk_list)
@@ -70,9 +70,11 @@ def test(model):
                     row_id = file_id + '_' + bird + '_' + str(end_time)
                     pred['row_id'].append(row_id)
                     pred['target'].append(True if score > CFG.binary_th else False)
-
+                    pred['scores'].append(score.item())
+    
     results = pd.DataFrame(pred, columns = ['row_id', 'target'])
-    return results
+    results_with_score = pd.DataFrame(pred, columns = ['row_id', 'target', 'scores'])
+    return results, results_with_score
 
 
 def submit(results):
@@ -90,7 +92,7 @@ if __name__ == "__main__":
     model = models.Net(CFG.backbone).to(device)
     utils.load_model(model, model_name='')
 
-    results = test(model)
-    # print(results) 
+    results, results_with_score = test(model)
+    print(results_with_score) 
     submit(results)
 

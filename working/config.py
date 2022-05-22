@@ -1,5 +1,14 @@
 class CFG:
     # Pre-process #
+    noise_p = 0.5
+    volume_p = 0.2
+    normalize_p = 1
+    noise_level = (0, 0.5)
+    db_limit = 10
+    mean = 0
+    sigma = 0.1
+    pitch_p = 0.2
+
     BACKGROUND_PATH1 = "../input/ff1010bird_nocall/nocall"
     BACKGROUND_PATH2 = "../input/train_soundscapes/nocall"
     BACKGROUND_PATH3 = "../input/aicrowd2020_noise_30sec/noise_30sec"
@@ -19,8 +28,9 @@ class CFG:
     segment_test = sample_rate * 5
 
     # Train #
-    num_epochs = 20
+    num_epochs = 25
     warmup_epochs = 4
+    t_max = 5
     lr = 1e-3
     weight_decay = 1e-6
     batch_size = 16
@@ -28,7 +38,7 @@ class CFG:
     print_feq = 100
 
     n_classes = 152
-    backbone = 'tf_efficientnetv2_s_in21k'  # 'resnext50' 'eca_nfnet_l0' 'convnext'
+    backbone = 'tf_efficientnetv2_s_in21k'  # 'seresnext26t_32x4d ' 'eca_nfnet_l0'
     pretrained = True
     mix_beta = 1
 

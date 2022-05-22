@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sqlalchemy import true
 import torch
 import torch.optim as optim
 import torch.nn as nn
@@ -83,6 +84,12 @@ class Net(nn.Module):
 
         self.global_pool = GeM()
         self.linear = nn.Linear(self.backbone_out, CFG.n_classes)
+        # self.linear = nn.Sequential(
+        #     nn.Dropout(p=0.2),
+        #     nn.Linear(self.backbone_out, 512),
+        #     nn.ReLU(inplace=True),
+        #     nn.Linear(512, CFG.n_classes)
+        # )
 
         self.factor = int(CFG.segment_train / CFG.segment_test)  # int(30.0 / 5.0)
 
@@ -112,9 +119,9 @@ class Net(nn.Module):
         
         if self.training: 
             b, c, t, f = x.shape
-            x = x.permute(0, 2, 1, 3)  # 6bs*t*1*f
+            x = x.permute(0, 2, 1, 3)  # 6bs*t*c*f
             x = x.reshape(b // self.factor, self.factor * t, c, f)
-            x = x.permute(0, 2, 1, 3)  # 6bs*1*t*f
+            x = x.permute(0, 2, 1, 3)  # bs*c*6t*f
 
         x = self.global_pool(x)
         x = x[:, :, 0, 0]
