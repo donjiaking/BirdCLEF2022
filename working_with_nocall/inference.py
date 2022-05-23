@@ -55,7 +55,7 @@ def get_wave_list(filepath, segment_test):
 
 
 def test(model):
-    pred = {'row_id': [], 'target': []}
+    pred = {'row_id': [], 'target': [], 'call_prob': []}
 
     model.eval()
     with torch.no_grad():
@@ -68,7 +68,10 @@ def test(model):
             outputs = model(wave_chunk_list)
             outputs_test = torch.sigmoid(outputs)
 
-            nocall_res = nocall_detector(wave_chunk_list)
+            with torch.no_grad():
+                nocall_res = nocall_detector(wave_chunk_list)
+            
+            nocall_res = nocall_res.softmax(1).to('cpu').numpy()
 
             for idx, end_time in enumerate(end_times):
                 call_prob = nocall_res[idx][1]  # 1(has a call)'s probility
@@ -78,8 +81,9 @@ def test(model):
                     row_id = file_id + '_' + bird + '_' + str(end_time)
                     pred['row_id'].append(row_id)
                     pred['target'].append(True if score > CFG.binary_th and call_prob > CFG.nocall_th else False)
+                    pred['call_prob'].append(call_prob)
 
-    results = pd.DataFrame(pred, columns = ['row_id', 'target'])
+    results = pd.DataFrame(pred, columns = ['row_id', 'target', 'call_prob'])
     return results
 
 
@@ -96,7 +100,7 @@ def submit(results):
 
 if __name__ == "__main__":
     model = models.Net(CFG.backbone).to(device)
-    load_model(model, model_name='')
+    load_model(model, model_name='tf_efficientnetv2_s_in21k_best_f1')  # tf_efficientnetv2_s_in21k_best_f1
 
     results = test(model)
     # print(results) 

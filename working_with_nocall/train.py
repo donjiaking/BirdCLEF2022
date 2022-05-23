@@ -36,7 +36,7 @@ def labels_transform(inputs, labels):
     with torch.no_grad():
         probs = nocall_detector(inputs)  # torch.Size([16, 2])
     
-    probs = probs.softmax(1)
+    probs = probs.softmax(1)  # normalization
     
     for batch in range(bs):
         label = labels[batch]
@@ -60,10 +60,8 @@ def val_collate_fn(batch):
 
 
 def evaluate(model, criterion, val_loader):
-    print("in validation")
     val_loss = 0
     val_iters = len(val_loader)
-    print("val_iters =", val_iters)
 
     y_true = []
     y_pred = []
@@ -82,6 +80,7 @@ def evaluate(model, criterion, val_loader):
             outputs_val = model(inputs_val)  # torch.Size([ts, 152])
 
             nocall_res = nocall_detector(inputs_val)  # torch.Size([ts, 2])
+            nocall_res = nocall_res.softmax(1)  # normalization
 
             loss_val = criterion(outputs_val, labels_val)
             loss_val = loss_val.mean(dim=1).mean()
