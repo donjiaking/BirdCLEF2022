@@ -1,0 +1,195 @@
+[Log Created at 2022-05-20 12:20:40]
+Epoch[1/25] Iter[100/696] : train_loss 0.05745
+Epoch[1/25] Iter[200/696] : train_loss 0.04883
+Epoch[1/25] Iter[300/696] : train_loss 0.04573
+Epoch[1/25] Iter[400/696] : train_loss 0.04407
+Epoch[1/25] Iter[500/696] : train_loss 0.04304
+Epoch[1/25] Iter[600/696] : train_loss 0.04221
+== Epoch [1/25]: train_loss 0.04152, val_loss 0.03693, val_f1 0.20006 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[2/25] Iter[100/696] : train_loss 0.03745
+Epoch[2/25] Iter[200/696] : train_loss 0.03697
+Epoch[2/25] Iter[300/696] : train_loss 0.03644
+Epoch[2/25] Iter[400/696] : train_loss 0.03627
+Epoch[2/25] Iter[500/696] : train_loss 0.03606
+Epoch[2/25] Iter[600/696] : train_loss 0.03600
+== Epoch [2/25]: train_loss 0.03589, val_loss 0.03214, val_f1 0.33630 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[3/25] Iter[100/696] : train_loss 0.03372
+Epoch[3/25] Iter[200/696] : train_loss 0.03312
+Epoch[3/25] Iter[300/696] : train_loss 0.03322
+Epoch[3/25] Iter[400/696] : train_loss 0.03290
+Epoch[3/25] Iter[500/696] : train_loss 0.03275
+Epoch[3/25] Iter[600/696] : train_loss 0.03270
+== Epoch [3/25]: train_loss 0.03255, val_loss 0.03101, val_f1 0.38334 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[4/25] Iter[100/696] : train_loss 0.03050
+Epoch[4/25] Iter[200/696] : train_loss 0.03024
+Epoch[4/25] Iter[300/696] : train_loss 0.03006
+Epoch[4/25] Iter[400/696] : train_loss 0.03009
+Epoch[4/25] Iter[500/696] : train_loss 0.03017
+Epoch[4/25] Iter[600/696] : train_loss 0.03015
+== Epoch [4/25]: train_loss 0.03014, val_loss 0.02941, val_f1 0.43893 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[5/25] Iter[100/696] : train_loss 0.02842
+Epoch[5/25] Iter[200/696] : train_loss 0.02871
+Epoch[5/25] Iter[300/696] : train_loss 0.02846
+Epoch[5/25] Iter[400/696] : train_loss 0.02845
+Epoch[5/25] Iter[500/696] : train_loss 0.02852
+Epoch[5/25] Iter[600/696] : train_loss 0.02843
+== Epoch [5/25]: train_loss 0.02841, val_loss 0.03123, val_f1 0.42285 
+Epoch[6/25] Iter[100/696] : train_loss 0.02800
+Epoch[6/25] Iter[200/696] : train_loss 0.02808
+Epoch[6/25] Iter[300/696] : train_loss 0.02789
+Epoch[6/25] Iter[400/696] : train_loss 0.02798
+Epoch[6/25] Iter[500/696] : train_loss 0.02775
+Epoch[6/25] Iter[600/696] : train_loss 0.02786
+== Epoch [6/25]: train_loss 0.02792, val_loss 0.03160, val_f1 0.41538 
+Epoch[7/25] Iter[100/696] : train_loss 0.02835
+Epoch[7/25] Iter[200/696] : train_loss 0.02853
+Epoch[7/25] Iter[300/696] : train_loss 0.02837
+Epoch[7/25] Iter[400/696] : train_loss 0.02848
+Epoch[7/25] Iter[500/696] : train_loss 0.02865
+Epoch[7/25] Iter[600/696] : train_loss 0.02873
+== Epoch [7/25]: train_loss 0.02895, val_loss 0.03001, val_f1 0.43746 
+Epoch[8/25] Iter[100/696] : train_loss 0.03028
+Epoch[8/25] Iter[200/696] : train_loss 0.03016
+Epoch[8/25] Iter[300/696] : train_loss 0.03006
+Epoch[8/25] Iter[400/696] : train_loss 0.03007
+Epoch[8/25] Iter[500/696] : train_loss 0.03002
+Epoch[8/25] Iter[600/696] : train_loss 0.02997
+== Epoch [8/25]: train_loss 0.03019, val_loss 0.03310, val_f1 0.37957 
+Epoch[9/25] Iter[100/696] : train_loss 0.03016
+Epoch[9/25] Iter[200/696] : train_loss 0.03075
+Epoch[9/25] Iter[300/696] : train_loss 0.03084
+Epoch[9/25] Iter[400/696] : train_loss 0.03072
+Epoch[9/25] Iter[500/696] : train_loss 0.03082
+Epoch[9/25] Iter[600/696] : train_loss 0.03089
+== Epoch [9/25]: train_loss 0.03089, val_loss 0.02756, val_f1 0.42151 
+== Saving Best Loss Model 
+Epoch[10/25] Iter[100/696] : train_loss 0.03037
+Epoch[10/25] Iter[200/696] : train_loss 0.03060
+Epoch[10/25] Iter[300/696] : train_loss 0.03084
+Epoch[10/25] Iter[400/696] : train_loss 0.03091
+Epoch[10/25] Iter[500/696] : train_loss 0.03091
+Epoch[10/25] Iter[600/696] : train_loss 0.03078
+== Epoch [10/25]: train_loss 0.03073, val_loss 0.03057, val_f1 0.37657 
+Epoch[11/25] Iter[100/696] : train_loss 0.03081
+Epoch[11/25] Iter[200/696] : train_loss 0.03063
+Epoch[11/25] Iter[300/696] : train_loss 0.03055
+Epoch[11/25] Iter[400/696] : train_loss 0.03035
+Epoch[11/25] Iter[500/696] : train_loss 0.03012
+Epoch[11/25] Iter[600/696] : train_loss 0.03005
+== Epoch [11/25]: train_loss 0.02995, val_loss 0.02526, val_f1 0.47081 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[12/25] Iter[100/696] : train_loss 0.02870
+Epoch[12/25] Iter[200/696] : train_loss 0.02863
+Epoch[12/25] Iter[300/696] : train_loss 0.02877
+Epoch[12/25] Iter[400/696] : train_loss 0.02875
+Epoch[12/25] Iter[500/696] : train_loss 0.02887
+Epoch[12/25] Iter[600/696] : train_loss 0.02876
+== Epoch [12/25]: train_loss 0.02871, val_loss 0.02679, val_f1 0.47883 
+== Saving Best F1 Model 
+Epoch[13/25] Iter[100/696] : train_loss 0.02819
+Epoch[13/25] Iter[200/696] : train_loss 0.02777
+Epoch[13/25] Iter[300/696] : train_loss 0.02776
+Epoch[13/25] Iter[400/696] : train_loss 0.02748
+Epoch[13/25] Iter[500/696] : train_loss 0.02741
+Epoch[13/25] Iter[600/696] : train_loss 0.02737
+== Epoch [13/25]: train_loss 0.02730, val_loss 0.02851, val_f1 0.46742 
+Epoch[14/25] Iter[100/696] : train_loss 0.02580
+Epoch[14/25] Iter[200/696] : train_loss 0.02600
+Epoch[14/25] Iter[300/696] : train_loss 0.02594
+Epoch[14/25] Iter[400/696] : train_loss 0.02588
+Epoch[14/25] Iter[500/696] : train_loss 0.02576
+Epoch[14/25] Iter[600/696] : train_loss 0.02572
+== Epoch [14/25]: train_loss 0.02567, val_loss 0.02460, val_f1 0.51540 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[15/25] Iter[100/696] : train_loss 0.02421
+Epoch[15/25] Iter[200/696] : train_loss 0.02435
+Epoch[15/25] Iter[300/696] : train_loss 0.02428
+Epoch[15/25] Iter[400/696] : train_loss 0.02440
+Epoch[15/25] Iter[500/696] : train_loss 0.02442
+Epoch[15/25] Iter[600/696] : train_loss 0.02445
+== Epoch [15/25]: train_loss 0.02451, val_loss 0.02513, val_f1 0.50573 
+Epoch[16/25] Iter[100/696] : train_loss 0.02485
+Epoch[16/25] Iter[200/696] : train_loss 0.02454
+Epoch[16/25] Iter[300/696] : train_loss 0.02459
+Epoch[16/25] Iter[400/696] : train_loss 0.02449
+Epoch[16/25] Iter[500/696] : train_loss 0.02452
+Epoch[16/25] Iter[600/696] : train_loss 0.02457
+== Epoch [16/25]: train_loss 0.02453, val_loss 0.02625, val_f1 0.50227 
+Epoch[17/25] Iter[100/696] : train_loss 0.02381
+Epoch[17/25] Iter[200/696] : train_loss 0.02440
+Epoch[17/25] Iter[300/696] : train_loss 0.02447
+Epoch[17/25] Iter[400/696] : train_loss 0.02456
+Epoch[17/25] Iter[500/696] : train_loss 0.02466
+Epoch[17/25] Iter[600/696] : train_loss 0.02480
+== Epoch [17/25]: train_loss 0.02498, val_loss 0.02320, val_f1 0.52484 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[18/25] Iter[100/696] : train_loss 0.02559
+Epoch[18/25] Iter[200/696] : train_loss 0.02537
+Epoch[18/25] Iter[300/696] : train_loss 0.02542
+Epoch[18/25] Iter[400/696] : train_loss 0.02553
+Epoch[18/25] Iter[500/696] : train_loss 0.02564
+Epoch[18/25] Iter[600/696] : train_loss 0.02588
+== Epoch [18/25]: train_loss 0.02599, val_loss 0.02519, val_f1 0.49245 
+Epoch[19/25] Iter[100/696] : train_loss 0.02667
+Epoch[19/25] Iter[200/696] : train_loss 0.02658
+Epoch[19/25] Iter[300/696] : train_loss 0.02651
+Epoch[19/25] Iter[400/696] : train_loss 0.02666
+Epoch[19/25] Iter[500/696] : train_loss 0.02690
+Epoch[19/25] Iter[600/696] : train_loss 0.02717
+== Epoch [19/25]: train_loss 0.02715, val_loss 0.02627, val_f1 0.47386 
+Epoch[20/25] Iter[100/696] : train_loss 0.02715
+Epoch[20/25] Iter[200/696] : train_loss 0.02735
+Epoch[20/25] Iter[300/696] : train_loss 0.02804
+Epoch[20/25] Iter[400/696] : train_loss 0.02821
+Epoch[20/25] Iter[500/696] : train_loss 0.02826
+Epoch[20/25] Iter[600/696] : train_loss 0.02818
+== Epoch [20/25]: train_loss 0.02809, val_loss 0.02466, val_f1 0.51296 
+Epoch[21/25] Iter[100/696] : train_loss 0.02778
+Epoch[21/25] Iter[200/696] : train_loss 0.02743
+Epoch[21/25] Iter[300/696] : train_loss 0.02732
+Epoch[21/25] Iter[400/696] : train_loss 0.02724
+Epoch[21/25] Iter[500/696] : train_loss 0.02718
+Epoch[21/25] Iter[600/696] : train_loss 0.02715
+== Epoch [21/25]: train_loss 0.02718, val_loss 0.02808, val_f1 0.46636 
+Epoch[22/25] Iter[100/696] : train_loss 0.02646
+Epoch[22/25] Iter[200/696] : train_loss 0.02700
+Epoch[22/25] Iter[300/696] : train_loss 0.02693
+Epoch[22/25] Iter[400/696] : train_loss 0.02683
+Epoch[22/25] Iter[500/696] : train_loss 0.02678
+Epoch[22/25] Iter[600/696] : train_loss 0.02658
+== Epoch [22/25]: train_loss 0.02651, val_loss 0.02407, val_f1 0.51319 
+Epoch[23/25] Iter[100/696] : train_loss 0.02573
+Epoch[23/25] Iter[200/696] : train_loss 0.02559
+Epoch[23/25] Iter[300/696] : train_loss 0.02535
+Epoch[23/25] Iter[400/696] : train_loss 0.02556
+Epoch[23/25] Iter[500/696] : train_loss 0.02562
+Epoch[23/25] Iter[600/696] : train_loss 0.02564
+== Epoch [23/25]: train_loss 0.02544, val_loss 0.02242, val_f1 0.54770 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[24/25] Iter[100/696] : train_loss 0.02429
+Epoch[24/25] Iter[200/696] : train_loss 0.02462
+Epoch[24/25] Iter[300/696] : train_loss 0.02445
+Epoch[24/25] Iter[400/696] : train_loss 0.02438
+Epoch[24/25] Iter[500/696] : train_loss 0.02432
+Epoch[24/25] Iter[600/696] : train_loss 0.02432
+== Epoch [24/25]: train_loss 0.02423, val_loss 0.02260, val_f1 0.54733 
+Epoch[25/25] Iter[100/696] : train_loss 0.02380
+Epoch[25/25] Iter[200/696] : train_loss 0.02362
+Epoch[25/25] Iter[300/696] : train_loss 0.02328
+Epoch[25/25] Iter[400/696] : train_loss 0.02344
+Epoch[25/25] Iter[500/696] : train_loss 0.02352
+Epoch[25/25] Iter[600/696] : train_loss 0.02350
+== Epoch [25/25]: train_loss 0.02335, val_loss 0.02315, val_f1 0.54233 
+== Saving Last Model 

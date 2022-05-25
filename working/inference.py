@@ -89,10 +89,45 @@ def submit(results):
 
 
 if __name__ == "__main__":
+    CFG.backbone = 'eca_nfnet_l0'
     model = models.Net(CFG.backbone).to(device)
-    utils.load_model(model, model_name='')
+    utils.load_model(model, model_name='v9_eca_nfnet_l0_last')
+    results1, results1_with_score = test(model)
+    print(results1_with_score) 
 
-    results, results_with_score = test(model)
-    print(results_with_score) 
+    CFG.backbone = 'tf_efficientnetv2_s_in21k'
+    model = models.Net(CFG.backbone).to(device)
+    utils.load_model(model, model_name='v9_tf_efficientnetv2_s_in21k_last')
+    results2, results2_with_score = test(model)
+    print(results2_with_score) 
+
+    CFG.backbone = 'tf_efficientnetv2_s_in21k'
+    model = models.Net(CFG.backbone).to(device)
+    utils.load_model(model, model_name='v6_tf_efficientnetv2_s_in21k_last')
+    results3, results3_with_score = test(model)
+    print(results3_with_score) 
+
+    CFG.backbone = 'tf_efficientnetv2_s_in21k'
+    model = models.Net(CFG.backbone).to(device)
+    utils.load_model(model, model_name='v3_tf_efficientnetv2_s_in21k_best_f1')
+    results4, results4_with_score = test(model)
+    print(results4_with_score) 
+
+    CFG.backbone = 'tf_efficientnetv2_s_in21k'
+    model = models.Net(CFG.backbone).to(device)
+    utils.load_model(model, model_name='v8_tf_efficientnetv2_s_in21k_last')
+    results5, results5_with_score = test(model)
+    print(results5_with_score) 
+
+    results = results1.copy()
+    for i in range(results.shape[0]):
+        count_true = 0
+        count_true = count_true + (1 if results1.loc[i, 'target'] else 0)
+        count_true = count_true + (1 if results2.loc[i, 'target'] else 0)
+        count_true = count_true + (1 if results3.loc[i, 'target'] else 0)
+        count_true = count_true + (1 if results4.loc[i, 'target'] else 0)
+        count_true = count_true + (1 if results5.loc[i, 'target'] else 0)
+        results.loc[i, 'target'] = True if count_true>=3 else False
+        
     submit(results)
 

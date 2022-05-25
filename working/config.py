@@ -29,7 +29,7 @@ class CFG:
 
     # Train #
     num_epochs = 25
-    warmup_epochs = 4
+    # warmup_epochs = 4
     t_max = 5
     lr = 1e-3
     weight_decay = 1e-6

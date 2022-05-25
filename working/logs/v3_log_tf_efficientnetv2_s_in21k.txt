@@ -1,0 +1,575 @@
+[Log Created at 2022-05-10 23:43:04]
+Epoch[1/18] Iter[50/696] : train_loss 0.06397
+Epoch[1/18] Iter[100/696] : train_loss 0.05275
+Epoch[1/18] Iter[150/696] : train_loss 0.04873
+Epoch[1/18] Iter[200/696] : train_loss 0.04670
+Epoch[1/18] Iter[250/696] : train_loss 0.04522
+Epoch[1/18] Iter[300/696] : train_loss 0.04412
+Epoch[1/18] Iter[350/696] : train_loss 0.04354
+Epoch[1/18] Iter[400/696] : train_loss 0.04299
+Epoch[1/18] Iter[450/696] : train_loss 0.04260
+Epoch[1/18] Iter[500/696] : train_loss 0.04205
+Epoch[1/18] Iter[550/696] : train_loss 0.04165
+Epoch[1/18] Iter[600/696] : train_loss 0.04135
+Epoch[1/18] Iter[650/696] : train_loss 0.04106
+== Epoch [1/18]: train_loss 0.04084, val_loss 0.04213, val_f1 0.22309 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[2/18] Iter[50/696] : train_loss 0.03746
+Epoch[2/18] Iter[100/696] : train_loss 0.03709
+Epoch[2/18] Iter[150/696] : train_loss 0.03743
+Epoch[2/18] Iter[200/696] : train_loss 0.03720
+Epoch[2/18] Iter[250/696] : train_loss 0.03712
+Epoch[2/18] Iter[300/696] : train_loss 0.03697
+Epoch[2/18] Iter[350/696] : train_loss 0.03680
+Epoch[2/18] Iter[400/696] : train_loss 0.03657
+Epoch[2/18] Iter[450/696] : train_loss 0.03636
+Epoch[2/18] Iter[500/696] : train_loss 0.03618
+Epoch[2/18] Iter[550/696] : train_loss 0.03599
+Epoch[2/18] Iter[600/696] : train_loss 0.03585
+Epoch[2/18] Iter[650/696] : train_loss 0.03572
+== Epoch [2/18]: train_loss 0.03564, val_loss 0.03909, val_f1 0.27052 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[3/18] Iter[50/696] : train_loss 0.03279
+Epoch[3/18] Iter[100/696] : train_loss 0.03331
+Epoch[3/18] Iter[150/696] : train_loss 0.03330
+Epoch[3/18] Iter[200/696] : train_loss 0.03299
+Epoch[3/18] Iter[250/696] : train_loss 0.03304
+Epoch[3/18] Iter[300/696] : train_loss 0.03301
+Epoch[3/18] Iter[350/696] : train_loss 0.03290
+Epoch[3/18] Iter[400/696] : train_loss 0.03302
+Epoch[3/18] Iter[450/696] : train_loss 0.03292
+Epoch[3/18] Iter[500/696] : train_loss 0.03294
+Epoch[3/18] Iter[550/696] : train_loss 0.03290
+Epoch[3/18] Iter[600/696] : train_loss 0.03278
+Epoch[3/18] Iter[650/696] : train_loss 0.03283
+== Epoch [3/18]: train_loss 0.03279, val_loss 0.04019, val_f1 0.32135 
+== Saving Best F1 Model 
+Epoch[4/18] Iter[50/696] : train_loss 0.03103
+Epoch[4/18] Iter[100/696] : train_loss 0.03111
+Epoch[4/18] Iter[150/696] : train_loss 0.03100
+Epoch[4/18] Iter[200/696] : train_loss 0.03092
+Epoch[4/18] Iter[250/696] : train_loss 0.03101
+Epoch[4/18] Iter[300/696] : train_loss 0.03096
+Epoch[4/18] Iter[350/696] : train_loss 0.03077
+Epoch[4/18] Iter[400/696] : train_loss 0.03082
+Epoch[4/18] Iter[450/696] : train_loss 0.03084
+Epoch[4/18] Iter[500/696] : train_loss 0.03095
+Epoch[4/18] Iter[550/696] : train_loss 0.03092
+Epoch[4/18] Iter[600/696] : train_loss 0.03088
+Epoch[4/18] Iter[650/696] : train_loss 0.03076
+== Epoch [4/18]: train_loss 0.03072, val_loss 0.03552, val_f1 0.35687 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[5/18] Iter[50/696] : train_loss 0.02906
+Epoch[5/18] Iter[100/696] : train_loss 0.02946
+Epoch[5/18] Iter[150/696] : train_loss 0.02888
+Epoch[5/18] Iter[200/696] : train_loss 0.02885
+Epoch[5/18] Iter[250/696] : train_loss 0.02894
+Epoch[5/18] Iter[300/696] : train_loss 0.02914
+Epoch[5/18] Iter[350/696] : train_loss 0.02910
+Epoch[5/18] Iter[400/696] : train_loss 0.02912
+Epoch[5/18] Iter[450/696] : train_loss 0.02905
+Epoch[5/18] Iter[500/696] : train_loss 0.02908
+Epoch[5/18] Iter[550/696] : train_loss 0.02912
+Epoch[5/18] Iter[600/696] : train_loss 0.02905
+Epoch[5/18] Iter[650/696] : train_loss 0.02903
+== Epoch [5/18]: train_loss 0.02897, val_loss 0.03187, val_f1 0.40341 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[6/18] Iter[50/696] : train_loss 0.02836
+Epoch[6/18] Iter[100/696] : train_loss 0.02830
+Epoch[6/18] Iter[150/696] : train_loss 0.02770
+Epoch[6/18] Iter[200/696] : train_loss 0.02788
+Epoch[6/18] Iter[250/696] : train_loss 0.02795
+Epoch[6/18] Iter[300/696] : train_loss 0.02777
+Epoch[6/18] Iter[350/696] : train_loss 0.02777
+Epoch[6/18] Iter[400/696] : train_loss 0.02779
+Epoch[6/18] Iter[450/696] : train_loss 0.02769
+Epoch[6/18] Iter[500/696] : train_loss 0.02774
+Epoch[6/18] Iter[550/696] : train_loss 0.02774
+Epoch[6/18] Iter[600/696] : train_loss 0.02771
+Epoch[6/18] Iter[650/696] : train_loss 0.02764
+== Epoch [6/18]: train_loss 0.02756, val_loss 0.03275, val_f1 0.38740 
+Epoch[7/18] Iter[50/696] : train_loss 0.02676
+Epoch[7/18] Iter[100/696] : train_loss 0.02694
+Epoch[7/18] Iter[150/696] : train_loss 0.02654
+Epoch[7/18] Iter[200/696] : train_loss 0.02663
+Epoch[7/18] Iter[250/696] : train_loss 0.02661
+Epoch[7/18] Iter[300/696] : train_loss 0.02654
+Epoch[7/18] Iter[350/696] : train_loss 0.02652
+Epoch[7/18] Iter[400/696] : train_loss 0.02663
+Epoch[7/18] Iter[450/696] : train_loss 0.02671
+Epoch[7/18] Iter[500/696] : train_loss 0.02684
+Epoch[7/18] Iter[550/696] : train_loss 0.02678
+Epoch[7/18] Iter[600/696] : train_loss 0.02680
+Epoch[7/18] Iter[650/696] : train_loss 0.02678
+== Epoch [7/18]: train_loss 0.02678, val_loss 0.03023, val_f1 0.41809 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[8/18] Iter[50/696] : train_loss 0.02648
+Epoch[8/18] Iter[100/696] : train_loss 0.02684
+Epoch[8/18] Iter[150/696] : train_loss 0.02711
+Epoch[8/18] Iter[200/696] : train_loss 0.02691
+Epoch[8/18] Iter[250/696] : train_loss 0.02689
+Epoch[8/18] Iter[300/696] : train_loss 0.02701
+Epoch[8/18] Iter[350/696] : train_loss 0.02698
+Epoch[8/18] Iter[400/696] : train_loss 0.02713
+Epoch[8/18] Iter[450/696] : train_loss 0.02709
+Epoch[8/18] Iter[500/696] : train_loss 0.02704
+Epoch[8/18] Iter[550/696] : train_loss 0.02700
+Epoch[8/18] Iter[600/696] : train_loss 0.02700
+Epoch[8/18] Iter[650/696] : train_loss 0.02702
+== Epoch [8/18]: train_loss 0.02702, val_loss 0.02981, val_f1 0.42590 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[9/18] Iter[50/696] : train_loss 0.02746
+Epoch[9/18] Iter[100/696] : train_loss 0.02750
+Epoch[9/18] Iter[150/696] : train_loss 0.02757
+Epoch[9/18] Iter[200/696] : train_loss 0.02770
+Epoch[9/18] Iter[250/696] : train_loss 0.02808
+Epoch[9/18] Iter[300/696] : train_loss 0.02799
+Epoch[9/18] Iter[350/696] : train_loss 0.02777
+Epoch[9/18] Iter[400/696] : train_loss 0.02771
+Epoch[9/18] Iter[450/696] : train_loss 0.02765
+Epoch[9/18] Iter[500/696] : train_loss 0.02767
+Epoch[9/18] Iter[550/696] : train_loss 0.02776
+Epoch[9/18] Iter[600/696] : train_loss 0.02768
+Epoch[9/18] Iter[650/696] : train_loss 0.02773
+== Epoch [9/18]: train_loss 0.02775, val_loss 0.03000, val_f1 0.42318 
+Epoch[10/18] Iter[50/696] : train_loss 0.02903
+Epoch[10/18] Iter[100/696] : train_loss 0.02828
+Epoch[10/18] Iter[150/696] : train_loss 0.02804
+Epoch[10/18] Iter[200/696] : train_loss 0.02845
+Epoch[10/18] Iter[250/696] : train_loss 0.02838
+Epoch[10/18] Iter[300/696] : train_loss 0.02837
+Epoch[10/18] Iter[350/696] : train_loss 0.02846
+Epoch[10/18] Iter[400/696] : train_loss 0.02847
+Epoch[10/18] Iter[450/696] : train_loss 0.02852
+Epoch[10/18] Iter[500/696] : train_loss 0.02855
+Epoch[10/18] Iter[550/696] : train_loss 0.02851
+Epoch[10/18] Iter[600/696] : train_loss 0.02849
+Epoch[10/18] Iter[650/696] : train_loss 0.02863
+== Epoch [10/18]: train_loss 0.02859, val_loss 0.02880, val_f1 0.44140 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[11/18] Iter[50/696] : train_loss 0.02859
+Epoch[11/18] Iter[100/696] : train_loss 0.02864
+Epoch[11/18] Iter[150/696] : train_loss 0.02860
+Epoch[11/18] Iter[200/696] : train_loss 0.02883
+Epoch[11/18] Iter[250/696] : train_loss 0.02908
+Epoch[11/18] Iter[300/696] : train_loss 0.02888
+Epoch[11/18] Iter[350/696] : train_loss 0.02901
+Epoch[11/18] Iter[400/696] : train_loss 0.02904
+Epoch[11/18] Iter[450/696] : train_loss 0.02917
+Epoch[11/18] Iter[500/696] : train_loss 0.02920
+Epoch[11/18] Iter[550/696] : train_loss 0.02930
+Epoch[11/18] Iter[600/696] : train_loss 0.02927
+Epoch[11/18] Iter[650/696] : train_loss 0.02933
+== Epoch [11/18]: train_loss 0.02930, val_loss 0.02984, val_f1 0.42889 
+Epoch[12/18] Iter[50/696] : train_loss 0.02899
+Epoch[12/18] Iter[100/696] : train_loss 0.02823
+Epoch[12/18] Iter[150/696] : train_loss 0.02847
+Epoch[12/18] Iter[200/696] : train_loss 0.02871
+Epoch[12/18] Iter[250/696] : train_loss 0.02896
+Epoch[12/18] Iter[300/696] : train_loss 0.02897
+Epoch[12/18] Iter[350/696] : train_loss 0.02907
+Epoch[12/18] Iter[400/696] : train_loss 0.02909
+Epoch[12/18] Iter[450/696] : train_loss 0.02919
+Epoch[12/18] Iter[500/696] : train_loss 0.02917
+Epoch[12/18] Iter[550/696] : train_loss 0.02917
+Epoch[12/18] Iter[600/696] : train_loss 0.02920
+Epoch[12/18] Iter[650/696] : train_loss 0.02925
+== Epoch [12/18]: train_loss 0.02920, val_loss 0.03074, val_f1 0.40820 
+Epoch[13/18] Iter[50/696] : train_loss 0.02878
+Epoch[13/18] Iter[100/696] : train_loss 0.02929
+Epoch[13/18] Iter[150/696] : train_loss 0.02875
+Epoch[13/18] Iter[200/696] : train_loss 0.02915
+Epoch[13/18] Iter[250/696] : train_loss 0.02907
+Epoch[13/18] Iter[300/696] : train_loss 0.02904
+Epoch[13/18] Iter[350/696] : train_loss 0.02895
+Epoch[13/18] Iter[400/696] : train_loss 0.02902
+Epoch[13/18] Iter[450/696] : train_loss 0.02911
+Epoch[13/18] Iter[500/696] : train_loss 0.02904
+Epoch[13/18] Iter[550/696] : train_loss 0.02906
+Epoch[13/18] Iter[600/696] : train_loss 0.02899
+Epoch[13/18] Iter[650/696] : train_loss 0.02892
+== Epoch [13/18]: train_loss 0.02887, val_loss 0.03220, val_f1 0.41260 
+Epoch[14/18] Iter[50/696] : train_loss 0.02961
+Epoch[14/18] Iter[100/696] : train_loss 0.02924
+Epoch[14/18] Iter[150/696] : train_loss 0.02893
+Epoch[14/18] Iter[200/696] : train_loss 0.02902
+Epoch[14/18] Iter[250/696] : train_loss 0.02891
+Epoch[14/18] Iter[300/696] : train_loss 0.02891
+Epoch[14/18] Iter[350/696] : train_loss 0.02878
+Epoch[14/18] Iter[400/696] : train_loss 0.02864
+Epoch[14/18] Iter[450/696] : train_loss 0.02855
+Epoch[14/18] Iter[500/696] : train_loss 0.02844
+Epoch[14/18] Iter[550/696] : train_loss 0.02856
+Epoch[14/18] Iter[600/696] : train_loss 0.02854
+Epoch[14/18] Iter[650/696] : train_loss 0.02850
+== Epoch [14/18]: train_loss 0.02844, val_loss 0.02974, val_f1 0.43759 
+Epoch[15/18] Iter[50/696] : train_loss 0.02795
+Epoch[15/18] Iter[100/696] : train_loss 0.02711
+Epoch[15/18] Iter[150/696] : train_loss 0.02709
+Epoch[15/18] Iter[200/696] : train_loss 0.02736
+Epoch[15/18] Iter[250/696] : train_loss 0.02733
+Epoch[15/18] Iter[300/696] : train_loss 0.02730
+Epoch[15/18] Iter[350/696] : train_loss 0.02719
+Epoch[15/18] Iter[400/696] : train_loss 0.02725
+Epoch[15/18] Iter[450/696] : train_loss 0.02724
+Epoch[15/18] Iter[500/696] : train_loss 0.02728
+Epoch[15/18] Iter[550/696] : train_loss 0.02734
+Epoch[15/18] Iter[600/696] : train_loss 0.02736
+Epoch[15/18] Iter[650/696] : train_loss 0.02739
+== Epoch [15/18]: train_loss 0.02737, val_loss 0.03116, val_f1 0.42525 
+Epoch[16/18] Iter[50/696] : train_loss 0.02572
+Epoch[16/18] Iter[100/696] : train_loss 0.02586
+Epoch[16/18] Iter[150/696] : train_loss 0.02616
+Epoch[16/18] Iter[200/696] : train_loss 0.02596
+Epoch[16/18] Iter[250/696] : train_loss 0.02613
+Epoch[16/18] Iter[300/696] : train_loss 0.02627
+Epoch[16/18] Iter[350/696] : train_loss 0.02622
+Epoch[16/18] Iter[400/696] : train_loss 0.02606
+Epoch[16/18] Iter[450/696] : train_loss 0.02600
+Epoch[16/18] Iter[500/696] : train_loss 0.02602
+Epoch[16/18] Iter[550/696] : train_loss 0.02597
+Epoch[16/18] Iter[600/696] : train_loss 0.02602
+Epoch[16/18] Iter[650/696] : train_loss 0.02610
+== Epoch [16/18]: train_loss 0.02619, val_loss 0.02844, val_f1 0.46189 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[17/18] Iter[50/696] : train_loss 0.02445
+Epoch[17/18] Iter[100/696] : train_loss 0.02460
+Epoch[17/18] Iter[150/696] : train_loss 0.02499
+Epoch[17/18] Iter[200/696] : train_loss 0.02504
+Epoch[17/18] Iter[250/696] : train_loss 0.02521
+Epoch[17/18] Iter[300/696] : train_loss 0.02512
+Epoch[17/18] Iter[350/696] : train_loss 0.02515
+Epoch[17/18] Iter[400/696] : train_loss 0.02515
+Epoch[17/18] Iter[450/696] : train_loss 0.02519
+Epoch[17/18] Iter[500/696] : train_loss 0.02514
+Epoch[17/18] Iter[550/696] : train_loss 0.02515
+Epoch[17/18] Iter[600/696] : train_loss 0.02513
+Epoch[17/18] Iter[650/696] : train_loss 0.02503
+== Epoch [17/18]: train_loss 0.02499, val_loss 0.03036, val_f1 0.44799 
+Epoch[18/18] Iter[50/696] : train_loss 0.02479
+Epoch[18/18] Iter[100/696] : train_loss 0.02526
+Epoch[18/18] Iter[150/696] : train_loss 0.02472
+Epoch[18/18] Iter[200/696] : train_loss 0.02447
+Epoch[18/18] Iter[250/696] : train_loss 0.02460
+Epoch[18/18] Iter[300/696] : train_loss 0.02443
+Epoch[18/18] Iter[350/696] : train_loss 0.02433
+Epoch[18/18] Iter[400/696] : train_loss 0.02428
+Epoch[18/18] Iter[450/696] : train_loss 0.02435
+Epoch[18/18] Iter[500/696] : train_loss 0.02426
+Epoch[18/18] Iter[550/696] : train_loss 0.02423
+Epoch[18/18] Iter[600/696] : train_loss 0.02432
+Epoch[18/18] Iter[650/696] : train_loss 0.02427
+== Epoch [18/18]: train_loss 0.02423, val_loss 0.02887, val_f1 0.46644 
+== Saving Best F1 Model 
+== Saving Last Model 
+Loaded backend agg version unknown.
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'cmex10' (cmex10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal bold normal>) = 0.33499999999999996
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Oblique.ttf) oblique normal 400 normal>) = 1.05
+findfont: score(<Font 'cmsy10' (cmsy10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmmi10' (cmmi10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmr10' (cmr10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-BoldOblique.ttf) oblique normal bold normal>) = 1.335
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-BoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'STIXGeneral' (STIXGeneral.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'cmss10' (cmss10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmb10' (cmb10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Display' (DejaVuSansDisplay.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmtt10' (cmtt10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif Display' (DejaVuSerifDisplay.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Lohit Oriya' (Lohit-Oriya.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Mono' (LiberationMono-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Overpass' (Overpass-Light.ttf) normal normal light normal>) = 10.24
+findfont: score(<Font 'Caladea' (Caladea-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Overpass' (Overpass-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Cantarell' (Cantarell-Bold.otf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Lohit Bengali' (Lohit-Bengali.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'VL Gothic' (VL-Gothic-Regular.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'FreeMono' (FreeMono.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Overpass' (Overpass-Regular-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Caladea' (Caladea-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Jomolhari' (Jomolhari-alpha3c-0605331.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSerif' (FreeSerifBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Cantarell' (Cantarell-Oblique.otf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'PT Sans' (PTS56F.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed.ttf) normal normal 400 condensed>) = 0.25
+findfont: score(<Font 'Liberation Sans' (LiberationSans-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Caladea' (Caladea-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'WenQuanYi Zen Hei' (wqy-zenhei.ttc) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-Italic.otf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Khmer OS Content' (KhmerOS_content.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Waree' (Waree.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSerif' (FreeSerif.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Cantarell' (Cantarell-BoldOblique.otf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Waree' (Waree-BoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Carlito' (Carlito-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'PT Sans Narrow' (PTN77F.ttf) normal normal bold condensed>) = 10.535
+findfont: score(<Font 'Waree' (Waree-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Noto Emoji' (NotoEmoji-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Overpass' (Overpass-Bold-Italic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'FontAwesome' (FontAwesome.otf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Assamese' (Lohit-Assamese.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Sans' (LiberationSans-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'PT Sans' (PTS75F.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Liberation Mono' (LiberationMono-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Liberation Mono' (LiberationMono-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Caladea' (Caladea-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSans' (FreeSansOblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'Open Sans' (OpenSans-ExtraBoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Open Sans' (OpenSans-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Overpass' (Overpass-ExtraLight.ttf) normal normal light normal>) = 10.24
+findfont: score(<Font 'AR PL UMing CN' (uming.ttc) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Padauk' (Padauk.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed-Bold.ttf) normal normal bold condensed>) = 10.535
+findfont: score(<Font 'Liberation Mono' (LiberationMono-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Carlito' (Carlito-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Kannada' (Lohit-Kannada.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'NanumGothic' (NanumGothic.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Sans' (LiberationSans-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'PakType Naskh Basic' (PakTypeNaskhBasic.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Overpass' (Overpass-ExtraLight Italic.ttf) italic normal light normal>) = 11.24
+findfont: score(<Font 'PT Sans' (PTS76F.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Madan2' (madan.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSans' (FreeSans.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-BoldItalic.otf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Khmer OS System' (KhmerOS_sys.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'PT Sans' (PTS55F.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Liberation Sans' (LiberationSans-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Abyssinica SIL' (AbyssinicaSIL-R.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSans' (FreeSansBoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Overpass' (Overpass-Light-Italic.ttf) italic normal light normal>) = 11.24
+findfont: score(<Font 'Waree' (Waree-Oblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'FreeSerif' (FreeSerifItalic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Carlito' (Carlito-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed-BoldOblique.ttf) oblique normal bold condensed>) = 1.535
+findfont: score(<Font 'FreeMono' (FreeMonoBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Meera' (Meera.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Khmer OS' (KhmerOS.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'LKLUG' (lklug.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Open Sans' (OpenSans-Light.ttf) normal normal light normal>) = 10.24
+findfont: score(<Font 'Lohit Malayalam' (Lohit-Malayalam.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-LightItalic.ttf) italic normal light normal>) = 11.24
+findfont: score(<Font 'Lohit Nepali' (Lohit-Nepali.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Carlito' (Carlito-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Lohit Telugu' (Lohit-Telugu.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Tamil' (Lohit-Tamil.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed.ttf) normal normal 400 condensed>) = 10.25
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed-Bold.ttf) normal normal bold condensed>) = 0.5349999999999999
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed-Oblique.ttf) oblique normal 400 condensed>) = 1.25
+findfont: score(<Font 'FreeSans' (FreeSansBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed-Italic.ttf) italic normal 400 condensed>) = 11.25
+findfont: score(<Font 'Overpass' (Overpass-Regular.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'NanumGothic' (NanumGothicExtraBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'NanumGothic' (NanumGothicBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Lohit Marathi' (Lohit-Marathi.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Nuosu SIL' (NuosuSIL.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-Bold.otf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Lohit Punjabi' (Lohit-Punjabi.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'WenQuanYi Micro Hei' (wqy-microhei.ttc) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-Regular.otf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'Padauk' (Padauk-bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'FreeMono' (FreeMonoBoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Cantarell' (Cantarell-Regular.otf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-ExtraLight.ttf) normal normal light normal>) = 0.24
+findfont: score(<Font 'FontAwesome' (fontawesome-webfont.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'Lohit Devanagari' (Lohit-Devanagari.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Gujarati' (Lohit-Gujarati.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-SemiboldItalic.ttf) italic normal semibold normal>) = 11.24
+findfont: score(<Font 'PT Sans Narrow' (PTN57F.ttf) normal normal 400 condensed>) = 10.25
+findfont: score(<Font 'Open Sans' (OpenSans-Semibold.ttf) normal normal semibold normal>) = 10.24
+findfont: score(<Font 'Open Sans' (OpenSans-ExtraBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'FreeSerif' (FreeSerifBoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'FreeMono' (FreeMonoOblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed-BoldItalic.ttf) italic normal bold condensed>) = 11.535
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'cmex10' (cmex10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXGeneral' (STIXGeneralBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Bold.ttf) normal normal bold normal>) = 0.33499999999999996
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-Oblique.ttf) oblique normal 400 normal>) = 1.05
+findfont: score(<Font 'cmsy10' (cmsy10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBolIta.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans.ttf) normal normal 400 normal>) = 0.05
+findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-Oblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmmi10' (cmmi10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmr10' (cmr10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUni.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'STIXSizeOneSym' (STIXSizOneSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-BoldOblique.ttf) oblique normal bold normal>) = 1.335
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUniIta.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono-BoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'STIXGeneral' (STIXGeneral.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'cmss10' (cmss10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmb10' (cmb10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Display' (DejaVuSansDisplay.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'cmtt10' (cmtt10.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXGeneral' (STIXGeneralBolIta.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'STIXSizeTwoSym' (STIXSizTwoSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXSizeFiveSym' (STIXSizFiveSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans Mono' (DejaVuSansMono.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXSizeThreeSym' (STIXSizThreeSymBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'STIXNonUnicode' (STIXNonUniBol.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'STIXSizeFourSym' (STIXSizFourSymReg.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'STIXGeneral' (STIXGeneralItalic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif Display' (DejaVuSerifDisplay.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Lohit Oriya' (Lohit-Oriya.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Mono' (LiberationMono-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Overpass' (Overpass-Light.ttf) normal normal light normal>) = 10.24
+findfont: score(<Font 'Caladea' (Caladea-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Overpass' (Overpass-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Cantarell' (Cantarell-Bold.otf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Lohit Bengali' (Lohit-Bengali.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'VL Gothic' (VL-Gothic-Regular.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'FreeMono' (FreeMono.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Overpass' (Overpass-Regular-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Caladea' (Caladea-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Jomolhari' (Jomolhari-alpha3c-0605331.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSerif' (FreeSerifBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Cantarell' (Cantarell-Oblique.otf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'PT Sans' (PTS56F.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed.ttf) normal normal 400 condensed>) = 0.25
+findfont: score(<Font 'Liberation Sans' (LiberationSans-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Caladea' (Caladea-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'WenQuanYi Zen Hei' (wqy-zenhei.ttc) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-Italic.otf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Khmer OS Content' (KhmerOS_content.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Waree' (Waree.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSerif' (FreeSerif.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Cantarell' (Cantarell-BoldOblique.otf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Waree' (Waree-BoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Carlito' (Carlito-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'PT Sans Narrow' (PTN77F.ttf) normal normal bold condensed>) = 10.535
+findfont: score(<Font 'Waree' (Waree-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Noto Emoji' (NotoEmoji-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Overpass' (Overpass-Bold-Italic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'FontAwesome' (FontAwesome.otf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Assamese' (Lohit-Assamese.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Sans' (LiberationSans-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'PT Sans' (PTS75F.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Liberation Mono' (LiberationMono-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Liberation Mono' (LiberationMono-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Caladea' (Caladea-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSans' (FreeSansOblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'Open Sans' (OpenSans-ExtraBoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Open Sans' (OpenSans-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Overpass' (Overpass-ExtraLight.ttf) normal normal light normal>) = 10.24
+findfont: score(<Font 'AR PL UMing CN' (uming.ttc) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Padauk' (Padauk.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed-Bold.ttf) normal normal bold condensed>) = 10.535
+findfont: score(<Font 'Liberation Mono' (LiberationMono-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Carlito' (Carlito-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Kannada' (Lohit-Kannada.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'NanumGothic' (NanumGothic.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Sans' (LiberationSans-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'PakType Naskh Basic' (PakTypeNaskhBasic.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Overpass' (Overpass-ExtraLight Italic.ttf) italic normal light normal>) = 11.24
+findfont: score(<Font 'PT Sans' (PTS76F.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Madan2' (madan.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSans' (FreeSans.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-BoldItalic.otf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Khmer OS System' (KhmerOS_sys.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'PT Sans' (PTS55F.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Liberation Sans' (LiberationSans-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Abyssinica SIL' (AbyssinicaSIL-R.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'FreeSans' (FreeSansBoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'Overpass' (Overpass-Light-Italic.ttf) italic normal light normal>) = 11.24
+findfont: score(<Font 'Waree' (Waree-Oblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'FreeSerif' (FreeSerifItalic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Carlito' (Carlito-BoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed-BoldOblique.ttf) oblique normal bold condensed>) = 1.535
+findfont: score(<Font 'FreeMono' (FreeMonoBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Meera' (Meera.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Khmer OS' (KhmerOS.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'LKLUG' (lklug.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-Bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Open Sans' (OpenSans-Light.ttf) normal normal light normal>) = 10.24
+findfont: score(<Font 'Lohit Malayalam' (Lohit-Malayalam.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-LightItalic.ttf) italic normal light normal>) = 11.24
+findfont: score(<Font 'Lohit Nepali' (Lohit-Nepali.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Carlito' (Carlito-Italic.ttf) italic normal 400 normal>) = 11.05
+findfont: score(<Font 'Lohit Telugu' (Lohit-Telugu.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Tamil' (Lohit-Tamil.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed.ttf) normal normal 400 condensed>) = 10.25
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed-Bold.ttf) normal normal bold condensed>) = 0.5349999999999999
+findfont: score(<Font 'DejaVu Sans' (DejaVuSansCondensed-Oblique.ttf) oblique normal 400 condensed>) = 1.25
+findfont: score(<Font 'FreeSans' (FreeSansBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Liberation Serif' (LiberationSerif-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed-Italic.ttf) italic normal 400 condensed>) = 11.25
+findfont: score(<Font 'Overpass' (Overpass-Regular.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'NanumGothic' (NanumGothicExtraBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'NanumGothic' (NanumGothicBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Lohit Marathi' (Lohit-Marathi.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-Regular.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Nuosu SIL' (NuosuSIL.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-Bold.otf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'Lohit Punjabi' (Lohit-Punjabi.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'WenQuanYi Micro Hei' (wqy-microhei.ttc) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'STIX' (STIX-Regular.otf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'Padauk' (Padauk-bold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'FreeMono' (FreeMonoBoldOblique.ttf) oblique normal bold normal>) = 11.335
+findfont: score(<Font 'Cantarell' (Cantarell-Regular.otf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'DejaVu Sans' (DejaVuSans-ExtraLight.ttf) normal normal light normal>) = 0.24
+findfont: score(<Font 'FontAwesome' (fontawesome-webfont.ttf) normal normal regular normal>) = 10.05
+findfont: score(<Font 'Lohit Devanagari' (Lohit-Devanagari.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Lohit Gujarati' (Lohit-Gujarati.ttf) normal normal 400 normal>) = 10.05
+findfont: score(<Font 'Open Sans' (OpenSans-SemiboldItalic.ttf) italic normal semibold normal>) = 11.24
+findfont: score(<Font 'PT Sans Narrow' (PTN57F.ttf) normal normal 400 condensed>) = 10.25
+findfont: score(<Font 'Open Sans' (OpenSans-Semibold.ttf) normal normal semibold normal>) = 10.24
+findfont: score(<Font 'Open Sans' (OpenSans-ExtraBold.ttf) normal normal bold normal>) = 10.335
+findfont: score(<Font 'FreeSerif' (FreeSerifBoldItalic.ttf) italic normal bold normal>) = 11.335
+findfont: score(<Font 'FreeMono' (FreeMonoOblique.ttf) oblique normal 400 normal>) = 11.05
+findfont: score(<Font 'DejaVu Serif' (DejaVuSerifCondensed-BoldItalic.ttf) italic normal bold condensed>) = 11.535
+findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.

@@ -1,0 +1,792 @@
+[Log Created at 2022-05-14 14:14:56]
+Epoch[1/20] Iter[50/696] : train_loss 0.06318
+Epoch[1/20] Iter[100/696] : train_loss 0.05118
+Epoch[1/20] Iter[150/696] : train_loss 0.04701
+Epoch[1/20] Iter[200/696] : train_loss 0.04477
+Epoch[1/20] Iter[250/696] : train_loss 0.04312
+Epoch[1/20] Iter[300/696] : train_loss 0.04191
+Epoch[1/20] Iter[350/696] : train_loss 0.04120
+Epoch[1/20] Iter[400/696] : train_loss 0.04051
+Epoch[1/20] Iter[450/696] : train_loss 0.03996
+Epoch[1/20] Iter[500/696] : train_loss 0.03931
+Epoch[1/20] Iter[550/696] : train_loss 0.03880
+Epoch[1/20] Iter[600/696] : train_loss 0.03833
+Epoch[1/20] Iter[650/696] : train_loss 0.03796
+== Epoch [1/20]: train_loss 0.03763, val_loss 0.04437, val_f1 0.24385 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[2/20] Iter[50/696] : train_loss 0.03325
+Epoch[2/20] Iter[100/696] : train_loss 0.03277
+Epoch[2/20] Iter[150/696] : train_loss 0.03291
+Epoch[2/20] Iter[200/696] : train_loss 0.03269
+Epoch[2/20] Iter[250/696] : train_loss 0.03246
+Epoch[2/20] Iter[300/696] : train_loss 0.03233
+Epoch[2/20] Iter[350/696] : train_loss 0.03216
+Epoch[2/20] Iter[400/696] : train_loss 0.03198
+Epoch[2/20] Iter[450/696] : train_loss 0.03175
+Epoch[2/20] Iter[500/696] : train_loss 0.03159
+Epoch[2/20] Iter[550/696] : train_loss 0.03144
+Epoch[2/20] Iter[600/696] : train_loss 0.03123
+Epoch[2/20] Iter[650/696] : train_loss 0.03111
+== Epoch [2/20]: train_loss 0.03104, val_loss 0.03552, val_f1 0.32914 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[3/20] Iter[50/696] : train_loss 0.02826
+Epoch[3/20] Iter[100/696] : train_loss 0.02862
+Epoch[3/20] Iter[150/696] : train_loss 0.02855
+Epoch[3/20] Iter[200/696] : train_loss 0.02830
+Epoch[3/20] Iter[250/696] : train_loss 0.02845
+Epoch[3/20] Iter[300/696] : train_loss 0.02849
+Epoch[3/20] Iter[350/696] : train_loss 0.02836
+Epoch[3/20] Iter[400/696] : train_loss 0.02843
+Epoch[3/20] Iter[450/696] : train_loss 0.02830
+Epoch[3/20] Iter[500/696] : train_loss 0.02835
+Epoch[3/20] Iter[550/696] : train_loss 0.02830
+Epoch[3/20] Iter[600/696] : train_loss 0.02819
+Epoch[3/20] Iter[650/696] : train_loss 0.02821
+== Epoch [3/20]: train_loss 0.02814, val_loss 0.03165, val_f1 0.35576 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[4/20] Iter[50/696] : train_loss 0.02696
+Epoch[4/20] Iter[100/696] : train_loss 0.02698
+Epoch[4/20] Iter[150/696] : train_loss 0.02686
+Epoch[4/20] Iter[200/696] : train_loss 0.02664
+Epoch[4/20] Iter[250/696] : train_loss 0.02664
+Epoch[4/20] Iter[300/696] : train_loss 0.02667
+Epoch[4/20] Iter[350/696] : train_loss 0.02658
+Epoch[4/20] Iter[400/696] : train_loss 0.02658
+Epoch[4/20] Iter[450/696] : train_loss 0.02665
+Epoch[4/20] Iter[500/696] : train_loss 0.02669
+Epoch[4/20] Iter[550/696] : train_loss 0.02668
+Epoch[4/20] Iter[600/696] : train_loss 0.02668
+Epoch[4/20] Iter[650/696] : train_loss 0.02654
+== Epoch [4/20]: train_loss 0.02649, val_loss 0.03047, val_f1 0.41244 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[5/20] Iter[50/696] : train_loss 0.02483
+Epoch[5/20] Iter[100/696] : train_loss 0.02552
+Epoch[5/20] Iter[150/696] : train_loss 0.02508
+Epoch[5/20] Iter[200/696] : train_loss 0.02510
+Epoch[5/20] Iter[250/696] : train_loss 0.02519
+Epoch[5/20] Iter[300/696] : train_loss 0.02523
+Epoch[5/20] Iter[350/696] : train_loss 0.02520
+Epoch[5/20] Iter[400/696] : train_loss 0.02528
+Epoch[5/20] Iter[450/696] : train_loss 0.02512
+Epoch[5/20] Iter[500/696] : train_loss 0.02515
+Epoch[5/20] Iter[550/696] : train_loss 0.02516
+Epoch[5/20] Iter[600/696] : train_loss 0.02511
+Epoch[5/20] Iter[650/696] : train_loss 0.02511
+== Epoch [5/20]: train_loss 0.02508, val_loss 0.02942, val_f1 0.41454 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[6/20] Iter[50/696] : train_loss 0.02470
+Epoch[6/20] Iter[100/696] : train_loss 0.02441
+Epoch[6/20] Iter[150/696] : train_loss 0.02422
+Epoch[6/20] Iter[200/696] : train_loss 0.02420
+Epoch[6/20] Iter[250/696] : train_loss 0.02428
+Epoch[6/20] Iter[300/696] : train_loss 0.02422
+Epoch[6/20] Iter[350/696] : train_loss 0.02428
+Epoch[6/20] Iter[400/696] : train_loss 0.02430
+Epoch[6/20] Iter[450/696] : train_loss 0.02421
+Epoch[6/20] Iter[500/696] : train_loss 0.02424
+Epoch[6/20] Iter[550/696] : train_loss 0.02424
+Epoch[6/20] Iter[600/696] : train_loss 0.02421
+Epoch[6/20] Iter[650/696] : train_loss 0.02417
+== Epoch [6/20]: train_loss 0.02406, val_loss 0.03296, val_f1 0.39090 
+Epoch[7/20] Iter[50/696] : train_loss 0.02239
+Epoch[7/20] Iter[100/696] : train_loss 0.02255
+Epoch[7/20] Iter[150/696] : train_loss 0.02241
+Epoch[7/20] Iter[200/696] : train_loss 0.02249
+Epoch[7/20] Iter[250/696] : train_loss 0.02250
+Epoch[7/20] Iter[300/696] : train_loss 0.02260
+Epoch[7/20] Iter[350/696] : train_loss 0.02259
+Epoch[7/20] Iter[400/696] : train_loss 0.02271
+Epoch[7/20] Iter[450/696] : train_loss 0.02281
+Epoch[7/20] Iter[500/696] : train_loss 0.02287
+Epoch[7/20] Iter[550/696] : train_loss 0.02285
+Epoch[7/20] Iter[600/696] : train_loss 0.02286
+Epoch[7/20] Iter[650/696] : train_loss 0.02285
+== Epoch [7/20]: train_loss 0.02287, val_loss 0.02818, val_f1 0.42738 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[8/20] Iter[50/696] : train_loss 0.02172
+Epoch[8/20] Iter[100/696] : train_loss 0.02218
+Epoch[8/20] Iter[150/696] : train_loss 0.02220
+Epoch[8/20] Iter[200/696] : train_loss 0.02213
+Epoch[8/20] Iter[250/696] : train_loss 0.02205
+Epoch[8/20] Iter[300/696] : train_loss 0.02201
+Epoch[8/20] Iter[350/696] : train_loss 0.02202
+Epoch[8/20] Iter[400/696] : train_loss 0.02212
+Epoch[8/20] Iter[450/696] : train_loss 0.02210
+Epoch[8/20] Iter[500/696] : train_loss 0.02206
+Epoch[8/20] Iter[550/696] : train_loss 0.02203
+Epoch[8/20] Iter[600/696] : train_loss 0.02204
+Epoch[8/20] Iter[650/696] : train_loss 0.02203
+== Epoch [8/20]: train_loss 0.02203, val_loss 0.02943, val_f1 0.44292 
+== Saving Best F1 Model 
+Epoch[9/20] Iter[50/696] : train_loss 0.02116
+Epoch[9/20] Iter[100/696] : train_loss 0.02127
+Epoch[9/20] Iter[150/696] : train_loss 0.02133
+Epoch[9/20] Iter[200/696] : train_loss 0.02151
+Epoch[9/20] Iter[250/696] : train_loss 0.02157
+Epoch[9/20] Iter[300/696] : train_loss 0.02143
+Epoch[9/20] Iter[350/696] : train_loss 0.02128
+Epoch[9/20] Iter[400/696] : train_loss 0.02135
+Epoch[9/20] Iter[450/696] : train_loss 0.02126
+Epoch[9/20] Iter[500/696] : train_loss 0.02128
+Epoch[9/20] Iter[550/696] : train_loss 0.02137
+Epoch[9/20] Iter[600/696] : train_loss 0.02129
+Epoch[9/20] Iter[650/696] : train_loss 0.02128
+== Epoch [9/20]: train_loss 0.02124, val_loss 0.03123, val_f1 0.44236 
+Epoch[10/20] Iter[50/696] : train_loss 0.02065
+Epoch[10/20] Iter[100/696] : train_loss 0.02011
+Epoch[10/20] Iter[150/696] : train_loss 0.01991
+Epoch[10/20] Iter[200/696] : train_loss 0.02005
+Epoch[10/20] Iter[250/696] : train_loss 0.02004
+Epoch[10/20] Iter[300/696] : train_loss 0.02007
+Epoch[10/20] Iter[350/696] : train_loss 0.02019
+Epoch[10/20] Iter[400/696] : train_loss 0.02028
+Epoch[10/20] Iter[450/696] : train_loss 0.02032
+Epoch[10/20] Iter[500/696] : train_loss 0.02031
+Epoch[10/20] Iter[550/696] : train_loss 0.02026
+Epoch[10/20] Iter[600/696] : train_loss 0.02028
+Epoch[10/20] Iter[650/696] : train_loss 0.02039
+== Epoch [10/20]: train_loss 0.02039, val_loss 0.02597, val_f1 0.49012 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[11/20] Iter[50/696] : train_loss 0.01904
+Epoch[11/20] Iter[100/696] : train_loss 0.01928
+Epoch[11/20] Iter[150/696] : train_loss 0.01922
+Epoch[11/20] Iter[200/696] : train_loss 0.01944
+Epoch[11/20] Iter[250/696] : train_loss 0.01954
+Epoch[11/20] Iter[300/696] : train_loss 0.01943
+Epoch[11/20] Iter[350/696] : train_loss 0.01946
+Epoch[11/20] Iter[400/696] : train_loss 0.01949
+Epoch[11/20] Iter[450/696] : train_loss 0.01939
+Epoch[11/20] Iter[500/696] : train_loss 0.01941
+Epoch[11/20] Iter[550/696] : train_loss 0.01949
+Epoch[11/20] Iter[600/696] : train_loss 0.01950
+Epoch[11/20] Iter[650/696] : train_loss 0.01953
+== Epoch [11/20]: train_loss 0.01954, val_loss 0.02447, val_f1 0.50564 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+Epoch[12/20] Iter[50/696] : train_loss 0.01881
+Epoch[12/20] Iter[100/696] : train_loss 0.01802
+Epoch[12/20] Iter[150/696] : train_loss 0.01820
+Epoch[12/20] Iter[200/696] : train_loss 0.01840
+Epoch[12/20] Iter[250/696] : train_loss 0.01858
+Epoch[12/20] Iter[300/696] : train_loss 0.01852
+Epoch[12/20] Iter[350/696] : train_loss 0.01862
+Epoch[12/20] Iter[400/696] : train_loss 0.01867
+Epoch[12/20] Iter[450/696] : train_loss 0.01870
+Epoch[12/20] Iter[500/696] : train_loss 0.01872
+Epoch[12/20] Iter[550/696] : train_loss 0.01873
+Epoch[12/20] Iter[600/696] : train_loss 0.01875
+Epoch[12/20] Iter[650/696] : train_loss 0.01879
+== Epoch [12/20]: train_loss 0.01881, val_loss 0.02779, val_f1 0.47407 
+Epoch[13/20] Iter[50/696] : train_loss 0.01788
+Epoch[13/20] Iter[100/696] : train_loss 0.01855
+Epoch[13/20] Iter[150/696] : train_loss 0.01811
+Epoch[13/20] Iter[200/696] : train_loss 0.01837
+Epoch[13/20] Iter[250/696] : train_loss 0.01831
+Epoch[13/20] Iter[300/696] : train_loss 0.01817
+Epoch[13/20] Iter[350/696] : train_loss 0.01816
+Epoch[13/20] Iter[400/696] : train_loss 0.01819
+Epoch[13/20] Iter[450/696] : train_loss 0.01822
+Epoch[13/20] Iter[500/696] : train_loss 0.01819
+Epoch[13/20] Iter[550/696] : train_loss 0.01824
+Epoch[13/20] Iter[600/696] : train_loss 0.01823
+Epoch[13/20] Iter[650/696] : train_loss 0.01820
+== Epoch [13/20]: train_loss 0.01821, val_loss 0.02703, val_f1 0.48580 
+Epoch[14/20] Iter[50/696] : train_loss 0.01857
+Epoch[14/20] Iter[100/696] : train_loss 0.01796
+Epoch[14/20] Iter[150/696] : train_loss 0.01796
+Epoch[14/20] Iter[200/696] : train_loss 0.01796
+Epoch[14/20] Iter[250/696] : train_loss 0.01799
+Epoch[14/20] Iter[300/696] : train_loss 0.01799
+Epoch[14/20] Iter[350/696] : train_loss 0.01795
+Epoch[14/20] Iter[400/696] : train_loss 0.01784
+Epoch[14/20] Iter[450/696] : train_loss 0.01787
+Epoch[14/20] Iter[500/696] : train_loss 0.01781
+Epoch[14/20] Iter[550/696] : train_loss 0.01779
+Epoch[14/20] Iter[600/696] : train_loss 0.01782
+Epoch[14/20] Iter[650/696] : train_loss 0.01781
+== Epoch [14/20]: train_loss 0.01780, val_loss 0.02474, val_f1 0.50818 
+== Saving Best F1 Model 
+Epoch[15/20] Iter[50/696] : train_loss 0.01663
+Epoch[15/20] Iter[100/696] : train_loss 0.01670
+Epoch[15/20] Iter[150/696] : train_loss 0.01703
+Epoch[15/20] Iter[200/696] : train_loss 0.01722
+Epoch[15/20] Iter[250/696] : train_loss 0.01728
+Epoch[15/20] Iter[300/696] : train_loss 0.01732
+Epoch[15/20] Iter[350/696] : train_loss 0.01720
+Epoch[15/20] Iter[400/696] : train_loss 0.01719
+Epoch[15/20] Iter[450/696] : train_loss 0.01717
+Epoch[15/20] Iter[500/696] : train_loss 0.01718
+Epoch[15/20] Iter[550/696] : train_loss 0.01724
+Epoch[15/20] Iter[600/696] : train_loss 0.01722
+Epoch[15/20] Iter[650/696] : train_loss 0.01722
+== Epoch [15/20]: train_loss 0.01719, val_loss 0.02600, val_f1 0.49694 
+Epoch[16/20] Iter[50/696] : train_loss 0.01660
+Epoch[16/20] Iter[100/696] : train_loss 0.01641
+Epoch[16/20] Iter[150/696] : train_loss 0.01659
+Epoch[16/20] Iter[200/696] : train_loss 0.01652
+Epoch[16/20] Iter[250/696] : train_loss 0.01659
+Epoch[16/20] Iter[300/696] : train_loss 0.01666
+Epoch[16/20] Iter[350/696] : train_loss 0.01664
+Epoch[16/20] Iter[400/696] : train_loss 0.01662
+Epoch[16/20] Iter[450/696] : train_loss 0.01662
+Epoch[16/20] Iter[500/696] : train_loss 0.01663
+Epoch[16/20] Iter[550/696] : train_loss 0.01665
+Epoch[16/20] Iter[600/696] : train_loss 0.01668
+Epoch[16/20] Iter[650/696] : train_loss 0.01671
+== Epoch [16/20]: train_loss 0.01677, val_loss 0.02687, val_f1 0.48887 
+Epoch[17/20] Iter[50/696] : train_loss 0.01621
+Epoch[17/20] Iter[100/696] : train_loss 0.01628
+Epoch[17/20] Iter[150/696] : train_loss 0.01642
+Epoch[17/20] Iter[200/696] : train_loss 0.01646
+Epoch[17/20] Iter[250/696] : train_loss 0.01644
+Epoch[17/20] Iter[300/696] : train_loss 0.01650
+Epoch[17/20] Iter[350/696] : train_loss 0.01642
+Epoch[17/20] Iter[400/696] : train_loss 0.01635
+Epoch[17/20] Iter[450/696] : train_loss 0.01639
+Epoch[17/20] Iter[500/696] : train_loss 0.01634
+Epoch[17/20] Iter[550/696] : train_loss 0.01635
+Epoch[17/20] Iter[600/696] : train_loss 0.01641
+Epoch[17/20] Iter[650/696] : train_loss 0.01638
+== Epoch [17/20]: train_loss 0.01635, val_loss 0.02595, val_f1 0.49918 
+Epoch[18/20] Iter[50/696] : train_loss 0.01624
+Epoch[18/20] Iter[100/696] : train_loss 0.01651
+Epoch[18/20] Iter[150/696] : train_loss 0.01632
+Epoch[18/20] Iter[200/696] : train_loss 0.01616
+Epoch[18/20] Iter[250/696] : train_loss 0.01618
+Epoch[18/20] Iter[300/696] : train_loss 0.01607
+Epoch[18/20] Iter[350/696] : train_loss 0.01616
+Epoch[18/20] Iter[400/696] : train_loss 0.01608
+Epoch[18/20] Iter[450/696] : train_loss 0.01611
+Epoch[18/20] Iter[500/696] : train_loss 0.01612
+Epoch[18/20] Iter[550/696] : train_loss 0.01609
+Epoch[18/20] Iter[600/696] : train_loss 0.01614
+Epoch[18/20] Iter[650/696] : train_loss 0.01610
+== Epoch [18/20]: train_loss 0.01609, val_loss 0.02458, val_f1 0.51759 
+== Saving Best F1 Model 
+Epoch[19/20] Iter[50/696] : train_loss 0.01624
+Epoch[19/20] Iter[100/696] : train_loss 0.01617
+Epoch[19/20] Iter[150/696] : train_loss 0.01604
+Epoch[19/20] Iter[200/696] : train_loss 0.01607
+Epoch[19/20] Iter[250/696] : train_loss 0.01604
+Epoch[19/20] Iter[300/696] : train_loss 0.01598
+Epoch[19/20] Iter[350/696] : train_loss 0.01601
+Epoch[19/20] Iter[400/696] : train_loss 0.01605
+Epoch[19/20] Iter[450/696] : train_loss 0.01601
+Epoch[19/20] Iter[500/696] : train_loss 0.01601
+Epoch[19/20] Iter[550/696] : train_loss 0.01599
+Epoch[19/20] Iter[600/696] : train_loss 0.01600
+Epoch[19/20] Iter[650/696] : train_loss 0.01600
+== Epoch [19/20]: train_loss 0.01602, val_loss 0.02478, val_f1 0.51362 
+Epoch[20/20] Iter[50/696] : train_loss 0.01578
+Epoch[20/20] Iter[100/696] : train_loss 0.01559
+Epoch[20/20] Iter[150/696] : train_loss 0.01570
+Epoch[20/20] Iter[200/696] : train_loss 0.01569
+Epoch[20/20] Iter[250/696] : train_loss 0.01580
+Epoch[20/20] Iter[300/696] : train_loss 0.01577
+Epoch[20/20] Iter[350/696] : train_loss 0.01583
+Epoch[20/20] Iter[400/696] : train_loss 0.01593
+Epoch[20/20] Iter[450/696] : train_loss 0.01593
+Epoch[20/20] Iter[500/696] : train_loss 0.01593
+Epoch[20/20] Iter[550/696] : train_loss 0.01589
+Epoch[20/20] Iter[600/696] : train_loss 0.01588
+Epoch[20/20] Iter[650/696] : train_loss 0.01587
+== Epoch [20/20]: train_loss 0.01586, val_loss 0.02433, val_f1 0.52126 
+== Saving Best Loss Model 
+== Saving Best F1 Model 
+== Saving Last Model 
+findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-padauk/Padauk-bold.ttf', name='Padauk', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Regular-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/madan/madan.ttf', name='Madan2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/smc/Meera.ttf', name='Meera', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothicBold.ttf', name='NanumGothic', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Regular.ttf', name='Caladea', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Regular.ttf', name='Open Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-ExtraLight.ttf', name='Overpass', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-BoldItalic.ttf', name='Carlito', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-kannada/Lohit-Kannada.ttf', name='Lohit Kannada', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lklug/lklug.ttf', name='LKLUG', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-BoldOblique.ttf', name='Waree', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-malayalam/Lohit-Malayalam.ttf', name='Lohit Malayalam', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTN57F.ttf', name='PT Sans Narrow', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoBold.ttf', name='FreeMono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-abyssinica/AbyssinicaSIL-R.ttf', name='Abyssinica SIL', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTN77F.ttf', name='PT Sans Narrow', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-telugu/Lohit-Telugu.ttf', name='Lohit Telugu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS.ttf', name='Khmer OS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/cjkuni-uming/uming.ttc', name='AR PL UMing CN', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Italic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Bold.otf', name='STIX', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Bold.ttf', name='Liberation Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothicExtraBold.ttf', name='NanumGothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-BoldItalic.otf', name='STIX', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-gujarati/Lohit-Gujarati.ttf', name='Lohit Gujarati', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-punjabi/Lohit-Punjabi.ttf', name='Lohit Punjabi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-padauk/Padauk.ttf', name='Padauk', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansOblique.ttf', name='FreeSans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Bold-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS56F.ttf', name='PT Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/fontawesome/fontawesome-webfont.ttf', name='FontAwesome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-ExtraBold.ttf', name='Open Sans', style='normal', variant='normal', weight=800, stretch='normal', size='scalable')) = 10.43
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Regular.ttf', name='Liberation Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Regular.ttf', name='Overpass', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-ExtraLight Italic.ttf', name='Overpass', style='italic', variant='normal', weight=200, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Light.ttf', name='Open Sans', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Oblique.otf', name='Cantarell', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Italic.ttf', name='Caladea', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifBold.ttf', name='FreeSerif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+findfont: score(FontEntry(fname='/usr/share/fonts/vlgothic/VL-Gothic-Regular.ttf', name='VL Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Regular.otf', name='Cantarell', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Semibold.ttf', name='Open Sans', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-ExtraBoldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=800, stretch='normal', size='scalable')) = 11.43
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Regular.ttf', name='Liberation Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS55F.ttf', name='PT Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-bengali/Lohit-Bengali.ttf', name='Lohit Bengali', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-BoldItalic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-assamese/Lohit-Assamese.ttf', name='Lohit Assamese', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS_content.ttf', name='Khmer OS Content', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-LightItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-BoldItalic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothic.ttf', name='NanumGothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/wqy-microhei/wqy-microhei.ttc', name='WenQuanYi Micro Hei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Light.ttf', name='Overpass', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerif.ttf', name='FreeSerif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+findfont: score(FontEntry(fname='/usr/share/fonts/fontawesome/FontAwesome.otf', name='FontAwesome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-BoldItalic.ttf', name='Caladea', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-tamil/Lohit-Tamil.ttf', name='Lohit Tamil', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoBoldOblique.ttf', name='FreeMono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Bold.ttf', name='Carlito', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifBoldItalic.ttf', name='FreeSerif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Bold.ttf', name='Caladea', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Italic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Regular.ttf', name='Carlito', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-devanagari/Lohit-Devanagari.ttf', name='Lohit Devanagari', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Italic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-SemiboldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Bold.ttf', name='Liberation Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS76F.ttf', name='PT Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-BoldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS75F.ttf', name='PT Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-nuosu/NuosuSIL.ttf', name='Nuosu SIL', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifItalic.ttf', name='FreeSerif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Bold.ttf', name='Overpass', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-Oblique.ttf', name='Waree', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paktype-naskh-basic/PakTypeNaskhBasic.ttf', name='PakType Naskh Basic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Bold.ttf', name='Open Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-BoldItalic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Italic.ttf', name='Open Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Italic.ttf', name='Carlito', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-marathi/Lohit-Marathi.ttf', name='Lohit Marathi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-Bold.ttf', name='Waree', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Italic.otf', name='STIX', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansBoldOblique.ttf', name='FreeSans', style='oblique', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSans.ttf', name='FreeSans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansBold.ttf', name='FreeSans', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS_sys.ttf', name='Khmer OS System', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoOblique.ttf', name='FreeMono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Bold.ttf', name='Liberation Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-oriya/Lohit-Oriya.ttf', name='Lohit Oriya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc', name='WenQuanYi Zen Hei', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-nepali/Lohit-Nepali.ttf', name='Lohit Nepali', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Light-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-BoldOblique.otf', name='Cantarell', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree.ttf', name='Waree', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/jomolhari/Jomolhari-alpha3c-0605331.ttf', name='Jomolhari', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Regular.otf', name='STIX', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-noto-emoji/NotoEmoji-Regular.ttf', name='Noto Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMono.ttf', name='FreeMono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Regular.ttf', name='Liberation Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Bold.otf', name='Cantarell', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-padauk/Padauk-bold.ttf', name='Padauk', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Regular-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/madan/madan.ttf', name='Madan2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/smc/Meera.ttf', name='Meera', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothicBold.ttf', name='NanumGothic', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Regular.ttf', name='Caladea', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Regular.ttf', name='Open Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-ExtraLight.ttf', name='Overpass', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-BoldItalic.ttf', name='Carlito', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-kannada/Lohit-Kannada.ttf', name='Lohit Kannada', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lklug/lklug.ttf', name='LKLUG', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-BoldOblique.ttf', name='Waree', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-malayalam/Lohit-Malayalam.ttf', name='Lohit Malayalam', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTN57F.ttf', name='PT Sans Narrow', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoBold.ttf', name='FreeMono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-abyssinica/AbyssinicaSIL-R.ttf', name='Abyssinica SIL', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTN77F.ttf', name='PT Sans Narrow', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-telugu/Lohit-Telugu.ttf', name='Lohit Telugu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS.ttf', name='Khmer OS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/cjkuni-uming/uming.ttc', name='AR PL UMing CN', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Italic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Bold.otf', name='STIX', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Bold.ttf', name='Liberation Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothicExtraBold.ttf', name='NanumGothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-BoldItalic.otf', name='STIX', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-gujarati/Lohit-Gujarati.ttf', name='Lohit Gujarati', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-punjabi/Lohit-Punjabi.ttf', name='Lohit Punjabi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-padauk/Padauk.ttf', name='Padauk', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansOblique.ttf', name='FreeSans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Bold-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS56F.ttf', name='PT Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/fontawesome/fontawesome-webfont.ttf', name='FontAwesome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-ExtraBold.ttf', name='Open Sans', style='normal', variant='normal', weight=800, stretch='normal', size='scalable')) = 10.43
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Regular.ttf', name='Liberation Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Regular.ttf', name='Overpass', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-ExtraLight Italic.ttf', name='Overpass', style='italic', variant='normal', weight=200, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Light.ttf', name='Open Sans', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Oblique.otf', name='Cantarell', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Italic.ttf', name='Caladea', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifBold.ttf', name='FreeSerif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+findfont: score(FontEntry(fname='/usr/share/fonts/vlgothic/VL-Gothic-Regular.ttf', name='VL Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Regular.otf', name='Cantarell', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Semibold.ttf', name='Open Sans', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-ExtraBoldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=800, stretch='normal', size='scalable')) = 11.43
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Regular.ttf', name='Liberation Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS55F.ttf', name='PT Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-bengali/Lohit-Bengali.ttf', name='Lohit Bengali', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-BoldItalic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-assamese/Lohit-Assamese.ttf', name='Lohit Assamese', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS_content.ttf', name='Khmer OS Content', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-LightItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-BoldItalic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothic.ttf', name='NanumGothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/wqy-microhei/wqy-microhei.ttc', name='WenQuanYi Micro Hei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Light.ttf', name='Overpass', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerif.ttf', name='FreeSerif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+findfont: score(FontEntry(fname='/usr/share/fonts/fontawesome/FontAwesome.otf', name='FontAwesome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-BoldItalic.ttf', name='Caladea', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-tamil/Lohit-Tamil.ttf', name='Lohit Tamil', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoBoldOblique.ttf', name='FreeMono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Bold.ttf', name='Carlito', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifBoldItalic.ttf', name='FreeSerif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Bold.ttf', name='Caladea', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Italic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Regular.ttf', name='Carlito', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-devanagari/Lohit-Devanagari.ttf', name='Lohit Devanagari', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Italic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-SemiboldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Bold.ttf', name='Liberation Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS76F.ttf', name='PT Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-BoldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS75F.ttf', name='PT Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-nuosu/NuosuSIL.ttf', name='Nuosu SIL', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifItalic.ttf', name='FreeSerif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Bold.ttf', name='Overpass', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-Oblique.ttf', name='Waree', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paktype-naskh-basic/PakTypeNaskhBasic.ttf', name='PakType Naskh Basic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Bold.ttf', name='Open Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-BoldItalic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Italic.ttf', name='Open Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Italic.ttf', name='Carlito', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-marathi/Lohit-Marathi.ttf', name='Lohit Marathi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-Bold.ttf', name='Waree', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Italic.otf', name='STIX', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansBoldOblique.ttf', name='FreeSans', style='oblique', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSans.ttf', name='FreeSans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansBold.ttf', name='FreeSans', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS_sys.ttf', name='Khmer OS System', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoOblique.ttf', name='FreeMono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Bold.ttf', name='Liberation Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-oriya/Lohit-Oriya.ttf', name='Lohit Oriya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc', name='WenQuanYi Zen Hei', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-nepali/Lohit-Nepali.ttf', name='Lohit Nepali', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Light-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-BoldOblique.otf', name='Cantarell', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree.ttf', name='Waree', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/jomolhari/Jomolhari-alpha3c-0605331.ttf', name='Jomolhari', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Regular.otf', name='STIX', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-noto-emoji/NotoEmoji-Regular.ttf', name='Noto Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMono.ttf', name='FreeMono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Regular.ttf', name='Liberation Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Bold.otf', name='Cantarell', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-padauk/Padauk-bold.ttf', name='Padauk', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Regular-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/madan/madan.ttf', name='Madan2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/smc/Meera.ttf', name='Meera', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothicBold.ttf', name='NanumGothic', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Regular.ttf', name='Caladea', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Regular.ttf', name='Open Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-ExtraLight.ttf', name='Overpass', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-BoldItalic.ttf', name='Carlito', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-kannada/Lohit-Kannada.ttf', name='Lohit Kannada', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lklug/lklug.ttf', name='LKLUG', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-BoldOblique.ttf', name='Waree', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-malayalam/Lohit-Malayalam.ttf', name='Lohit Malayalam', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTN57F.ttf', name='PT Sans Narrow', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoBold.ttf', name='FreeMono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-abyssinica/AbyssinicaSIL-R.ttf', name='Abyssinica SIL', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTN77F.ttf', name='PT Sans Narrow', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-telugu/Lohit-Telugu.ttf', name='Lohit Telugu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS.ttf', name='Khmer OS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/cjkuni-uming/uming.ttc', name='AR PL UMing CN', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Italic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Bold.otf', name='STIX', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Bold.ttf', name='Liberation Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothicExtraBold.ttf', name='NanumGothic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-BoldItalic.otf', name='STIX', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-gujarati/Lohit-Gujarati.ttf', name='Lohit Gujarati', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-punjabi/Lohit-Punjabi.ttf', name='Lohit Punjabi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-padauk/Padauk.ttf', name='Padauk', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansOblique.ttf', name='FreeSans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Bold-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS56F.ttf', name='PT Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/fontawesome/fontawesome-webfont.ttf', name='FontAwesome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-ExtraBold.ttf', name='Open Sans', style='normal', variant='normal', weight=800, stretch='normal', size='scalable')) = 10.43
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Regular.ttf', name='Liberation Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Regular.ttf', name='Overpass', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-ExtraLight Italic.ttf', name='Overpass', style='italic', variant='normal', weight=200, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Light.ttf', name='Open Sans', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Oblique.otf', name='Cantarell', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Italic.ttf', name='Caladea', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifBold.ttf', name='FreeSerif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+findfont: score(FontEntry(fname='/usr/share/fonts/vlgothic/VL-Gothic-Regular.ttf', name='VL Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Regular.otf', name='Cantarell', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Semibold.ttf', name='Open Sans', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-ExtraBoldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=800, stretch='normal', size='scalable')) = 11.43
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Regular.ttf', name='Liberation Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS55F.ttf', name='PT Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-bengali/Lohit-Bengali.ttf', name='Lohit Bengali', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-BoldItalic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-assamese/Lohit-Assamese.ttf', name='Lohit Assamese', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS_content.ttf', name='Khmer OS Content', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-LightItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-BoldItalic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/nhn-nanum/NanumGothic.ttf', name='NanumGothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/wqy-microhei/wqy-microhei.ttc', name='WenQuanYi Micro Hei', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Light.ttf', name='Overpass', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerif.ttf', name='FreeSerif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+findfont: score(FontEntry(fname='/usr/share/fonts/fontawesome/FontAwesome.otf', name='FontAwesome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-BoldItalic.ttf', name='Caladea', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-tamil/Lohit-Tamil.ttf', name='Lohit Tamil', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoBoldOblique.ttf', name='FreeMono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Bold.ttf', name='Carlito', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifBoldItalic.ttf', name='FreeSerif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-caladea/Caladea-Bold.ttf', name='Caladea', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Italic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Regular.ttf', name='Carlito', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-devanagari/Lohit-Devanagari.ttf', name='Lohit Devanagari', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Italic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-SemiboldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-Bold.ttf', name='Liberation Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS76F.ttf', name='PT Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-BoldItalic.ttf', name='Open Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/paratype-pt-sans/PTS75F.ttf', name='PT Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/sil-nuosu/NuosuSIL.ttf', name='Nuosu SIL', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSerifItalic.ttf', name='FreeSerif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Bold.ttf', name='Overpass', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-Oblique.ttf', name='Waree', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/paktype-naskh-basic/PakTypeNaskhBasic.ttf', name='PakType Naskh Basic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Bold.ttf', name='Open Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSerif-BoldItalic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/open-sans/OpenSans-Italic.ttf', name='Open Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-crosextra-carlito/Carlito-Italic.ttf', name='Carlito', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-marathi/Lohit-Marathi.ttf', name='Lohit Marathi', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree-Bold.ttf', name='Waree', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Italic.otf', name='STIX', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansBoldOblique.ttf', name='FreeSans', style='oblique', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSans.ttf', name='FreeSans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeSansBold.ttf', name='FreeSans', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+findfont: score(FontEntry(fname='/usr/share/fonts/khmeros/KhmerOS_sys.ttf', name='Khmer OS System', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMonoOblique.ttf', name='FreeMono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationSans-Bold.ttf', name='Liberation Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-oriya/Lohit-Oriya.ttf', name='Lohit Oriya', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc', name='WenQuanYi Zen Hei', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+findfont: score(FontEntry(fname='/usr/share/fonts/lohit-nepali/Lohit-Nepali.ttf', name='Lohit Nepali', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/overpass/Overpass-Light-Italic.ttf', name='Overpass', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-BoldOblique.otf', name='Cantarell', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+findfont: score(FontEntry(fname='/usr/share/fonts/thai-scalable/Waree.ttf', name='Waree', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/jomolhari/Jomolhari-alpha3c-0605331.ttf', name='Jomolhari', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/stix/STIX-Regular.otf', name='STIX', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/google-noto-emoji/NotoEmoji-Regular.ttf', name='Noto Emoji', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+findfont: score(FontEntry(fname='/usr/share/fonts/gnu-free/FreeMono.ttf', name='FreeMono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/liberation/LiberationMono-Regular.ttf', name='Liberation Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+findfont: score(FontEntry(fname='/usr/share/fonts/abattis-cantarell/Cantarell-Bold.otf', name='Cantarell', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/public/home/tujd/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.

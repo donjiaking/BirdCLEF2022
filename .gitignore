@@ -3,7 +3,6 @@ working/models
 working/submission.csv
 **/.ipynb_checkpoints
 **/__pycache__
-working/logs
 working/tb_logs
 working/foo.py
 dx_note.ipynb

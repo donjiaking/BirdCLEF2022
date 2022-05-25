@@ -1,16 +1,15 @@
-# BirdCLEF
+# BirdCLEF 2022
 
-Using backgrounds audio:
+## Competition
 
-https://www.kaggle.com/datasets/christofhenkel/birdclef2021-background-noise
+[BirdCLEF 2022](https://www.kaggle.com/competitions/birdclef-2022/overview)
 
-Here are some examples of datasets that can be downloaded and used as background noise:
+## External Dataset
 
-https://github.com/karolpiczak/ESC-50#download
+- [Backgrounds noise](https://www.kaggle.com/datasets/christofhenkel/birdclef2021-background-noise)
 
-https://github.com/microsoft/DNS-Challenge/
 
-Dataset for nocall detector (freefield1010):
+- [freefield1010](https://dcase.community/challenge2018/task-bird-audio-detection)
 
-https://dcase.community/challenge2018/task-bird-audio-detection
+
 
