@@ -9,3 +9,4 @@ timm
 tensorboard
 colorednoise
 audiomentations
+torchlibrosa

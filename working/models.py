@@ -8,8 +8,10 @@ import matplotlib.pyplot as plt
 from torch.nn import functional as F
 from torch.distributions import Beta
 from torch.nn.parameter import Parameter
+from torchlibrosa.augmentation import SpecAugmentation
 import torchaudio.transforms as T
 import timm
+import random
 
 from config import CFG
 import utils
@@ -90,6 +92,9 @@ class Net(nn.Module):
 
         self.factor = int(CFG.segment_train / CFG.segment_test)  # int(30.0 / 5.0)
 
+        self.spec_augmenter = SpecAugmentation(time_drop_width=64//4, time_stripes_num=2,
+                                               freq_drop_width=8//4, freq_stripes_num=2)
+
         self.wav2img = nn.Sequential(utils.get_mel_transform(), T.AmplitudeToDB(top_db=None))
 
     def forward(self, x, y=None, weights=None):
@@ -102,6 +107,10 @@ class Net(nn.Module):
 
         x = x.permute(0, 2, 1)
         x = x[:, None, :, :]  # 6bs*1*t*f
+
+        if self.training:
+            if random.random() < 0.25:
+                x = self.spec_augmenter(x)
 
         if self.training:
             b, c, t, f = x.shape
